@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tolgaipek.com.tr/sitemap.xml
