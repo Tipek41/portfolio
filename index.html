@@ -39,18 +39,18 @@ html{scrollbar-color:#9aa8b6 var(--paper)}
 
 /* ---------- cover ---------- */
 .cover{position:relative;color:var(--cover-ink);background:
- linear-gradient(115deg,rgba(255,255,255,.07) 0 18%,rgba(255,255,255,0) 34% 70%,rgba(255,255,255,.04) 86%),
+ linear-gradient(112deg,rgba(255,255,255,0) 0 24%,rgba(255,255,255,.13) 31%,rgba(255,255,255,.05) 38%,rgba(255,255,255,0) 46%),
  radial-gradient(120% 90% at 20% 0%,#136a50 0%,var(--cover) 55%,var(--cover-deep) 100%);
  min-height:min(78vh,760px);display:flex;flex-direction:column}
 .bar{position:relative;z-index:1;display:flex;align-items:center;gap:calc(var(--sq)*1.5);padding:var(--sq) calc(var(--sq)*3);min-height:calc(var(--sq)*3)}
 .brand{font-weight:800;font-size:19px;letter-spacing:.01em;text-decoration:none}
 .bar nav{display:flex;gap:var(--sq);font-size:15px}
-.bar nav a,.ext a{text-decoration:none;color:var(--cover-soft)}
+.bar nav a,.ext a{text-decoration:none;color:#eef6f1}
 .bar nav a:hover,.ext a:hover{color:#fff;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
 .ext{margin-left:auto;display:flex;align-items:center;gap:var(--sq);font-size:14px}
 .ext a{display:inline-flex;align-items:center;gap:6px}
 .lang{display:flex;gap:2px;font-size:14px;color:var(--cover-soft)}
-.lang button{padding:2px 6px;border-radius:3px;color:var(--cover-soft)}
+.lang button{padding:4px 9px;border-radius:3px;color:var(--cover-soft)}
 .lang button.active{background:var(--cover-ink);color:var(--cover);font-weight:700}
 .cover-body{position:relative;z-index:1;flex:1;display:grid;grid-template-columns:minmax(0,500px) minmax(0,1fr);gap:calc(var(--sq)*4);align-items:center;padding:calc(var(--sq)*2) calc(var(--sq)*6) calc(var(--sq)*3) calc(var(--sq)*3)}
 
@@ -112,8 +112,8 @@ html{scrollbar-color:#9aa8b6 var(--paper)}
 .facts{margin-top:var(--sq);display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;color:var(--pencil)}
 .facts li{display:flex;align-items:center;gap:7px}
 .facts .ico{color:var(--pen);font-size:16px}
-.solve .btn{margin-top:calc(var(--sq)*1.5);background:var(--ink);color:#fff;box-shadow:0 2px 0 rgba(0,0,0,.25)}
-.solve .btn:hover{background:var(--pen);transform:translateY(-2px)}
+.pen-btn{margin-top:calc(var(--sq)*1.5);background:transparent;color:var(--pen);border:2px solid var(--pen)}
+.pen-btn:hover{background:var(--pen);color:#fff}
 .sketch{position:relative;align-self:center}
 .sketch svg{display:block;width:100%;height:auto;max-width:520px;overflow:visible}
 .sk{fill:none;stroke:var(--pencil);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
@@ -128,7 +128,7 @@ html{scrollbar-color:#9aa8b6 var(--paper)}
 .drawing.drawn .skt{opacity:1}
 
 /* formula sheet: macros */
-.ruled{margin-top:calc(var(--sq)*1.5);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.ruled{margin-top:0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
 .ruled a{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,2fr) minmax(0,.9fr) 28px;align-items:center;gap:var(--sq);min-height:calc(var(--sq)*2.5);padding:0 8px;border-top:1px solid #aab8c6;text-decoration:none;transition:background .15s}
 .ruled a:first-child{border-top:0}
 .ruled a:hover{background:rgba(253,230,138,.55)}
@@ -137,7 +137,7 @@ html{scrollbar-color:#9aa8b6 var(--paper)}
 .ruled .r{font-size:13px;color:var(--pencil);font-weight:600;letter-spacing:.02em}
 .ruled .ico{color:var(--pencil)}
 .ruled a:hover .ico{color:var(--ink)}
-.rhead{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,2fr) minmax(0,.9fr) 28px;gap:var(--sq);padding:6px 8px;font-family:var(--hand);font-size:18px;color:var(--pencil)}
+.rhead{margin-top:var(--sq);min-height:var(--sq);align-items:end;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,2fr) minmax(0,.9fr) 28px;gap:var(--sq);padding:6px 8px;font-family:var(--hand);font-size:18px;color:var(--pencil)}
 
 /* note + about */
 .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:calc(var(--sq)*3);align-items:start}
@@ -201,7 +201,7 @@ html{scrollbar-color:#9aa8b6 var(--paper)}
  .pitch p{font-size:17px;line-height:26px}
  .page::before{left:28px}
  .sheet{padding:0 16px 0 44px}
- .mlabel{position:static;transform:none;text-align:left;width:auto;display:inline-block;margin-bottom:6px;font-size:20px}
+ .mlabel{display:none}
  .ex{padding:calc(var(--sq)*2.5) 0}
  .ruled a,.rhead{grid-template-columns:minmax(0,1fr) 22px;gap:4px 12px;padding:10px 4px}
  .ruled .d{grid-column:1;font-size:15px;line-height:22px}.ruled .r{grid-column:1}.ruled a .ico{grid-row:1/4;grid-column:2}
@@ -244,7 +244,7 @@ html{scrollbar-color:#9aa8b6 var(--paper)}
 
  <div class="cover-body">
   <div class="label" aria-label="Defter etiketi" data-aria-label-tr="Defter etiketi" data-aria-label-en="Notebook label">
-   <div class="label-head"><span data-tr="Defter" data-en="Notebook">Defter</span><span>№ 12</span></div>
+   <div class="label-head"><span data-tr="Defter" data-en="Notebook">Defter</span></div>
    <div class="label-grid">
     <dl>
      <div class="ln"><dt data-tr="Adı Soyadı" data-en="Name">Adı Soyadı</dt><dd>Tolga İpek</dd></div>
@@ -292,7 +292,7 @@ html{scrollbar-color:#9aa8b6 var(--paper)}
      <span class="sol hand" data-tr="Çözüm: PDF Atölyesi" data-en="Solution: PDF Workshop">Çözüm: PDF Atölyesi</span>
      <p data-tr="Fotoğrafları ve PDF'leri sürükle, sayfaları sırala, çıktıyı A4 ya da A3'e eşitle. Karışık boydaki taramalar tek düzgün dosya olur." data-en="Drop in photos and PDFs, reorder pages, and standardize the output to A4 or A3. Mixed-size scans become one tidy file.">Fotoğrafları ve PDF'leri sürükle, sayfaları sırala, çıktıyı A4 ya da A3'e eşitle. Karışık boydaki taramalar tek düzgün dosya olur.</p>
      <ul class="facts"><li><svg class="ico"><use href="#i-check"/></svg>PDF · JPG · PNG · WebP</li><li><svg class="ico"><use href="#i-check"/></svg><span data-tr="Sürükle-bırak sıralama" data-en="Drag to reorder">Sürükle-bırak sıralama</span></li></ul>
-     <a class="btn" href="pdf-atolyesi.html"><span data-tr="PDF Atölyesi'ni aç" data-en="Open PDF Workshop">PDF Atölyesi'ni aç</span><svg class="ico"><use href="#i-arrow"/></svg></a>
+     <a class="btn pen-btn" href="pdf-atolyesi.html"><span data-tr="PDF Atölyesi'ni aç" data-en="Open PDF Workshop">PDF Atölyesi'ni aç</span><svg class="ico"><use href="#i-arrow"/></svg></a>
     </div>
     <div class="sketch drawing" aria-hidden="true"><svg viewBox="0 0 520 260">
      <rect class="sk skf" x="20" y="60" width="70" height="96" transform="rotate(-9 55 108)" pathLength="1"/>
@@ -318,7 +318,7 @@ html{scrollbar-color:#9aa8b6 var(--paper)}
      <span class="sol hand" data-tr="Çözüm: Veri Dönüştürücü" data-en="Solution: Data Converter">Çözüm: Veri Dönüştürücü</span>
      <p data-tr="TXT, CSV, TSV ya da DAT dosyasını yükle; ayırıcıyı ve Türkçe karakter kodlamasını seç, önizle, düzenli bir XLSX olarak indir." data-en="Load a TXT, CSV, TSV or DAT file; pick the delimiter and Turkish encoding, preview it, and download a clean XLSX.">TXT, CSV, TSV ya da DAT dosyasını yükle; ayırıcıyı ve Türkçe karakter kodlamasını seç, önizle, düzenli bir XLSX olarak indir.</p>
      <ul class="facts"><li><svg class="ico"><use href="#i-check"/></svg><span data-tr="Windows-1254 desteği" data-en="Windows-1254 support">Windows-1254 desteği</span></li><li><svg class="ico"><use href="#i-check"/></svg>XLSX · CSV · TSV</li></ul>
-     <a class="btn" href="/veri-donusturucu/"><span data-tr="Veri Dönüştürücü'yü aç" data-en="Open Data Converter">Veri Dönüştürücü'yü aç</span><svg class="ico"><use href="#i-arrow"/></svg></a>
+     <a class="btn pen-btn" href="/veri-donusturucu/"><span data-tr="Veri Dönüştürücü'yü aç" data-en="Open Data Converter">Veri Dönüştürücü'yü aç</span><svg class="ico"><use href="#i-arrow"/></svg></a>
     </div>
     <div class="sketch drawing" aria-hidden="true"><svg viewBox="0 0 520 260">
      <rect class="sk skf" x="20" y="50" width="160" height="150" pathLength="1"/>
@@ -344,7 +344,7 @@ html{scrollbar-color:#9aa8b6 var(--paper)}
      <span class="sol hand" data-tr="Çözüm: Görsel Boyutlandırıcı" data-en="Solution: Image Resizer">Çözüm: Görsel Boyutlandırıcı</span>
      <p data-tr="Hedef dosya boyutunu yaz, araç kaliteyi kendisi ayarlasın. İstersen piksel ölçüsünü değiştir ya da kırp; önce ve sonrayı yan yana gör." data-en="Type the target file size and the tool tunes the quality for you. Change pixel size or crop if you like; compare before and after side by side.">Hedef dosya boyutunu yaz, araç kaliteyi kendisi ayarlasın. İstersen piksel ölçüsünü değiştir ya da kırp; önce ve sonrayı yan yana gör.</p>
      <ul class="facts"><li><svg class="ico"><use href="#i-check"/></svg>JPG · PNG · WebP</li><li><svg class="ico"><use href="#i-check"/></svg><span data-tr="Hedef KB / MB" data-en="Target KB / MB">Hedef KB / MB</span></li></ul>
-     <a class="btn" href="/gorsel-boyutlandirici/"><span data-tr="Görsel Boyutlandırıcı'yı aç" data-en="Open Image Resizer">Görsel Boyutlandırıcı'yı aç</span><svg class="ico"><use href="#i-arrow"/></svg></a>
+     <a class="btn pen-btn" href="/gorsel-boyutlandirici/"><span data-tr="Görsel Boyutlandırıcı'yı aç" data-en="Open Image Resizer">Görsel Boyutlandırıcı'yı aç</span><svg class="ico"><use href="#i-arrow"/></svg></a>
     </div>
     <div class="sketch drawing" aria-hidden="true"><svg viewBox="0 0 520 260">
      <rect class="sk skf" x="20" y="40" width="200" height="150" pathLength="1"/>
@@ -368,7 +368,7 @@ html{scrollbar-color:#9aa8b6 var(--paper)}
      <span class="sol hand" data-tr="Çözüm: KubArt" data-en="Solution: KubArt">Çözüm: KubArt</span>
      <p data-tr="Görseli yükle, tuval ölçüsünü ve yerleşimi seç. KubArt görseli A4 sayfalara böler, kesim payıyla birlikte yazdırmaya hazır bir PDF verir." data-en="Upload an image, choose the canvas size and layout. KubArt splits it into A4 sheets and gives you a print-ready PDF with cutting margins.">Görseli yükle, tuval ölçüsünü ve yerleşimi seç. KubArt görseli A4 sayfalara böler, kesim payıyla birlikte yazdırmaya hazır bir PDF verir.</p>
      <ul class="facts"><li><svg class="ico"><use href="#i-check"/></svg><span data-tr="Ölçü kontrollü A4 şablon" data-en="Measured A4 template">Ölçü kontrollü A4 şablon</span></li><li><svg class="ico"><use href="#i-check"/></svg><span data-tr="PDF çıktısı" data-en="PDF output">PDF çıktısı</span></li></ul>
-     <a class="btn" href="/kubart/"><span data-tr="KubArt'ı aç" data-en="Open KubArt">KubArt'ı aç</span><svg class="ico"><use href="#i-arrow"/></svg></a>
+     <a class="btn pen-btn" href="/kubart/"><span data-tr="KubArt'ı aç" data-en="Open KubArt">KubArt'ı aç</span><svg class="ico"><use href="#i-arrow"/></svg></a>
     </div>
     <div class="sketch drawing" aria-hidden="true"><svg viewBox="0 0 520 260">
      <rect class="sk skf" x="40" y="70" width="110" height="80" pathLength="1"/>
@@ -399,7 +399,7 @@ html{scrollbar-color:#9aa8b6 var(--paper)}
     <a href="makrolar.html#clear-unused-formatting"><span class="n" data-tr="Excel Temizle" data-en="Clean Excel">Excel Temizle</span><span class="d" data-tr="Veri dışındaki biçimleri siler, dosyayı hafifletir." data-en="Clears formatting outside your data to slim the file.">Veri dışındaki biçimleri siler, dosyayı hafifletir.</span><span class="r" data-tr="Masaüstü Excel" data-en="Desktop Excel">Masaüstü Excel</span><svg class="ico"><use href="#i-arrow"/></svg></a>
     <a href="makrolar.html#hide-text-matching-fill"><span class="n" data-tr="Renk Eşleştir" data-en="Match Font Color">Renk Eşleştir</span><span class="d" data-tr="Yazı rengini hücre dolgusuyla eşler; geri alınabilir." data-en="Matches text color to the cell fill; reversible.">Yazı rengini hücre dolgusuyla eşler; geri alınabilir.</span><span class="r" data-tr="Masaüstü Excel" data-en="Desktop Excel">Masaüstü Excel</span><svg class="ico"><use href="#i-arrow"/></svg></a>
    </div>
-   <a class="btn" style="margin-top:calc(var(--sq)*1.5);background:var(--ink);color:#fff" href="makrolar.html"><span data-tr="Makroları ve anlatımları gör" data-en="See macros and guides">Makroları ve anlatımları gör</span><svg class="ico"><use href="#i-arrow"/></svg></a>
+   <a class="btn pen-btn" href="makrolar.html"><span data-tr="Makroları ve anlatımları gör" data-en="See macros and guides">Makroları ve anlatımları gör</span><svg class="ico"><use href="#i-arrow"/></svg></a>
   </section>
 
   <section class="ex" id="hakkimda" aria-label="Notlar ve hakkımda" data-aria-label-tr="Notlar ve hakkımda" data-aria-label-en="Notes and about">
