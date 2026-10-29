@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-29T20:43:51.773Z",
+        "reason": "Claude: static parser cannot resolve the green cover/back-cover gradient and compares light text to page paper; rendered-URL detect (real backgrounds) returns 0 findings."
+      }
+    ]
+  }
+}
