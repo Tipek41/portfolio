@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' data: blob: https://cdnjs.cloudflare.com; worker-src 'self' blob: https://cdnjs.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>KubArt</title>
   <meta name="description" content="KubArt ile görsellerinizi istediğiniz tablo ölçüsüne göre A4 sayfalara bölün, önizleyin ve PDF olarak yazdırın.">
@@ -157,7 +157,7 @@
   <footer class="footer"><b>KubArt</b> · Görseller yalnızca tarayıcında işlenir.</footer>
   <div id="print-mount"></div>
   <div class="modal" id="ratioModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-box"><h3 id="modalTitle">Görsel oranı tuvalle uyuşmuyor</h3><p id="modalText"></p><div class="modal-actions"><button data-mode="cover"><strong>Tam  ölçüye kırp — önerilen</strong><span>Tuval tamamen dolar; görsel bozulmaz, taşan bölüm kırpılır.</span></button><button data-mode="contain"><strong>Görselin tamamını sığdır</strong><span>Hiçbir bölüm kırpılmaz; tuvalde boşluk kalabilir.</span></button><button data-mode="width"><strong>Genişliği sabitleyerek devam et</strong><span>Oran korunur; sonuç tuval yüksekliğini aşabilir.</span></button></div></div></div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha384-JcnsjUPPylna1s1fvi1u12X5qjY5OL56iySh75FdtrwhO/SWXgMjoVqcKyIIWOLk" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     const A4_W=21,A4_H=29.7,PX_PER_CM=118.11;
     let imgInstance=null,pageCanvases=[],modalShownForImage=false;

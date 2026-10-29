@@ -1,0 +1,7 @@
+# Bu sitede bir güvenlik açığı bulduysanız lütfen aşağıdaki adresten bildirin.
+# If you found a security issue on this site, please report it via the contact below.
+Contact: https://www.linkedin.com/in/tolga-ipek-0982a86b/
+Contact: https://github.com/Tipek41
+Expires: 2027-10-29T00:00:00.000Z
+Preferred-Languages: tr, en
+Canonical: https://tolgaipek.com.tr/.well-known/security.txt

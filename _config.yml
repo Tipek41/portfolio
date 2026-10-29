@@ -1,0 +1,4 @@
+# GitHub Pages varsayılan olarak nokta ile başlayan klasörleri yayınlamaz.
+# security.txt dosyasının yayınlanması için .well-known klasörünü dahil ediyoruz.
+include:
+  - .well-known

@@ -1,0 +1,27 @@
+# Haftalık güvenlik taraması (OWASP ZAP Baseline).
+# Siteyi dışarıdan, zarar vermeden tarar. Sorun bulursa bu repoda bir "Issue" açar
+# ve GitHub size e-posta ile bildirir. Elle çalıştırmak için: Actions > Güvenlik Taraması > Run workflow.
+name: Güvenlik Taraması
+
+on:
+  schedule:
+    - cron: "17 6 * * 1"   # Her pazartesi 09:17 (Türkiye saati)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  zap-baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: ZAP Baseline taraması
+        uses: zaproxy/action-baseline@de8ad967d3548d44ef623df22cf95c3b0baf8b25 # v0.15.0
+        with:
+          target: "https://tolgaipek.com.tr"
+          rules_file_name: ".zap/rules.tsv"
+          issue_title: "Güvenlik taraması bulguları"
+          fail_action: false
+          allow_issue_writing: true
