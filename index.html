@@ -91,7 +91,7 @@ html{scrollbar-color:#9aa8b6 var(--paper)}
 .sheet{position:relative;padding:0 calc(var(--sq)*8) 0 calc(var(--sq)*6);max-width:1440px}
 .ex{position:relative;padding:calc(var(--sq)*3) 0;border-top:1.5px dashed transparent}
 .ex+.ex{border-top-color:#b9c6d3}
-.mlabel{position:absolute;left:calc(var(--sq)*-5);width:calc(var(--sq)*4.6);padding-right:16px!important;top:calc(var(--sq)*3 + 6px);text-align:right;font-family:var(--hand);font-size:22px;line-height:var(--sq);color:var(--c,var(--pen));transform:rotate(-4deg);padding-right:6px}
+.mlabel{position:absolute;left:calc(var(--sq)*-5);width:calc(var(--sq)*4.6);top:calc(var(--sq)*3 + 6px);text-align:right;font-family:var(--hand);font-size:22px;line-height:var(--sq);color:var(--c,var(--pen));transform:rotate(-4deg);padding-right:16px}
 .ex h2{font-weight:800;font-size:clamp(26px,2.6vw,36px);line-height:calc(var(--sq)*1.75);letter-spacing:-.02em;max-width:24ch;text-wrap:balance}
 
 /* choice: question 1 is a multiple choice that works */
@@ -122,10 +122,10 @@ html{scrollbar-color:#9aa8b6 var(--paper)}
 .skf{fill:var(--paper)}
 .skt{font-family:var(--hand);font-size:17px;fill:var(--pen)}
 .skt.g{fill:var(--pencil)}
-.drawing .sk{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.1s cubic-bezier(.3,.7,.2,1)}
-.drawing.drawn .sk{stroke-dashoffset:0}
-.drawing .skt{opacity:0;transition:opacity .5s .7s}
-.drawing.drawn .skt{opacity:1}
+.js .drawing .sk{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.1s cubic-bezier(.3,.7,.2,1)}
+.js .drawing.drawn .sk{stroke-dashoffset:0}
+.js .drawing .skt{opacity:0;transition:opacity .5s .7s}
+.js .drawing.drawn .skt{opacity:1}
 
 /* formula sheet: macros */
 .ruled{margin-top:0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
@@ -214,7 +214,7 @@ html{scrollbar-color:#9aa8b6 var(--paper)}
 @media (prefers-reduced-motion:reduce){
  html{scroll-behavior:auto}
  *,*::before,*::after{transition:none!important;animation:none!important}
- .drawing .sk{stroke-dashoffset:0}.drawing .skt{opacity:1}
+ .js .drawing .sk{stroke-dashoffset:0}.js .drawing .skt{opacity:1}
 }
 </style></head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -446,6 +446,7 @@ html{scrollbar-color:#9aa8b6 var(--paper)}
 </footer>
 
 <script>
+document.documentElement.classList.add('js');
 let language='tr';
 function localize(){document.documentElement.lang=language;document.querySelectorAll('[data-tr]').forEach(e=>e.textContent=e.dataset[language]);['aria-label','alt'].forEach(a=>document.querySelectorAll(`[data-${a}-tr]`).forEach(e=>e.setAttribute(a,e.getAttribute(`data-${a}-${language}`))));document.querySelectorAll('[data-lang]').forEach(e=>{e.classList.toggle('active',e.dataset.lang===language);e.setAttribute('aria-pressed',String(e.dataset.lang===language))})}
 document.querySelectorAll('[data-lang]').forEach(e=>e.addEventListener('click',()=>{language=e.dataset.lang;localize()}));
