@@ -11,6 +11,15 @@
         ],
         "createdAt": "2026-10-29T20:43:51.773Z",
         "reason": "Claude: static parser cannot resolve the green cover/back-cover gradient and compares light text to page paper; rendered-URL detect (real backgrounds) returns 0 findings."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "archivo",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-30T04:29:47.256Z",
+        "reason": "Claude: Archivo is the display face of the chosen Tanaka grid direction (seed:5a971560c8873dbd, user-selected), recorded in the direction contract; DESIGN.md is being regenerated to declare it."
       }
     ]
   }
