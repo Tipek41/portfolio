@@ -1,467 +1,225 @@
 <!doctype html>
-<html lang="tr"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' data: blob: https://cdnjs.cloudflare.com; worker-src 'self' blob: https://cdnjs.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="./favicon.svg?v=1">
+<html lang="tr"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="./favicon.svg?v=1">
 <title data-tr="Tolga İpek · Ücretsiz araçlar ve Excel makroları" data-en="Tolga İpek · Free tools and Excel macros">Tolga İpek · Ücretsiz araçlar ve Excel makroları</title>
 <link rel="canonical" href="https://tolgaipek.com.tr/">
 <meta name="description" content="PDF birleştir, CSV'yi Excel tablosuna çevir, görsel küçült, poster bas, Excel'i otomatikleştir. Ücretsiz; dosyalarınız cihazınızdan çıkmaz.">
-<meta name="theme-color" content="#0e5a43">
+<meta name="theme-color" content="#f1f1ee">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Tolga İpek"><meta property="og:title" content="Tolga İpek · Ücretsiz araçlar ve Excel makroları"><meta property="og:description" content="PDF, tablo, görsel ve poster araçları ile Excel makroları. Ücretsiz; dosyalarınız cihazınızdan çıkmaz."><meta property="og:url" content="https://tolgaipek.com.tr/"><meta property="og:locale" content="tr_TR"><meta name="twitter:card" content="summary">
-<link rel="preload" href="assets/fonts/SchibstedGrotesk-400-900-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/Kalam-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Archivo-400-900-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-@font-face{font-family:'Kalam';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/Kalam-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
-@font-face{font-family:'Kalam';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/Kalam-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-@font-face{font-family:'Kalam';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/Kalam-700-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
-@font-face{font-family:'Kalam';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/Kalam-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-@font-face{font-family:'Schibsted Grotesk';font-style:normal;font-weight:400 900;font-display:swap;src:url(assets/fonts/SchibstedGrotesk-400-900-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
-@font-face{font-family:'Schibsted Grotesk';font-style:normal;font-weight:400 900;font-display:swap;src:url(assets/fonts/SchibstedGrotesk-400-900-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-:root{
- --sq:24px;
- --paper:#fcfcfa;--grid:#d9e2ec;--margin:#e0574a;
- --ink:#191d22;--pencil:#59616c;--pen:#1e3fb8;
- --cover:#0e5a43;--cover-deep:#0a4634;--cover-ink:#f3f6f1;--cover-soft:#d5e9de;
- --label:#ffffff;--label-rule:#c7d3dd;
- --t-pdf:#c63d31;--t-tablo:#2e57c9;--t-gorsel:#e7b52a;--t-gorsel-ink:#7f5c00;--t-poster:#7e57b8;--t-makro:#2a2f36;
- --sans:"Schibsted Grotesk",system-ui,sans-serif;--hand:"Kalam","Comic Sans MS",cursive;
-}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:400 900;font-display:swap;src:url(assets/fonts/Archivo-400-900-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:400 900;font-display:swap;src:url(assets/fonts/Archivo-400-900-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+:root{--paper:#f1f1ee;--ink:#141414;--red:#d8402b;--indigo:#1f3c88;--ochre:#e0a526;--teal:#2a7f7a;--stone:#9fb0b8;--line:#141414}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:calc(var(--sq)*2)}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/var(--sq) var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-h1,h2,h3,p,ul,ol{margin:0;padding:0}
-p{text-wrap:pretty}ul,ol{list-style:none}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--paper);color:var(--ink);font:500 17px/1.5 Archivo,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,p,ul,ol{margin:0;padding:0}ol{list-style:none}
 a{color:inherit}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
-::selection{background:#fde68a;color:var(--ink)}
-:focus-visible{outline:2px solid var(--pen);outline-offset:3px;border-radius:2px}
-html{scrollbar-color:#9aa8b6 var(--paper)}
-.hand{font-family:var(--hand);font-weight:400}
-.ico{width:1em;height:1em;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+::selection{background:var(--ochre);color:var(--ink)}
+.ico{width:1em;height:1em;flex:none;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.grid12{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:0;max-width:1440px;margin:0 auto}
 
-/* ---------- cover ---------- */
-.cover{position:relative;color:var(--cover-ink);background:
- linear-gradient(112deg,rgba(255,255,255,0) 0 24%,rgba(255,255,255,.13) 31%,rgba(255,255,255,.05) 38%,rgba(255,255,255,0) 46%),
- radial-gradient(120% 90% at 20% 0%,#136a50 0%,var(--cover) 55%,var(--cover-deep) 100%);
- min-height:min(78vh,760px);display:flex;flex-direction:column}
-.bar{position:relative;z-index:1;display:flex;align-items:center;gap:calc(var(--sq)*1.5);padding:var(--sq) calc(var(--sq)*3);min-height:calc(var(--sq)*3)}
-.brand{font-weight:800;font-size:19px;letter-spacing:.01em;text-decoration:none}
-.bar nav{display:flex;gap:var(--sq);font-size:15px}
-.bar nav a,.ext a{text-decoration:none;color:#eef6f1}
-.bar nav a:hover,.ext a:hover{color:#fff;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
-.ext{margin-left:auto;display:flex;align-items:center;gap:var(--sq);font-size:14px}
-.ext a{display:inline-flex;align-items:center;gap:6px}
-.lang{display:flex;gap:2px;font-size:14px;color:var(--cover-soft)}
-.lang button{padding:4px 9px;border-radius:3px;color:var(--cover-soft)}
-.lang button.active{background:var(--cover-ink);color:var(--cover);font-weight:700}
-.cover-body{position:relative;z-index:1;flex:1;display:grid;grid-template-columns:minmax(0,500px) minmax(0,1fr);gap:calc(var(--sq)*4);align-items:center;padding:calc(var(--sq)*2) calc(var(--sq)*6) calc(var(--sq)*3) calc(var(--sq)*3)}
+/* header */
+.top{display:flex;align-items:center;gap:28px;padding:20px 40px;border-bottom:2px solid var(--line);max-width:1440px;margin:0 auto}
+.brand{font-weight:900;font-size:20px;letter-spacing:.02em;text-decoration:none}
+.top nav{display:flex;gap:26px;font-size:15px;font-weight:500}
+.top nav a{text-decoration:none}
+.top nav a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;text-decoration-color:var(--red)}
+.tools-links{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:14px}
+.tools-links>a{text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.tools-links>a:hover{color:var(--red)}
+.lang{display:flex;border:2px solid var(--ink)}
+.lang button{padding:4px 10px;font-weight:700;font-size:13px}
+.lang button.active{background:var(--ink);color:var(--paper)}
 
-/* name label: the fixed home */
-.label{background:var(--label);color:var(--ink);border-radius:14px;padding:calc(var(--sq)*.75) var(--sq) var(--sq);box-shadow:0 1px 0 rgba(0,0,0,.08),0 14px 30px -12px rgba(0,0,0,.45);position:relative;transform:rotate(-1.2deg)}
-.label::before{content:"";position:absolute;inset:6px;border:1.5px solid #9fb3c6;border-radius:10px;pointer-events:none}
-.label-head{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--pencil);text-transform:uppercase;padding:0 4px calc(var(--sq)*.25)}
-.label-grid{display:grid;grid-template-columns:1fr 104px;gap:var(--sq)}
-.label dl{margin:0}
-.label .ln{display:grid;grid-template-columns:auto 1fr;align-items:end;gap:10px;border-bottom:1.5px solid var(--label-rule);min-height:calc(var(--sq)*2);padding:0 4px 2px}
-.label dt{font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--pencil);text-transform:uppercase;padding-bottom:5px;white-space:nowrap}
-.label dd{margin:0;font-family:var(--hand);font-size:24px;line-height:32px;color:var(--pen);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.label dd.long{font-size:20px}
-.photo{align-self:start;margin-top:4px;background:#fff;padding:5px 5px 18px;box-shadow:0 2px 6px rgba(0,0,0,.18);transform:rotate(2.5deg);position:relative}
-.photo img{display:block;width:94px;height:125px;object-fit:cover;filter:saturate(.85) contrast(1.03)}
-.photo::after{content:"";position:absolute;top:-10px;left:50%;width:46px;height:18px;margin-left:-23px;background:rgba(245,236,190,.75);transform:rotate(-4deg);box-shadow:0 1px 1px rgba(0,0,0,.08)}
+/* hero: wordmark + planes + circle */
+.hero{position:relative;min-height:min(56vh,520px);align-items:stretch;border-bottom:2px solid var(--line)}
+.word{grid-column:1/8;display:flex;flex-direction:column;justify-content:space-between;padding:36px 40px 32px;border-right:2px solid var(--line)}
+.hero h1{font-weight:900;font-size:clamp(56px,8.6vw,132px);line-height:.86;letter-spacing:-.045em;text-transform:uppercase}
+.hero h1 span{display:block}
+.hero h1 span+span{color:var(--red)}
+.lede{font-size:clamp(17px,1.5vw,21px);line-height:1.4;max-width:34ch;margin-top:28px;font-weight:500}
+.disc{position:absolute;left:calc(58.333% - 110px);top:calc(50% - 110px);width:220px;height:220px;border-radius:50%;background:var(--red);z-index:2;pointer-events:none}
+.photo{grid-column:8/13;grid-row:1;position:relative;background:var(--ochre);display:flex;align-items:flex-end;justify-content:center;padding:0;overflow:hidden;border-left:2px solid var(--line)}
+.photo img{display:block;width:100%;height:100%;max-height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);mix-blend-mode:multiply;transform:scale(1.02)}
+.hero{overflow:hidden}
 
-.pitch h1{font-weight:850;font-size:clamp(40px,4.6vw,68px);line-height:1.02;letter-spacing:-.03em;max-width:13ch;text-wrap:balance}
-.pitch p{margin-top:var(--sq);font-size:19px;line-height:28px;color:var(--cover-soft);max-width:44ch}
-.pitch .act{margin-top:calc(var(--sq)*1.5);display:flex;align-items:center;gap:var(--sq);flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:12px;min-height:calc(var(--sq)*2);padding:0 20px;border-radius:4px;font-weight:700;font-size:16px;text-decoration:none;transition:transform .2s cubic-bezier(.2,.8,.2,1),box-shadow .2s,background .2s}
-.btn-cover{background:var(--cover-ink);color:var(--cover-deep);box-shadow:0 2px 0 rgba(0,0,0,.25),0 10px 20px -10px rgba(0,0,0,.5)}
-.btn-cover:hover{transform:translateY(-2px);background:#fff}
-.btn-cover:active{transform:none}
-.link-cover{color:var(--cover-ink);font-weight:600;text-underline-offset:5px;text-decoration-thickness:1px}
-.free{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--cover-soft)}
-.free .ico{color:#9fe0bf}
+/* tool planes */
+.tools{border-bottom:2px solid var(--line)}
+.plane{display:flex;flex-direction:column;justify-content:space-between;min-height:320px;padding:28px;color:#fff;text-decoration:none;position:relative;transition:filter .15s}
+.plane:hover{filter:brightness(1.08)}
+.plane:hover .go svg{transform:translateX(6px)}
+.p-red{background:var(--red);grid-column:span 3}
+.p-indigo{background:var(--indigo);grid-column:span 3}
+.p-ochre{background:var(--ochre);color:var(--ink);grid-column:span 3}
+.p-teal{background:var(--teal);grid-column:span 3}
+.p-stone{background:var(--stone);color:var(--ink)}
+.plane+.plane{border-left:2px solid var(--line)}
+.n{font-weight:900;font-size:15px;letter-spacing:.06em}
+.t{font-weight:900;font-size:clamp(24px,2.3vw,34px);line-height:1.02;letter-spacing:-.02em;margin-top:auto;padding-top:48px}
+.d{font-size:15px;line-height:1.4;margin-top:10px;max-width:28ch}
+.go{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-weight:700;font-size:15px}
+.go svg{transition:transform .2s}
 
-/* spiral seam between cover and page */
-.seam{position:relative;height:calc(var(--sq)*2);background:var(--paper);z-index:2}
-.seam svg{position:absolute;left:0;right:0;top:-32px;width:100%;height:64px}
+/* macros */
+.macros{border-bottom:2px solid var(--line);padding:56px 40px 48px;display:block;max-width:none}
+.sec-title{font-weight:900;font-size:clamp(34px,4vw,56px);line-height:1;letter-spacing:-.03em;text-transform:uppercase}
+.sec-note{margin-top:12px;font-size:16px;max-width:60ch}
+.mgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:32px;border-top:2px solid var(--line);border-left:2px solid var(--line)}
+.mgrid li{border-right:2px solid var(--line);border-bottom:2px solid var(--line)}
+.mgrid a{display:flex;flex-direction:column;gap:8px;height:100%;min-height:150px;padding:20px;text-decoration:none;transition:background .15s}
+.mgrid a:hover{background:var(--ink);color:var(--paper)}
+.mgrid b{font-weight:900;font-size:19px;line-height:1.1;letter-spacing:-.01em}
+.mgrid span{font-size:14px;line-height:1.4;margin-top:auto;opacity:.85}
+.more{display:inline-flex;align-items:center;gap:8px;margin-top:28px;font-weight:700;font-size:17px;text-decoration:none;color:var(--red)}
+.more:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
 
-/* ---------- pages ---------- */
-.page{position:relative;background-color:var(--paper);
- background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
- background-size:var(--sq) var(--sq);background-position:0 0}
-.page::before{content:"";position:absolute;top:0;bottom:0;left:calc(var(--sq)*5);width:1.5px;background:var(--margin);opacity:.85}
-.sheet{position:relative;padding:0 calc(var(--sq)*8) 0 calc(var(--sq)*6);max-width:1440px}
-.ex{position:relative;padding:calc(var(--sq)*3) 0;border-top:1.5px dashed transparent}
-.ex+.ex{border-top-color:#b9c6d3}
-.mlabel{position:absolute;left:calc(var(--sq)*-5);width:calc(var(--sq)*4.6);top:calc(var(--sq)*3 + 6px);text-align:right;font-family:var(--hand);font-size:22px;line-height:var(--sq);color:var(--c,var(--pen));transform:rotate(-4deg);padding-right:16px}
-.ex h2{font-weight:800;font-size:clamp(26px,2.6vw,36px);line-height:calc(var(--sq)*1.75);letter-spacing:-.02em;max-width:24ch;text-wrap:balance}
+/* about */
+.about{border-bottom:2px solid var(--line);min-height:300px}
+.notes{grid-column:span 4;border-right:2px solid var(--line);min-height:300px}
+.notes b{font-weight:900;font-size:clamp(24px,2.3vw,34px);line-height:1.02;margin-top:auto}
+.notes span{font-size:15px;line-height:1.4;margin-top:10px}
+.bio{grid-column:span 8;padding:40px;display:flex;flex-direction:column;justify-content:center}
+.bio h2{font-weight:900;font-size:clamp(34px,4vw,56px);line-height:1;letter-spacing:-.03em;text-transform:uppercase}
+.bio p{margin-top:20px;font-size:18px;line-height:1.5;max-width:58ch}
+.bio .links{display:flex;gap:24px;margin-top:24px;font-weight:700}
+.bio .links a{display:inline-flex;align-items:center;gap:6px;color:var(--red);text-underline-offset:5px}
+.foot{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;padding:20px 40px;font-size:14px;max-width:1440px;margin:0 auto}
+.foot a{margin-left:auto;text-underline-offset:4px}
+.foot span:nth-child(2){margin-left:0}
 
-/* choice: question 1 is a multiple choice that works */
-.choice{display:grid;grid-template-columns:repeat(auto-fill,minmax(calc(var(--sq)*14),1fr));gap:0 var(--sq);margin-top:var(--sq)}
-.choice a{display:flex;align-items:center;gap:14px;min-height:calc(var(--sq)*2);padding:8px 0;line-height:22px;text-decoration:none;font-size:18px;font-weight:500;border-bottom:1.5px solid transparent}
-.choice .box{flex:none;width:22px;height:22px;border:2px solid var(--ink);border-radius:3px;display:grid;place-items:center;background:var(--paper);transition:background .15s}
-.choice .box svg{width:16px;height:16px;stroke:var(--pen);stroke-width:3;fill:none;opacity:0;transform:scale(.6);transition:opacity .15s,transform .2s cubic-bezier(.2,.8,.2,1)}
-.choice .opt{font-family:var(--hand);color:var(--pencil);font-size:20px;width:20px}
-.choice a:hover .box svg,.choice a:focus-visible .box svg{opacity:1;transform:none}
-.choice a:hover .txt{text-decoration:underline;text-decoration-color:var(--pen);text-underline-offset:6px;text-decoration-thickness:2px}
-.choice .go{margin-left:auto;color:var(--pencil);opacity:0;transition:opacity .15s}
-.choice a:hover .go{opacity:1}
-
-/* worked exercise */
-.work{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:calc(var(--sq)*3);align-items:start;margin-top:var(--sq)}
-.solve p{font-size:17px;line-height:calc(var(--sq)*1.25);max-width:52ch;color:#2b3138}
-.solve .sol{font-family:var(--hand);font-size:22px;color:var(--pen);margin:var(--sq) 0 calc(var(--sq)*.5)}
-.facts{margin-top:var(--sq);display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;color:var(--pencil)}
-.facts li{display:flex;align-items:center;gap:7px}
-.facts .ico{color:var(--pen);font-size:16px}
-.pen-btn{margin-top:calc(var(--sq)*1.5);background:transparent;color:var(--pen);border:2px solid var(--pen)}
-.pen-btn:hover{background:var(--pen);color:#fff}
-.sketch{position:relative;align-self:center}
-.sketch svg{display:block;width:100%;height:auto;max-width:520px;overflow:visible}
-.sk{fill:none;stroke:var(--pencil);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.sk.pen{stroke:var(--pen)}
-.sk.hl{stroke:var(--c);stroke-width:2.5}
-.skf{fill:var(--paper)}
-.skt{font-family:var(--hand);font-size:17px;fill:var(--pen)}
-.skt.g{fill:var(--pencil)}
-.js .drawing .sk{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.1s cubic-bezier(.3,.7,.2,1)}
-.js .drawing.drawn .sk{stroke-dashoffset:0}
-.js .drawing .skt{opacity:0;transition:opacity .5s .7s}
-.js .drawing.drawn .skt{opacity:1}
-
-/* formula sheet: macros */
-.ruled{margin-top:0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
-.ruled a{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,2fr) minmax(0,.9fr) 28px;align-items:center;gap:var(--sq);min-height:calc(var(--sq)*2.5);padding:0 8px;border-top:1px solid #aab8c6;text-decoration:none;transition:background .15s}
-.ruled a:first-child{border-top:0}
-.ruled a:hover{background:rgba(253,230,138,.55)}
-.ruled .n{font-weight:700}
-.ruled .d{color:#3a414a;font-size:16px}
-.ruled .r{font-size:13px;color:var(--pencil);font-weight:600;letter-spacing:.02em}
-.ruled .ico{color:var(--pencil)}
-.ruled a:hover .ico{color:var(--ink)}
-.rhead{margin-top:var(--sq);min-height:var(--sq);align-items:end;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,2fr) minmax(0,.9fr) 28px;gap:var(--sq);padding:6px 8px;font-family:var(--hand);font-size:18px;color:var(--pencil)}
-
-/* note + about */
-.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:calc(var(--sq)*3);align-items:start}
-.note{display:block;position:relative;text-decoration:none;padding:var(--sq) calc(var(--sq)*1.25) calc(var(--sq)*1.25);border:2px solid var(--pencil);border-radius:2px 14px 4px 10px/12px 3px 14px 4px}
-.note h3{font-weight:800;font-size:24px;line-height:calc(var(--sq)*1.5)}
-.note p{margin-top:calc(var(--sq)*.5);color:#3a414a;max-width:46ch}
-.note .more{display:inline-flex;align-items:center;gap:8px;margin-top:var(--sq);font-weight:700;color:var(--pen)}
-.note:hover{border-color:var(--pen)}
-.note:hover .more{text-decoration:underline;text-underline-offset:5px}
-.about h3{font-weight:800;font-size:24px;line-height:calc(var(--sq)*1.5)}
-.about p{margin-top:calc(var(--sq)*.5);color:#3a414a;max-width:50ch}
-.about .links{margin-top:var(--sq);display:flex;gap:var(--sq);font-weight:700}
-.about .links a{display:inline-flex;align-items:center;gap:8px;color:var(--pen);text-underline-offset:5px}
-
-/* ---------- index tabs (signature) ---------- */
-.tabs{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:20;display:flex;flex-direction:column;gap:6px}
-.tabs a{display:flex;align-items:center;justify-content:flex-start;width:84px;height:44px;padding-left:14px;border-radius:8px 0 0 8px;background:var(--c);color:#fff;font-weight:700;font-size:14px;text-decoration:none;transform:translateX(18px);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s;box-shadow:-2px 2px 4px rgba(0,0,0,.12)}
-.tabs a[data-k=gorsel]{color:#2a2104}
-.tabs a:hover,.tabs a.on{transform:none;box-shadow:-4px 4px 10px rgba(0,0,0,.2)}
-.tabs a.on{outline:2px solid var(--ink);outline-offset:-2px}
-
-/* ---------- back cover ---------- */
-.back{background:radial-gradient(120% 120% at 80% 100%,#136a50 0%,var(--cover) 50%,var(--cover-deep) 100%);color:var(--cover-ink);padding:calc(var(--sq)*3) calc(var(--sq)*8) calc(var(--sq)*3) calc(var(--sq)*3)}
-.back-in{display:grid;grid-template-columns:auto 1fr auto;gap:calc(var(--sq)*3);align-items:end;max-width:1360px}
-.mini{background:#fff;color:var(--ink);border-radius:10px;padding:10px 16px;transform:rotate(-1deg);box-shadow:0 10px 20px -10px rgba(0,0,0,.5);min-width:260px}
-.mini b{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--pencil)}
-.mini span{font-family:var(--hand);font-size:22px;color:var(--pen)}
-.back ul{display:flex;flex-direction:column;gap:6px;font-size:15px;color:var(--cover-soft)}
-.back ul li{display:flex;align-items:center;gap:10px}
-.back ul .ico{color:#9fe0bf}
-.price{text-align:right;font-size:13px;color:var(--cover-soft)}
-.price svg{display:block;margin:0 0 8px auto;background:#fff;padding:8px 10px 4px;border-radius:2px}
-.price strong{display:block;font-size:20px;color:#fff;font-weight:800}
-.fine{margin-top:calc(var(--sq)*2);display:flex;gap:var(--sq);flex-wrap:wrap;font-size:13px;color:var(--cover-soft);max-width:1360px}
-.fine a{color:var(--cover-soft);text-underline-offset:4px}
-
-/* ---------- responsive ---------- */
-@media (max-width:1180px){
- .cover-body{grid-template-columns:1fr;gap:calc(var(--sq)*2);padding:var(--sq) calc(var(--sq)*5) calc(var(--sq)*3) calc(var(--sq)*3)}
- .label{max-width:520px}
- .work{grid-template-columns:1fr;gap:var(--sq)}
- .sketch svg{max-width:440px}
- .two{grid-template-columns:1fr}
- .back-in{grid-template-columns:1fr;gap:var(--sq)}.price{text-align:left}.price svg{margin:0 0 8px}
+/* responsive */
+@media(max-width:1100px){
+ .top nav{display:none}
+ .word{grid-column:1/-1;border-right:0;padding:40px 28px 28px}
+ .photo{grid-column:1/-1;grid-row:2;height:360px;border-left:0;border-top:2px solid var(--line)}
+ .disc{display:none}
+ .p-red,.p-indigo,.p-ochre,.p-teal{grid-column:span 6}
+ .plane:nth-child(odd){border-left:0}
+ .plane:nth-child(n+3){border-top:2px solid var(--line)}
+ .plane:nth-child(even){border-left:2px solid var(--line)}
+ .mgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .notes,.bio{grid-column:1/-1}
+ .notes{border-right:0;border-bottom:2px solid var(--line)}
 }
-@media (max-width:760px){
- :root{--sq:20px}
- body{font-size:16px;line-height:24px}
- .solve p,.about p,.note p{line-height:24px}
- .choice a{padding:8px 0;line-height:22px}
- .label dd.long{white-space:normal}
- .bar{flex-wrap:wrap;gap:10px 18px;padding:16px}
- .bar nav{order:3;width:100%;gap:18px;font-size:14px;overflow-x:auto}
- .ext{gap:14px}.ext .xl{display:none}
- .cover{min-height:0}
- .cover-body{padding:8px 16px 40px}
- .label{transform:rotate(-.8deg);padding:12px 14px 16px}
- .label-grid{grid-template-columns:1fr 78px;gap:12px}
- .photo img{width:68px;height:90px}
- .label dd{font-size:20px}.label dd.long{font-size:17px}
- .pitch p{font-size:17px;line-height:26px}
- .page::before{left:28px}
- .sheet{padding:0 16px 0 44px}
- .mlabel{display:none}
- .ex{padding:calc(var(--sq)*2.5) 0}
- .ruled a,.rhead{grid-template-columns:minmax(0,1fr) 22px;gap:4px 12px;padding:10px 4px}
- .ruled .d{grid-column:1;font-size:15px;line-height:22px}.ruled .r{grid-column:1}.ruled a .ico{grid-row:1/4;grid-column:2}
- .rhead .d,.rhead .r{display:none}
- .tabs{top:auto;bottom:0;right:0;left:0;transform:none;flex-direction:row;gap:4px;justify-content:center;padding:0 8px;pointer-events:none}
- .tabs a{pointer-events:auto;width:auto;flex:1;max-width:96px;height:40px;justify-content:center;padding:0 6px;border-radius:8px 8px 0 0;transform:translateY(8px);font-size:13px}
- .back{padding:40px 16px 88px}
- body{padding-bottom:0}
+@media(max-width:700px){
+ .top{padding:16px 18px;flex-wrap:wrap;gap:14px}
+ .tools-links{margin-left:0;width:100%;justify-content:space-between}
+ .word{padding:32px 18px 24px}
+ .p-red,.p-indigo,.p-ochre,.p-teal{grid-column:1/-1;min-height:220px;border-left:0 !important}
+ .plane+.plane{border-left:0}
+ .plane:nth-child(n+2){border-top:2px solid var(--line)}
+ .macros{padding:40px 18px}
+ .mgrid{grid-template-columns:1fr}
+ .mgrid li{border-right:2px solid var(--line)}
+ .bio{padding:30px 18px}
+ .foot{padding:18px}
+ .foot a{margin-left:0}
 }
-@media (prefers-reduced-motion:reduce){
- html{scroll-behavior:auto}
- *,*::before,*::after{transition:none!important;animation:none!important}
- .js .drawing .sk{stroke-dashoffset:0}.js .drawing .skt{opacity:1}
-}
-</style></head><body>
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style></head>
+<body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
- <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></symbol>
- <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
- <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
- <symbol id="i-win" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="12" rx="1.5"/><path d="M9 20h6M12 17v3"/></symbol>
 </svg>
 
-<header class="cover" id="top">
- <div class="bar">
-  <a class="brand" href="#top">Tolga İpek</a>
-  <nav aria-label="Ana menü" data-aria-label-tr="Ana menü" data-aria-label-en="Main navigation">
-   <a href="#araclar" data-tr="Araçlar" data-en="Tools">Araçlar</a>
-   <a href="#makro" data-tr="Makrolar" data-en="Macros">Makrolar</a>
-   <a href="excel-pratikleri.html" data-tr="Excel Pratikleri" data-en="Excel Tips">Excel Pratikleri</a>
-   <a href="#hakkimda" data-tr="Hakkımda" data-en="About">Hakkımda</a>
-  </nav>
-  <div class="ext">
-   <div class="lang" role="group" aria-label="Dil" data-aria-label-tr="Dil" data-aria-label-en="Language"><button class="active" data-lang="tr" aria-pressed="true">TR</button><button data-lang="en" aria-pressed="false">EN</button></div>
-   <a class="xl" href="https://github.com/Tipek41" target="_blank" rel="noopener">GitHub<svg class="ico"><use href="#i-ext"/></svg></a>
-   <a class="xl" href="https://www.linkedin.com/in/tolga-ipek-0982a86b/" target="_blank" rel="noopener">LinkedIn<svg class="ico"><use href="#i-ext"/></svg></a>
-  </div>
- </div>
-
- <div class="cover-body">
-  <div class="label" aria-label="Defter etiketi" data-aria-label-tr="Defter etiketi" data-aria-label-en="Notebook label">
-   <div class="label-head"><span data-tr="Defter" data-en="Notebook">Defter</span></div>
-   <div class="label-grid">
-    <dl>
-     <div class="ln"><dt data-tr="Adı Soyadı" data-en="Name">Adı Soyadı</dt><dd>Tolga İpek</dd></div>
-     <div class="ln"><dt data-tr="Mesleği" data-en="Job">Mesleği</dt><dd data-tr="Makine mühendisi" data-en="Mechanical engineer">Makine mühendisi</dd></div>
-     <div class="ln"><dt data-tr="Dersi" data-en="Subject">Dersi</dt><dd class="long" data-tr="Araçlar ve makrolar" data-en="Tools and macros">Araçlar ve makrolar</dd></div>
-     <div class="ln"><dt data-tr="İçinde" data-en="Inside">İçinde</dt><dd class="long" data-tr="4 araç, 8 makro" data-en="4 tools, 8 macros">4 araç, 8 makro</dd></div>
-    </dl>
-    <div class="photo"><img src="assets/vesikalik.jpg" alt="Tolga İpek" width="94" height="125"></div>
-   </div>
-  </div>
-
-  <div class="pitch">
-   <h1 data-tr="Dosyan cihazından çıkmadan işini bitir." data-en="Get it done without your file leaving your device.">Dosyan cihazından çıkmadan işini bitir.</h1>
-   <p data-tr="PDF birleştir, metin dosyasını Excel tablosuna çevir, görseli küçült, poster bas, Excel'deki tekrar eden işi makroya devret. Ücretsiz, üyelik yok, takip yok." data-en="Merge PDFs, turn text files into Excel tables, shrink images, print posters, hand repetitive Excel work to a macro. Free, no sign-up, no tracking.">PDF birleştir, metin dosyasını Excel tablosuna çevir, görseli küçült, poster bas, Excel'deki tekrar eden işi makroya devret. Ücretsiz, üyelik yok, takip yok.</p>
-   <div class="act">
-    <a class="btn btn-cover" href="#araclar"><span data-tr="Ne yapmak istiyorsun?" data-en="What do you need to do?">Ne yapmak istiyorsun?</span><svg class="ico"><use href="#i-down"/></svg></a>
-    <span class="free"><svg class="ico"><use href="#i-lock"/></svg><span data-tr="Dosyalar sunucuya yüklenmez" data-en="Files are never uploaded">Dosyalar sunucuya yüklenmez</span></span>
-   </div>
-  </div>
+<header class="top">
+ <a class="brand" href="#top" aria-label="Tolga İpek">TOLGA İPEK</a>
+ <nav aria-label="Ana menü" data-aria-label-tr="Ana menü" data-aria-label-en="Main navigation">
+  <a href="#araclar" data-tr="Araçlar" data-en="Tools">Araçlar</a>
+  <a href="#makro" data-tr="Makrolar" data-en="Macros">Makrolar</a>
+  <a href="excel-pratikleri.html" data-tr="Excel Pratikleri" data-en="Excel Tips">Excel Pratikleri</a>
+  <a href="#hakkimda" data-tr="Hakkımda" data-en="About">Hakkımda</a>
+ </nav>
+ <div class="tools-links">
+  <div class="lang" role="group" aria-label="Dil" data-aria-label-tr="Dil" data-aria-label-en="Language"><button class="active" data-lang="tr" aria-pressed="true">TR</button><button data-lang="en" aria-pressed="false">EN</button></div>
+  <a href="https://github.com/Tipek41" target="_blank" rel="noopener">GitHub<svg class="ico"><use href="#i-ext"/></svg></a>
+  <a href="https://www.linkedin.com/in/tolga-ipek-0982a86b/" target="_blank" rel="noopener">LinkedIn<svg class="ico"><use href="#i-ext"/></svg></a>
  </div>
 </header>
 
-<div class="seam" aria-hidden="true"><svg preserveAspectRatio="none"><defs><pattern id="ring" width="32" height="64" patternUnits="userSpaceOnUse"><ellipse cx="16" cy="14" rx="5" ry="4" fill="#06301f"/><ellipse cx="16" cy="50" rx="5" ry="4" fill="#b7c3ce"/><path d="M14 14 C 4 18, 4 46, 14 50" fill="none" stroke="#4a545e" stroke-width="4.5" stroke-linecap="round"/><path d="M12.5 19 C 8 26, 8 38, 12.5 45" fill="none" stroke="#dfe5ea" stroke-width="1.4" stroke-linecap="round"/></pattern></defs><rect width="100%" height="64" fill="url(#ring)"/></svg></div>
+<main id="top">
+ <section class="hero grid12" aria-labelledby="h1">
+  <div class="word">
+   <h1 id="h1"><span>TOLGA</span><span>İPEK</span></h1>
+   <p class="lede" data-tr="Makine mühendisiyim. Proje kontrol ve maliyet işlerinde kullandığım araçları ücretsiz paylaşıyorum. Dosyalarınız tarayıcınızdan çıkmaz." data-en="I'm a mechanical engineer. I share the tools I use for project controls and cost work, for free. Your files never leave your browser.">Makine mühendisiyim. Proje kontrol ve maliyet işlerinde kullandığım araçları ücretsiz paylaşıyorum. Dosyalarınız tarayıcınızdan çıkmaz.</p>
+  </div>
+  <div class="disc" aria-hidden="true"></div>
+  <div class="photo"><img src="assets/vesikalik.jpg" alt="Tolga İpek" width="240" height="320"></div>
+ </section>
 
-<main class="page">
- <div class="sheet">
+ <section id="araclar" class="tools grid12" aria-labelledby="t-h">
+  <h2 id="t-h" class="sr" data-tr="Araçlar" data-en="Tools">Araçlar</h2>
+  <a class="plane p-red" href="pdf-atolyesi.html">
+   <span class="n">01</span>
+   <span class="t" data-tr="PDF Atölyesi" data-en="PDF Workshop">PDF Atölyesi</span>
+   <span class="d" data-tr="Fotoğrafları PDF yap, sırala, A4/A3'e eşitle." data-en="Photos to PDF, reorder, standard A4/A3.">Fotoğrafları PDF yap, sırala, A4/A3'e eşitle.</span>
+   <span class="go"><span data-tr="Aç" data-en="Open">Aç</span><svg class="ico"><use href="#i-arrow"/></svg></span>
+  </a>
+  <a class="plane p-indigo" href="/veri-donusturucu/">
+   <span class="n">02</span>
+   <span class="t" data-tr="Veri Dönüştürücü" data-en="Data Converter">Veri Dönüştürücü</span>
+   <span class="d" data-tr="TXT ve CSV dosyasını düzenli Excel tablosuna çevir." data-en="Turn TXT and CSV into a clean Excel table.">TXT ve CSV dosyasını düzenli Excel tablosuna çevir.</span>
+   <span class="go"><span data-tr="Aç" data-en="Open">Aç</span><svg class="ico"><use href="#i-arrow"/></svg></span>
+  </a>
+  <a class="plane p-ochre" href="/gorsel-boyutlandirici/">
+   <span class="n">03</span>
+   <span class="t" data-tr="Görsel Boyutlandırıcı" data-en="Image Resizer">Görsel Boyutlandırıcı</span>
+   <span class="d" data-tr="Hedef dosya boyutuna küçült, kırp, sıkıştır." data-en="Shrink, crop and compress to a target size.">Hedef dosya boyutuna küçült, kırp, sıkıştır.</span>
+   <span class="go"><span data-tr="Aç" data-en="Open">Aç</span><svg class="ico"><use href="#i-arrow"/></svg></span>
+  </a>
+  <a class="plane p-teal" href="/kubart/">
+   <span class="n">04</span>
+   <span class="t">KubArt</span>
+   <span class="d" data-tr="Görseli A4 sayfalara böl, evde poster bas." data-en="Split an image onto A4 sheets, print a poster at home.">Görseli A4 sayfalara böl, evde poster bas.</span>
+   <span class="go"><span data-tr="Aç" data-en="Open">Aç</span><svg class="ico"><use href="#i-arrow"/></svg></span>
+  </a>
+ </section>
 
-  <section class="ex" id="araclar" aria-labelledby="q1">
-   <span class="mlabel hand" style="--c:var(--pen)" data-tr="Başla" data-en="Start">Başla</span>
-   <h2 id="q1" data-tr="Ne yapmak istiyorsun? İşaretle, araç açılsın." data-en="What do you need to do? Tick one and the tool opens.">Ne yapmak istiyorsun? İşaretle, araç açılsın.</h2>
-   <div class="choice">
-    <a href="pdf-atolyesi.html"><span class="opt">a)</span><span class="box"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg></span><span class="txt" data-tr="Fotoğrafları ya da PDF'leri tek PDF yapmak" data-en="Turn photos or PDFs into one PDF">Fotoğrafları ya da PDF'leri tek PDF yapmak</span><svg class="ico go"><use href="#i-arrow"/></svg></a>
-    <a href="/veri-donusturucu/"><span class="opt">b)</span><span class="box"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg></span><span class="txt" data-tr="TXT / CSV dosyasını Excel tablosuna çevirmek" data-en="Turn a TXT / CSV file into an Excel table">TXT / CSV dosyasını Excel tablosuna çevirmek</span><svg class="ico go"><use href="#i-arrow"/></svg></a>
-    <a href="/gorsel-boyutlandirici/"><span class="opt">c)</span><span class="box"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg></span><span class="txt" data-tr="Görseli küçültmek, kırpmak, sıkıştırmak" data-en="Shrink, crop or compress an image">Görseli küçültmek, kırpmak, sıkıştırmak</span><svg class="ico go"><use href="#i-arrow"/></svg></a>
-    <a href="/kubart/"><span class="opt">d)</span><span class="box"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg></span><span class="txt" data-tr="Büyük bir görseli A4'lerle poster basmak" data-en="Print a large image as an A4 poster">Büyük bir görseli A4'lerle poster basmak</span><svg class="ico go"><use href="#i-arrow"/></svg></a>
-    <a href="#makro"><span class="opt">e)</span><span class="box"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg></span><span class="txt" data-tr="Excel'de tekrar eden bir işi otomatikleştirmek" data-en="Automate a repetitive Excel task">Excel'de tekrar eden bir işi otomatikleştirmek</span><svg class="ico go"><use href="#i-arrow"/></svg></a>
-   </div>
-  </section>
+ <section id="makro" class="macros grid12" aria-labelledby="m-h">
+  <h2 id="m-h" class="sec-title" data-tr="Excel makroları" data-en="Excel macros">Excel makroları</h2>
+  <p class="sec-note" data-tr="Desktop Excel'de çalışır. Her birinin adım adım anlatımı makrolar sayfasında." data-en="Run in desktop Excel. Each has a step-by-step guide on the macros page.">Desktop Excel'de çalışır. Her birinin adım adım anlatımı makrolar sayfasında.</p>
+  <ol class="mgrid">
+   <li><a href="makrolar.html#s-curve-planner"><b data-tr="Proje S Eğrisi" data-en="Project S-Curve">Proje S Eğrisi</b><span data-tr="Bütçeyi aylara dağıt, S eğrisi çiz" data-en="Spread budget by month, draw S-curve">Bütçeyi aylara dağıt, S eğrisi çiz</span></a></li>
+   <li><a href="makrolar.html#weighted-distribution"><b data-tr="Ağırlıklı Tutar" data-en="Weighted Amount">Ağırlıklı Tutar</b><span data-tr="Tutarı ağırlıklara göre paylaştır" data-en="Split an amount by weights">Tutarı ağırlıklara göre paylaştır</span></a></li>
+   <li><a href="makrolar.html#pdf-merge"><b data-tr="PDF Birleştir" data-en="Merge PDFs">PDF Birleştir</b><span data-tr="Klasördeki PDF'leri tek dosya yap" data-en="Merge a folder of PDFs">Klasördeki PDF'leri tek dosya yap</span></a></li>
+   <li><a href="makrolar.html#create-folders-from-cells"><b data-tr="Klasör Oluştur" data-en="Create Folders">Klasör Oluştur</b><span data-tr="Hücrelerdeki isimlerle klasör aç" data-en="Folders from cell names">Hücrelerdeki isimlerle klasör aç</span></a></li>
+   <li><a href="makrolar.html#copy-linked-folders"><b data-tr="Klasör Kopyala" data-en="Copy Folders">Klasör Kopyala</b><span data-tr="Bağlantılı klasörleri alt klasörleriyle kopyala" data-en="Copy linked folders with subfolders">Bağlantılı klasörleri alt klasörleriyle kopyala</span></a></li>
+   <li><a href="makrolar.html#worksheet-inventory"><b data-tr="Sayfa Envanteri" data-en="Sheet Inventory">Sayfa Envanteri</b><span data-tr="Görünür ve gizli sayfaları listele" data-en="List visible and hidden sheets">Görünür ve gizli sayfaları listele</span></a></li>
+   <li><a href="makrolar.html#clear-unused-formatting"><b data-tr="Excel Temizle" data-en="Clean Excel">Excel Temizle</b><span data-tr="Kullanılmayan biçimleri sil" data-en="Remove unused formatting">Kullanılmayan biçimleri sil</span></a></li>
+   <li><a href="makrolar.html#hide-text-matching-fill"><b data-tr="Renk Eşleştir" data-en="Match Font Color">Renk Eşleştir</b><span data-tr="Yazı rengini hücre dolgusuna eşle" data-en="Match text colour to fill">Yazı rengini hücre dolgusuna eşle</span></a></li>
+  </ol>
+  <a class="more" href="makrolar.html"><span data-tr="Tüm makrolar ve anlatımlar" data-en="All macros and guides">Tüm makrolar ve anlatımlar</span><svg class="ico"><use href="#i-arrow"/></svg></a>
+ </section>
 
-  <section class="ex" id="pdf" aria-labelledby="q-pdf" style="--c:var(--t-pdf)">
-   <span class="mlabel hand">PDF</span>
-   <h2 id="q-pdf" data-tr="Telefonla çektiğin sayfaları tek bir PDF'te, hepsi aynı boyda topla." data-en="Collect the pages you shot on your phone into one PDF, all the same size.">Telefonla çektiğin sayfaları tek bir PDF'te, hepsi aynı boyda topla.</h2>
-   <div class="work">
-    <div class="solve">
-     <span class="sol hand" data-tr="Çözüm: PDF Atölyesi" data-en="Solution: PDF Workshop">Çözüm: PDF Atölyesi</span>
-     <p data-tr="Fotoğrafları ve PDF'leri sürükle, sayfaları sırala, çıktıyı A4 ya da A3'e eşitle. Karışık boydaki taramalar tek düzgün dosya olur." data-en="Drop in photos and PDFs, reorder pages, and standardize the output to A4 or A3. Mixed-size scans become one tidy file.">Fotoğrafları ve PDF'leri sürükle, sayfaları sırala, çıktıyı A4 ya da A3'e eşitle. Karışık boydaki taramalar tek düzgün dosya olur.</p>
-     <ul class="facts"><li><svg class="ico"><use href="#i-check"/></svg>PDF · JPG · PNG · WebP</li><li><svg class="ico"><use href="#i-check"/></svg><span data-tr="Sürükle-bırak sıralama" data-en="Drag to reorder">Sürükle-bırak sıralama</span></li></ul>
-     <a class="btn pen-btn" href="pdf-atolyesi.html"><span data-tr="PDF Atölyesi'ni aç" data-en="Open PDF Workshop">PDF Atölyesi'ni aç</span><svg class="ico"><use href="#i-arrow"/></svg></a>
-    </div>
-    <div class="sketch drawing" aria-hidden="true"><svg viewBox="0 0 520 260">
-     <rect class="sk skf" x="20" y="60" width="70" height="96" transform="rotate(-9 55 108)" pathLength="1"/>
-     <rect class="sk skf" x="62" y="40" width="96" height="70" transform="rotate(6 110 75)" pathLength="1"/>
-     <rect class="sk skf" x="48" y="122" width="58" height="80" transform="rotate(4 77 162)" pathLength="1"/>
-     <text class="skt g" x="22" y="236">3 foto, 3 boy</text>
-     <path class="sk pen" d="M190 130 C 230 116, 262 116, 300 128" pathLength="1"/><path class="sk pen" d="M288 118 L 301 128 L 287 138" pathLength="1"/>
-     <rect class="sk skf" x="356" y="34" width="120" height="170" pathLength="1"/>
-     <rect class="sk skf" x="346" y="44" width="120" height="170" pathLength="1"/>
-     <rect class="sk skf" x="336" y="54" width="120" height="170" pathLength="1"/>
-     <path class="sk" d="M352 82h88M352 96h70M352 110h80" pathLength="1"/>
-     <rect class="sk hl" x="352" y="128" width="88" height="62" pathLength="1"/>
-     <text class="skt" x="372" y="252">A4 × 3</text>
-    </svg></div>
-   </div>
-  </section>
-
-  <section class="ex" id="tablo" aria-labelledby="q-tablo" style="--c:var(--t-tablo)">
-   <span class="mlabel hand" data-tr="Tablo" data-en="Table">Tablo</span>
-   <h2 id="q-tablo" data-tr="Programdan aldığın .txt dosyası Excel'de tek sütuna yığılıyor." data-en="The .txt export from your software lands in a single Excel column.">Programdan aldığın .txt dosyası Excel'de tek sütuna yığılıyor.</h2>
-   <div class="work">
-    <div class="solve">
-     <span class="sol hand" data-tr="Çözüm: Veri Dönüştürücü" data-en="Solution: Data Converter">Çözüm: Veri Dönüştürücü</span>
-     <p data-tr="TXT, CSV, TSV ya da DAT dosyasını yükle; ayırıcıyı ve Türkçe karakter kodlamasını seç, önizle, düzenli bir XLSX olarak indir." data-en="Load a TXT, CSV, TSV or DAT file; pick the delimiter and Turkish encoding, preview it, and download a clean XLSX.">TXT, CSV, TSV ya da DAT dosyasını yükle; ayırıcıyı ve Türkçe karakter kodlamasını seç, önizle, düzenli bir XLSX olarak indir.</p>
-     <ul class="facts"><li><svg class="ico"><use href="#i-check"/></svg><span data-tr="Windows-1254 desteği" data-en="Windows-1254 support">Windows-1254 desteği</span></li><li><svg class="ico"><use href="#i-check"/></svg>XLSX · CSV · TSV</li></ul>
-     <a class="btn pen-btn" href="/veri-donusturucu/"><span data-tr="Veri Dönüştürücü'yü aç" data-en="Open Data Converter">Veri Dönüştürücü'yü aç</span><svg class="ico"><use href="#i-arrow"/></svg></a>
-    </div>
-    <div class="sketch drawing" aria-hidden="true"><svg viewBox="0 0 520 260">
-     <rect class="sk skf" x="20" y="50" width="160" height="150" pathLength="1"/>
-     <text class="skt g" x="34" y="86">kalem;birim;tutar</text>
-     <text class="skt g" x="34" y="114">beton;m3;12400</text>
-     <text class="skt g" x="34" y="142">demir;ton;7150</text>
-     <text class="skt g" x="34" y="170">kalıp;m2;3900</text>
-     <path class="sk pen" d="M200 125 C 236 112, 262 112, 296 124" pathLength="1"/><path class="sk pen" d="M284 114 L 297 124 L 283 134" pathLength="1"/>
-     <rect class="sk skf" x="320" y="50" width="180" height="150" pathLength="1"/>
-     <path class="sk" d="M320 88h180M320 125h180M320 162h180M386 50v150M440 50v150" pathLength="1"/>
-     <rect class="sk hl" x="320" y="50" width="180" height="38" pathLength="1"/>
-     <text class="skt" x="330" y="76">kalem</text><text class="skt" x="394" y="76">birim</text><text class="skt" x="448" y="76">tutar</text>
-     <text class="skt" x="364" y="236">3 sütun</text>
-    </svg></div>
-   </div>
-  </section>
-
-  <section class="ex" id="gorsel" aria-labelledby="q-gorsel" style="--c:var(--t-gorsel)">
-   <span class="mlabel hand" style="--c:var(--t-gorsel-ink)" data-tr="Görsel" data-en="Image">Görsel</span>
-   <h2 id="q-gorsel" data-tr="Başvuru formu en fazla 200 KB fotoğraf kabul ediyor, seninki 4 MB." data-en="The application form takes photos up to 200 KB; yours is 4 MB.">Başvuru formu en fazla 200 KB fotoğraf kabul ediyor, seninki 4 MB.</h2>
-   <div class="work">
-    <div class="solve">
-     <span class="sol hand" data-tr="Çözüm: Görsel Boyutlandırıcı" data-en="Solution: Image Resizer">Çözüm: Görsel Boyutlandırıcı</span>
-     <p data-tr="Hedef dosya boyutunu yaz, araç kaliteyi kendisi ayarlasın. İstersen piksel ölçüsünü değiştir ya da kırp; önce ve sonrayı yan yana gör." data-en="Type the target file size and the tool tunes the quality for you. Change pixel size or crop if you like; compare before and after side by side.">Hedef dosya boyutunu yaz, araç kaliteyi kendisi ayarlasın. İstersen piksel ölçüsünü değiştir ya da kırp; önce ve sonrayı yan yana gör.</p>
-     <ul class="facts"><li><svg class="ico"><use href="#i-check"/></svg>JPG · PNG · WebP</li><li><svg class="ico"><use href="#i-check"/></svg><span data-tr="Hedef KB / MB" data-en="Target KB / MB">Hedef KB / MB</span></li></ul>
-     <a class="btn pen-btn" href="/gorsel-boyutlandirici/"><span data-tr="Görsel Boyutlandırıcı'yı aç" data-en="Open Image Resizer">Görsel Boyutlandırıcı'yı aç</span><svg class="ico"><use href="#i-arrow"/></svg></a>
-    </div>
-    <div class="sketch drawing" aria-hidden="true"><svg viewBox="0 0 520 260">
-     <rect class="sk skf" x="20" y="40" width="200" height="150" pathLength="1"/>
-     <path class="sk" d="M20 168 L 78 110 L 118 148 L 152 120 L 220 176" pathLength="1"/>
-     <circle class="sk" cx="176" cy="78" r="14" pathLength="1"/>
-     <path class="sk hl" d="M56 72v-16h16M168 56h16v16M184 156v16h-16M72 172h-16v-16" pathLength="1"/>
-     <text class="skt g" x="80" y="224">4,1 MB</text>
-     <path class="sk pen" d="M246 118 C 280 104, 306 104, 338 116" pathLength="1"/><path class="sk pen" d="M326 106 L 339 116 L 325 126" pathLength="1"/>
-     <rect class="sk skf" x="372" y="66" width="112" height="102" pathLength="1"/>
-     <path class="sk" d="M372 152 L 404 120 L 426 142 L 446 126 L 484 160" pathLength="1"/>
-     <text class="skt" x="390" y="204">186 KB</text>
-    </svg></div>
-   </div>
-  </section>
-
-  <section class="ex" id="poster" aria-labelledby="q-poster" style="--c:var(--t-poster)">
-   <span class="mlabel hand">Poster</span>
-   <h2 id="q-poster" data-tr="Büyük bir görseli evdeki A4 yazıcıyla duvar boyu bas." data-en="Print a big image wall-size on your home A4 printer.">Büyük bir görseli evdeki A4 yazıcıyla duvar boyu bas.</h2>
-   <div class="work">
-    <div class="solve">
-     <span class="sol hand" data-tr="Çözüm: KubArt" data-en="Solution: KubArt">Çözüm: KubArt</span>
-     <p data-tr="Görseli yükle, tuval ölçüsünü ve yerleşimi seç. KubArt görseli A4 sayfalara böler, kesim payıyla birlikte yazdırmaya hazır bir PDF verir." data-en="Upload an image, choose the canvas size and layout. KubArt splits it into A4 sheets and gives you a print-ready PDF with cutting margins.">Görseli yükle, tuval ölçüsünü ve yerleşimi seç. KubArt görseli A4 sayfalara böler, kesim payıyla birlikte yazdırmaya hazır bir PDF verir.</p>
-     <ul class="facts"><li><svg class="ico"><use href="#i-check"/></svg><span data-tr="Ölçü kontrollü A4 şablon" data-en="Measured A4 template">Ölçü kontrollü A4 şablon</span></li><li><svg class="ico"><use href="#i-check"/></svg><span data-tr="PDF çıktısı" data-en="PDF output">PDF çıktısı</span></li></ul>
-     <a class="btn pen-btn" href="/kubart/"><span data-tr="KubArt'ı aç" data-en="Open KubArt">KubArt'ı aç</span><svg class="ico"><use href="#i-arrow"/></svg></a>
-    </div>
-    <div class="sketch drawing" aria-hidden="true"><svg viewBox="0 0 520 260">
-     <rect class="sk skf" x="40" y="70" width="110" height="80" pathLength="1"/>
-     <path class="sk" d="M40 138 C 70 96, 96 92, 112 112 S 138 96, 150 84" pathLength="1"/>
-     <text class="skt g" x="52" y="186" data-tr="1 görsel" data-en="1 image">1 görsel</text>
-     <path class="sk pen" d="M178 112 C 212 98, 238 98, 270 110" pathLength="1"/><path class="sk pen" d="M258 100 L 271 110 L 257 120" pathLength="1"/>
-     <rect class="sk skf" x="300" y="22" width="200" height="216" pathLength="1"/>
-     <path class="sk" d="M300 196 C 352 112, 396 100, 426 148 S 474 92, 500 64" pathLength="1"/>
-     <path class="sk hl" d="M366.7 22v216M433.3 22v216M300 130h200" stroke-dasharray="6 6" pathLength="1"/>
-     <text class="skt" x="308" y="44">1</text><text class="skt" x="374" y="44">2</text><text class="skt" x="441" y="44">3</text>
-     <text class="skt" x="308" y="152">4</text><text class="skt" x="374" y="152">5</text><text class="skt" x="441" y="152">6</text>
-    </svg></div>
-   </div>
-  </section>
-
-  <section class="ex" id="makro" aria-labelledby="q-makro" style="--c:var(--t-makro)">
-   <span class="mlabel hand" style="--c:var(--ink)">Makro</span>
-   <h2 id="q-makro" data-tr="Excel'de her hafta aynı işi elle mi yapıyorsun?" data-en="Doing the same Excel job by hand every week?">Excel'de her hafta aynı işi elle mi yapıyorsun?</h2>
-   <p style="margin-top:var(--sq);max-width:60ch;color:#3a414a" data-tr="Proje kontrol ve maliyet işlerimde kullandığım sekiz VBA makrosu. Her birinin adım adım anlatımı ve indirme bağlantısı makrolar sayfasında." data-en="Eight VBA macros I use in project-controls and cost work. Each has a step-by-step guide and download on the macros page.">Proje kontrol ve maliyet işlerimde kullandığım sekiz VBA makrosu. Her birinin adım adım anlatımı ve indirme bağlantısı makrolar sayfasında.</p>
-   <div class="rhead" aria-hidden="true"><span data-tr="makro" data-en="macro">makro</span><span class="d" data-tr="ne yapar" data-en="what it does">ne yapar</span><span class="r" data-tr="gerekir" data-en="needs">gerekir</span><span></span></div>
-   <div class="ruled">
-    <a href="makrolar.html#s-curve-planner"><span class="n" data-tr="Proje S Eğrisi" data-en="Project S-Curve">Proje S Eğrisi</span><span class="d" data-tr="Bütçeyi aylara dağıtır; nakit akışı ve S eğrisi grafiği kurar." data-en="Spreads a budget over months and builds the cash-flow S-curve.">Bütçeyi aylara dağıtır; nakit akışı ve S eğrisi grafiği kurar.</span><span class="r" data-tr="Masaüstü Excel" data-en="Desktop Excel">Masaüstü Excel</span><svg class="ico"><use href="#i-arrow"/></svg></a>
-    <a href="makrolar.html#weighted-distribution"><span class="n" data-tr="Ağırlıklı Tutar Dağıtımı" data-en="Weighted Distribution">Ağırlıklı Tutar Dağıtımı</span><span class="d" data-tr="Bir tutarı seçtiğin ağırlıklara göre hücrelere paylaştırır." data-en="Splits an amount across cells by the weights you pick.">Bir tutarı seçtiğin ağırlıklara göre hücrelere paylaştırır.</span><span class="r" data-tr="Masaüstü Excel" data-en="Desktop Excel">Masaüstü Excel</span><svg class="ico"><use href="#i-arrow"/></svg></a>
-    <a href="makrolar.html#pdf-merge"><span class="n" data-tr="PDF Birleştir" data-en="Merge PDFs">PDF Birleştir</span><span class="d" data-tr="Klasördeki PDF'leri ada göre sıralayıp tek dosyada birleştirir." data-en="Sorts the PDFs in a folder by name and merges them into one.">Klasördeki PDF'leri ada göre sıralayıp tek dosyada birleştirir.</span><span class="r">Windows + Acrobat</span><svg class="ico"><use href="#i-arrow"/></svg></a>
-    <a href="makrolar.html#create-folders-from-cells"><span class="n" data-tr="Hücrelerden Klasör Oluştur" data-en="Folders from Cells">Hücrelerden Klasör Oluştur</span><span class="d" data-tr="Seçili hücrelerdeki isimlerle toplu klasör açar." data-en="Creates folders in bulk from names in the selected cells.">Seçili hücrelerdeki isimlerle toplu klasör açar.</span><span class="r">Windows Excel</span><svg class="ico"><use href="#i-arrow"/></svg></a>
-    <a href="makrolar.html#copy-linked-folders"><span class="n" data-tr="Klasör Kopyala" data-en="Copy Linked Folders">Klasör Kopyala</span><span class="d" data-tr="Hücre bağlantılarındaki klasörleri alt klasörleriyle kopyalar." data-en="Copies folders linked in cells, with all subfolders.">Hücre bağlantılarındaki klasörleri alt klasörleriyle kopyalar.</span><span class="r">Windows Excel</span><svg class="ico"><use href="#i-arrow"/></svg></a>
-    <a href="makrolar.html#worksheet-inventory"><span class="n" data-tr="Sayfa Envanteri" data-en="Sheet Inventory">Sayfa Envanteri</span><span class="d" data-tr="Görünür, gizli ve çok gizli sayfaları tek tabloda listeler." data-en="Lists visible, hidden and very hidden sheets in one table.">Görünür, gizli ve çok gizli sayfaları tek tabloda listeler.</span><span class="r" data-tr="Masaüstü Excel" data-en="Desktop Excel">Masaüstü Excel</span><svg class="ico"><use href="#i-arrow"/></svg></a>
-    <a href="makrolar.html#clear-unused-formatting"><span class="n" data-tr="Excel Temizle" data-en="Clean Excel">Excel Temizle</span><span class="d" data-tr="Veri dışındaki biçimleri siler, dosyayı hafifletir." data-en="Clears formatting outside your data to slim the file.">Veri dışındaki biçimleri siler, dosyayı hafifletir.</span><span class="r" data-tr="Masaüstü Excel" data-en="Desktop Excel">Masaüstü Excel</span><svg class="ico"><use href="#i-arrow"/></svg></a>
-    <a href="makrolar.html#hide-text-matching-fill"><span class="n" data-tr="Renk Eşleştir" data-en="Match Font Color">Renk Eşleştir</span><span class="d" data-tr="Yazı rengini hücre dolgusuyla eşler; geri alınabilir." data-en="Matches text color to the cell fill; reversible.">Yazı rengini hücre dolgusuyla eşler; geri alınabilir.</span><span class="r" data-tr="Masaüstü Excel" data-en="Desktop Excel">Masaüstü Excel</span><svg class="ico"><use href="#i-arrow"/></svg></a>
-   </div>
-   <a class="btn pen-btn" href="makrolar.html"><span data-tr="Makroları ve anlatımları gör" data-en="See macros and guides">Makroları ve anlatımları gör</span><svg class="ico"><use href="#i-arrow"/></svg></a>
-  </section>
-
-  <section class="ex" id="hakkimda" aria-label="Notlar ve hakkımda" data-aria-label-tr="Notlar ve hakkımda" data-aria-label-en="Notes and about">
-   <span class="mlabel hand" data-tr="Not" data-en="Note">Not</span>
-   <div class="two">
-    <a class="note" href="excel-pratikleri.html">
-     <h3 data-tr="Excel pratikleri" data-en="Excel tips">Excel pratikleri</h3>
-     <p data-tr="Excel'de takıldığım yerler ve çözümleri: AutoFilter'ı tek tıkla kullanmak, filtreli satırlara formül aktarmak ve daha fazlası. Örnek dosyalar indirilebilir." data-en="Places I got stuck in Excel and how I solved them: one-click AutoFilter, copying formulas into filtered rows, and more. Sample files included.">Excel'de takıldığım yerler ve çözümleri: AutoFilter'ı tek tıkla kullanmak, filtreli satırlara formül aktarmak ve daha fazlası. Örnek dosyalar indirilebilir.</p>
-     <span class="more"><span data-tr="Notları oku" data-en="Read the notes">Notları oku</span><svg class="ico"><use href="#i-arrow"/></svg></span>
-    </a>
-    <div class="about">
-     <h3>Tolga İpek</h3>
-     <p data-tr="Makine mühendisiyim. Proje kontrol, maliyet yönetimi ve Excel otomasyonuyla verileri pratik çözümlere dönüştürüyorum. Buradaki araçları önce kendi işim için yazdım." data-en="I'm a mechanical engineer. I turn data into practical solutions through project controls, cost management and Excel automation. I built these tools for my own work first.">Makine mühendisiyim. Proje kontrol, maliyet yönetimi ve Excel otomasyonuyla verileri pratik çözümlere dönüştürüyorum. Buradaki araçları önce kendi işim için yazdım.</p>
-     <div class="links"><a href="https://www.linkedin.com/in/tolga-ipek-0982a86b/" target="_blank" rel="noopener">LinkedIn<svg class="ico"><use href="#i-ext"/></svg></a><a href="https://github.com/Tipek41" target="_blank" rel="noopener">GitHub<svg class="ico"><use href="#i-ext"/></svg></a></div>
-    </div>
-   </div>
-  </section>
-
- </div>
+ <section id="hakkimda" class="about grid12" aria-labelledby="a-h">
+  <a class="plane p-stone notes" href="excel-pratikleri.html">
+   <b data-tr="Excel pratikleri" data-en="Excel tips">Excel pratikleri</b>
+   <span data-tr="Takıldığım yerler ve çözümleri, örnek dosyalarıyla." data-en="Where I got stuck and how I fixed it, with sample files.">Takıldığım yerler ve çözümleri, örnek dosyalarıyla.</span>
+   <span class="go"><span data-tr="Oku" data-en="Read">Oku</span><svg class="ico"><use href="#i-arrow"/></svg></span>
+  </a>
+  <div class="bio">
+   <h2 id="a-h" data-tr="Hakkımda" data-en="About">Hakkımda</h2>
+   <p data-tr="Makine mühendisiyim. Proje kontrol, maliyet yönetimi ve Excel otomasyonuyla verileri pratik çözümlere dönüştürüyorum. Buradaki araçları önce kendi işim için yazdım." data-en="I'm a mechanical engineer. I turn data into practical solutions through project controls, cost management and Excel automation. I built these tools for my own work first.">Makine mühendisiyim. Proje kontrol, maliyet yönetimi ve Excel otomasyonuyla verileri pratik çözümlere dönüştürüyorum. Buradaki araçları önce kendi işim için yazdım.</p>
+   <div class="links"><a href="https://www.linkedin.com/in/tolga-ipek-0982a86b/" target="_blank" rel="noopener">LinkedIn<svg class="ico"><use href="#i-ext"/></svg></a><a href="https://github.com/Tipek41" target="_blank" rel="noopener">GitHub<svg class="ico"><use href="#i-ext"/></svg></a></div>
+  </div>
+ </section>
 </main>
 
-<nav class="tabs" aria-label="Bölümler" data-aria-label-tr="Bölümler" data-aria-label-en="Sections">
- <a href="#pdf" data-k="pdf" style="--c:var(--t-pdf)">PDF</a>
- <a href="#tablo" data-k="tablo" style="--c:var(--t-tablo)" data-tr="Tablo" data-en="Table">Tablo</a>
- <a href="#gorsel" data-k="gorsel" style="--c:var(--t-gorsel)" data-tr="Görsel" data-en="Image">Görsel</a>
- <a href="#poster" data-k="poster" style="--c:var(--t-poster)">Poster</a>
- <a href="#makro" data-k="makro" style="--c:var(--t-makro)">Makro</a>
-</nav>
-
-<footer class="back">
- <div class="back-in">
-  <div class="mini"><b data-tr="Adı Soyadı" data-en="Name">Adı Soyadı</b><span>Tolga İpek</span></div>
-  <ul>
-   <li><svg class="ico"><use href="#i-lock"/></svg><span data-tr="Araçlar dosyalarını cihazında işler, sunucuya göndermez." data-en="Tools process your files on your device and never upload them.">Araçlar dosyalarını cihazında işler, sunucuya göndermez.</span></li>
-   <li><svg class="ico"><use href="#i-check"/></svg><span data-tr="Çerez yok, reklam yok, takip yok." data-en="No cookies, no ads, no tracking.">Çerez yok, reklam yok, takip yok.</span></li>
-   <li><svg class="ico"><use href="#i-win"/></svg><span data-tr="Makrolar masaüstü Excel'de çalışır." data-en="Macros run in desktop Excel.">Makrolar masaüstü Excel'de çalışır.</span></li>
-  </ul>
-  <div class="price">
-   <svg width="132" height="52" viewBox="0 0 132 52" aria-hidden="true"><g fill="#191d22"><rect x="0" y="0" width="2" height="38"/><rect x="4" y="0" width="1" height="38"/><rect x="7" y="0" width="3" height="38"/><rect x="12" y="0" width="1" height="38"/><rect x="15" y="0" width="2" height="38"/><rect x="19" y="0" width="1" height="38"/><rect x="22" y="0" width="1" height="38"/><rect x="25" y="0" width="3" height="38"/><rect x="30" y="0" width="1" height="38"/><rect x="33" y="0" width="2" height="38"/><rect x="38" y="0" width="1" height="38"/><rect x="41" y="0" width="3" height="38"/><rect x="46" y="0" width="1" height="38"/><rect x="49" y="0" width="2" height="38"/><rect x="53" y="0" width="1" height="38"/><rect x="56" y="0" width="3" height="38"/><rect x="61" y="0" width="1" height="38"/><rect x="64" y="0" width="2" height="38"/><rect x="68" y="0" width="1" height="38"/><rect x="71" y="0" width="1" height="38"/><rect x="74" y="0" width="3" height="38"/><rect x="79" y="0" width="1" height="38"/><rect x="82" y="0" width="2" height="38"/><rect x="86" y="0" width="1" height="38"/><rect x="89" y="0" width="3" height="38"/><rect x="94" y="0" width="1" height="38"/><rect x="97" y="0" width="2" height="38"/><rect x="101" y="0" width="1" height="38"/><rect x="104" y="0" width="1" height="38"/><rect x="107" y="0" width="3" height="38"/><rect x="112" y="0" width="1" height="38"/></g><text x="0" y="50" font-family="Schibsted Grotesk,sans-serif" font-size="10" letter-spacing="1.6" fill="#191d22">TOLGAIPEK.COM.TR</text></svg>
-   <span data-tr="Fiyatı" data-en="Price">Fiyatı</span><strong>0 TL</strong>
-  </div>
- </div>
- <div class="fine"><span>© <span id="year">2026</span> Tolga İpek</span><a href="https://github.com/Tipek41" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/tolga-ipek-0982a86b/" target="_blank" rel="noopener">LinkedIn</a><a href="#top" data-tr="Başa dön" data-en="Back to top">Başa dön</a></div>
+<footer class="foot">
+ <span>© <span id="year">2026</span> Tolga İpek</span>
+ <span data-tr="Dosyalar cihazınızda işlenir · takip yok · reklam yok" data-en="Files stay on your device · no tracking · no ads">Dosyalar cihazınızda işlenir · takip yok · reklam yok</span>
+ <a href="#top" data-tr="Başa dön" data-en="Back to top">Başa dön</a>
 </footer>
-
 <script>
 document.documentElement.classList.add('js');
 let language='tr';
 function localize(){document.documentElement.lang=language;document.querySelectorAll('[data-tr]').forEach(e=>e.textContent=e.dataset[language]);['aria-label','alt'].forEach(a=>document.querySelectorAll(`[data-${a}-tr]`).forEach(e=>e.setAttribute(a,e.getAttribute(`data-${a}-${language}`))));document.querySelectorAll('[data-lang]').forEach(e=>{e.classList.toggle('active',e.dataset.lang===language);e.setAttribute('aria-pressed',String(e.dataset.lang===language))})}
 document.querySelectorAll('[data-lang]').forEach(e=>e.addEventListener('click',()=>{language=e.dataset.lang;localize()}));
 document.querySelector('#year').textContent=new Date().getFullYear();
-// pen draws each sketch once it scrolls into view; sketches stay fully visible without JS
-const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-if('IntersectionObserver' in window&&!reduce){
- const sk=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('drawn');sk.unobserve(e.target)}}),{threshold:.35});
- document.querySelectorAll('.drawing').forEach(d=>{const r=d.getBoundingClientRect();if(r.top<innerHeight*.9)d.classList.add('drawn');sk.observe(d)});
-}else{document.querySelectorAll('.drawing').forEach(d=>d.classList.add('drawn'))}
-// index tabs mark the section you are on
-const tabs=[...document.querySelectorAll('.tabs a')];
-if('IntersectionObserver' in window){
- const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){tabs.forEach(t=>t.classList.toggle('on',t.dataset.k===e.target.id))}}),{rootMargin:'-45% 0px -50% 0px'});
- tabs.forEach(t=>{const s=document.getElementById(t.dataset.k);if(s)io.observe(s)});
-}
 </script>
 </body></html>

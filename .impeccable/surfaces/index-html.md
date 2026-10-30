@@ -7,18 +7,18 @@ related_targets: []
 
 # Surface: homepage (index.html)
 
-Mode: Persuade. Audience: anyone looking for a free utility (PDF, CSV→Excel, image resize, poster print, Excel macros); TR first, EN second. Action: open a tool or download a macro. Memorable entrance requested; user rejected "too plain/empty", "toy-like", "corporate/cold".
+Mode: Persuade. Audience: anyone looking for a free utility (PDF, CSV to Excel, image resize, poster print, Excel macros); TR first, EN second. Action: open a tool or download a macro. Kareli defter rejected by the user.
 
 ## Direction contract
 
-THESIS: The homepage is one Turkish "kareli defter" (graph-paper notebook) seen once: a saturated plastic-jacket cover with a name label, then the grid pages where each tool is written as a solved exercise (Soru → Çözüm → aracı aç). It refuses the tool-hub default: centred headline over a row of equal icon cards on a dark gradient.
+THESIS: The homepage is a single modernist grid poster (Ikko Tanaka lineage): flat colour planes locked to one grid, heavy grotesk type, and one off-centre vermilion circle as the only curve. It refuses the dark glass-card tool hub and the notebook metaphor.
 
-OWN-WORLD: Cover field in deep notebook-cover green with a faint plastic sheen; white label rectangle with ruled lines and ballpoint handwriting; vesikalık photo on the label. Pages: white paper, 24px blue-grey grid, one red margin rule; set text in a heavy grotesk (Schibsted Grotesk), annotations in ballpoint blue handwriting (Kalam) used sparingly; pencil-grey sketches. Colored separator index tabs stick out of the right edge. Back cover green with barcode and "Fiyatı: 0 ₺".
+OWN-WORLD: paper ground #f2efe8, ink #141414, planes vermilion #d8402b, indigo #1f3c88, ochre #e0a526, teal #2a7f7a, stone #9fb0b8. Type: Archivo 900 for display, 500 for text. No gradients, no shadows, no glass, no rounded corners except the single circle.
 
-STORY: Visitor sees whose notebook it is and that it holds free tools that keep files on their device; picks a tab or a question that matches their job; sees the before→after; opens the tool. Macros sit on a ruled "formül sayfası".
+STORY: Visitor reads the name and the grid of coloured planes, each plane is one tool, and taps the one that matches the job. Macros sit in an orderly strip of narrow planes. The photo is a plane, not a decoration.
 
-FIRST VIEWPORT: Full-width green cover occupies ~78% of 1440×900. Left-centre: label (≈520px) with ADI SOYADI / DERSİ / SINIFI lines, handwritten values, photo top-right of label. Right of label: printed cover headline in heavy grotesk, privacy line, primary button "Ne yapmak istiyorsun?" jumping to Soru 1. Right edge: five index tabs (PDF, Tablo, Görsel, Poster, Makro) protruding, sticky through the page. Bottom ~22%: the first grid page begins, spiral/stitch edge and "Soru 1" visible.
+FIRST VIEWPORT: Left 7 columns: giant "TOLGA İPEK" set in Archivo 900 with the surname stacked, below it one line of description. Right 5 columns: a 2x2 grid of colour planes, one per tool, each with its name and a single action word. The vermilion circle overlaps the boundary between the wordmark and the grid, off centre. Primary action is the planes themselves.
 
-FORM: Kareli defter, candidate 7 of 7 on the ordered grounded list (after merging the two technical-drawing near-duplicates). seed:5a971560c8873dbd. Raises: [Labanotation] every element sized in whole grid squares; [Darkroom] each tool shows a worked before→after before the commit button; [Suminagashi] only the primary action is full ink, the rest pencil/ballpoint; [Football kit] the name label is the fixed home, repeated on the back cover; [Film] every Soru starts on a new grid band with identical rhythm; [Accretion disk] a quiet unmarked field around the label. Signature interaction: sticky index tabs that jump to sections and mark the active one; pen-stroke draw-in of sketches on scroll (reduced-motion: static).
+FORM: Ikko Tanaka plane-portrait world, seed:5a971560c8873dbd, reroll 2 challenger chosen by the user. Raises: [Tanaka] one dominant geometric move per section; [Teletext] the grid is strict, every block aligns to the twelve-column unit.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
