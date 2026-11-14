@@ -1,8 +1,9 @@
 Attribute VB_Name = "ClearUnusedFormatting"
 Option Explicit
 
-' Clears formatting outside the active sheet's formula/value area.
-' Cell contents and formulas are preserved. Blank-result formulas count as used cells.
+' Sayfadaki mevcut filtreleri yedekler, tüm filtreleri temizler,
+' gizli satır/sütunlar dahil gerçek son veriyi bulur, dışındaki biçimlendirmeyi temizler
+' ve eski filtre ayarlarını birebir geri yükler.
 Public Sub VeriDisiTemizleVeSifirla()
     Dim ws As Worksheet
     Dim lastRowCell As Range, lastColCell As Range, refreshedRange As Range
@@ -13,37 +14,30 @@ Public Sub VeriDisiTemizleVeSifirla()
     Dim errorNumber As Long, errorDescription As String
     Dim answer As VbMsgBoxResult
 
+    ' Filtre yedekleme değişkenleri
+    Dim hasAutoFilter As Boolean
+    Dim filterRangeAddress As String
+    Dim filterCriteria() As Variant
+    Dim i As Long
+    Dim tbl As ListObject
+    Dim tblNames() As String, tblFilterStates() As Boolean
+    Dim tblCount As Long
+
     If TypeName(ActiveSheet) <> "Worksheet" Then
-        MsgBox "Select a worksheet and try again.", vbExclamation, "Clear Unused Formatting"
+        MsgBox "Lütfen bir çalışma sayfası seçip tekrar deneyin.", vbExclamation, "Kullanılmayan Biçimleri Temizle"
         Exit Sub
     End If
     Set ws = ActiveSheet
 
     If ws.ProtectContents Then
-        MsgBox "This worksheet is protected. Unprotect it before running this macro.", _
-               vbExclamation, "Clear Unused Formatting"
+        MsgBox "Bu sayfa korumalı. Makroyu çalıştırmadan önce sayfa korumasını kaldırın.", _
+               vbExclamation, "Kullanılmayan Biçimleri Temizle"
         Exit Sub
     End If
 
-    ' Search formulas as well as values, including formulas that currently return "".
-    Set lastRowCell = ws.Cells.Find(What:="*", After:=ws.Cells(1, 1), LookIn:=xlFormulas, _
-        LookAt:=xlPart, SearchOrder:=xlByRows, SearchDirection:=xlPrevious, _
-        MatchCase:=False, SearchFormat:=False)
-    Set lastColCell = ws.Cells.Find(What:="*", After:=ws.Cells(1, 1), LookIn:=xlFormulas, _
-        LookAt:=xlPart, SearchOrder:=xlByColumns, SearchDirection:=xlPrevious, _
-        MatchCase:=False, SearchFormat:=False)
-
-    If lastRowCell Is Nothing Or lastColCell Is Nothing Then
-        MsgBox "No values or formulas were found. No changes were made.", _
-               vbInformation, "Clear Unused Formatting"
-        Exit Sub
-    End If
-
-    lastRow = lastRowCell.Row
-    lastCol = lastColCell.Column
-    answer = MsgBox("Clear formatting outside the data area on '" & ws.Name & "'?" & vbCrLf & _
-        "Cell values and formulas will be kept.", vbQuestion + vbYesNo + vbDefaultButton2, _
-        "Clear Unused Formatting")
+    answer = MsgBox("'" & ws.Name & "' sayfasındaki veri alanı dışındaki tüm biçimlendirmeler temizlensin mi?" & vbCrLf & _
+        "(Açık filtreler geçici olarak kaldırılacak ve işlem sonunda aynı şekilde geri yüklenecektir.)", _
+        vbQuestion + vbYesNo + vbDefaultButton2, "Kullanılmayan Biçimleri Temizle")
     If answer <> vbYes Then Exit Sub
 
     oldScreenUpdating = Application.ScreenUpdating
@@ -56,7 +50,65 @@ Public Sub VeriDisiTemizleVeSifirla()
     Application.EnableEvents = False
     Application.Calculation = xlCalculationManual
 
-    ' Clear formats only. Do not delete rows or columns, so objects and cell positions stay put.
+    ' 1. STANDART SAYFA FİLTRESİNİ YEDEKLE VE KALDIR
+    If ws.AutoFilterMode Then
+        hasAutoFilter = True
+        filterRangeAddress = ws.AutoFilter.Range.Address
+        ReDim filterCriteria(1 To ws.AutoFilter.Filters.Count, 1 To 3)
+        
+        For i = 1 To ws.AutoFilter.Filters.Count
+            With ws.AutoFilter.Filters(i)
+                If .On Then
+                    filterCriteria(i, 1) = .Criteria1
+                    If .Operator <> 0 Then
+                        filterCriteria(i, 2) = .Operator
+                        On Error Resume Next
+                        filterCriteria(i, 3) = .Criteria2
+                        On Error GoTo ErrorHandler
+                    End If
+                End If
+            End With
+        Next i
+        
+        ' Filtre oklarını tamamen kaldır (gizli satırları açar)
+        ws.AutoFilterMode = False
+    End If
+
+    ' 2. EĞER AKILLI TABLO (ListObject) VARSA ONUN FİLTRELERİNİ DE GEÇİCİ OLARAK TEMİZLE
+    tblCount = ws.ListObjects.Count
+    If tblCount > 0 Then
+        ReDim tblNames(1 To tblCount)
+        ReDim tblFilterStates(1 To tblCount)
+        For i = 1 To tblCount
+            Set tbl = ws.ListObjects(i)
+            tblNames(i) = tbl.Name
+            tblFilterStates(i) = tbl.ShowAutoFilter
+            If tbl.ShowAutoFilter Then
+                tbl.AutoFilter.ShowAllData
+            End If
+        Next i
+    End If
+
+    ' 3. GERÇEK SON SATIR VE SÜTUNU BUL (Tüm filtreler kalktığı için gizli hücre kalmadı)
+    ' Not: LookIn:=xlFormulas gizli olmayan tüm hücrelerdeki değer ve formülleri tarar.
+    Set lastRowCell = ws.Cells.Find(What:="*", After:=ws.Cells(1, 1), LookIn:=xlFormulas, _
+        LookAt:=xlPart, SearchOrder:=xlByRows, SearchDirection:=xlPrevious, _
+        MatchCase:=False, SearchFormat:=False)
+        
+    Set lastColCell = ws.Cells.Find(What:="*", After:=ws.Cells(1, 1), LookIn:=xlFormulas, _
+        LookAt:=xlPart, SearchOrder:=xlByColumns, SearchDirection:=xlPrevious, _
+        MatchCase:=False, SearchFormat:=False)
+
+    If lastRowCell Is Nothing Or lastColCell Is Nothing Then
+        MsgBox "Sayfada herhangi bir değer veya formül bulunamadı. İşlem yapılmadı.", _
+               vbInformation, "Kullanılmayan Biçimleri Temizle"
+        GoTo RestoreFilters
+    End If
+
+    lastRow = lastRowCell.Row
+    lastCol = lastColCell.Column
+
+    ' 4. VERİ ALANI DIŞINDAKİ BİÇİMLENDİRMELERİ TEMİZLE
     If lastRow < ws.Rows.Count Then
         ws.Rows(CStr(lastRow + 1) & ":" & CStr(ws.Rows.Count)).ClearFormats
     End If
@@ -64,9 +116,27 @@ Public Sub VeriDisiTemizleVeSifirla()
         ws.Range(ws.Cells(1, lastCol + 1), ws.Cells(1, ws.Columns.Count)).EntireColumn.ClearFormats
     End If
 
-    ' Ask Excel to refresh its used-range calculation.
+    ' Kullanılan alanı (UsedRange) yenile
     Set refreshedRange = ws.UsedRange
     completed = True
+
+RestoreFilters:
+    ' 5. YEDEKLENEN STANDART FİLTRELERİ GERİ YÜKLE
+    If hasAutoFilter Then
+        ws.Range(filterRangeAddress).AutoFilter
+        For i = 1 To UBound(filterCriteria, 1)
+            If Not IsEmpty(filterCriteria(i, 1)) Then
+                If IsEmpty(filterCriteria(i, 2)) Then
+                    ws.Range(filterRangeAddress).AutoFilter Field:=i, Criteria1:=filterCriteria(i, 1)
+                ElseIf IsEmpty(filterCriteria(i, 3)) Then
+                    ws.Range(filterRangeAddress).AutoFilter Field:=i, Criteria1:=filterCriteria(i, 1), Operator:=filterCriteria(i, 2)
+                Else
+                    ws.Range(filterRangeAddress).AutoFilter Field:=i, Criteria1:=filterCriteria(i, 1), Operator:=filterCriteria(i, 2), Criteria2:=filterCriteria(i, 3)
+                End If
+            End If
+        Next i
+    End If
+
     GoTo CleanExit
 
 ErrorHandler:
@@ -83,12 +153,12 @@ CleanExit:
     End If
 
     If errorNumber <> 0 Then
-        MsgBox "Formatting cleanup could not be completed:" & vbCrLf & errorDescription, _
-               vbCritical, "Clear Unused Formatting"
+        MsgBox "Temizleme işlemi tamamlanamadı:" & vbCrLf & errorDescription, _
+               vbCritical, "Kullanılmayan Biçimleri Temizle"
     ElseIf completed Then
-        MsgBox "Formatting outside the data area was cleared." & vbCrLf & _
-               "Last formula/value cell: " & ws.Cells(lastRow, lastCol).Address(False, False) & vbCrLf & _
-               "Save and reopen the workbook if Excel still shows an inflated used range.", _
-               vbInformation, "Clear Unused Formatting"
+        MsgBox "Veri alanı dışındaki tüm biçimlendirmeler temizlendi." & vbCrLf & _
+               "Son veri hücresi: " & ws.Cells(lastRow, lastCol).Address(False, False) & vbCrLf & _
+               "Kaydırıcıların (Scrollbar) güncellenmesi için dosyayı kaydedin.", _
+               vbInformation, "Kullanılmayan Biçimleri Temizle"
     End If
 End Sub
