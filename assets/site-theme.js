@@ -37,9 +37,67 @@
     button.addEventListener('click', () => {
       const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
       explicit = true; try { localStorage.setItem(key, theme); } catch {}
-      apply(theme);
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!document.startViewTransition || reduced) { apply(theme); return; }
+      const rect = button.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+      const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+      document.documentElement.style.setProperty('--portal-x', `${x}px`);
+      document.documentElement.style.setProperty('--portal-y', `${y}px`);
+      document.documentElement.style.setProperty('--portal-radius', `${radius}px`);
+      document.startViewTransition(() => apply(theme));
     });
     new MutationObserver(update).observe(document.documentElement, {attributes:true, attributeFilter:['lang']});
     update();
+
+    const nav = document.querySelector('header nav');
+    const links = nav ? [...nav.querySelectorAll('a')] : [];
+    if (nav && links.length) {
+      const indicator = document.createElement('span');
+      indicator.className = 'nav-indicator';
+      indicator.setAttribute('aria-hidden', 'true');
+      nav.append(indicator);
+      const current = () => links.find(link => link.matches('[aria-current],.current')) ||
+        links.find(link => link.hash && link.hash === location.hash) ||
+        links.find(link => new URL(link.href, location.href).pathname === location.pathname) || links[0];
+      const move = link => {
+        if (!link || innerWidth <= 650) return;
+        indicator.style.transform = `translate3d(${link.offsetLeft}px,0,0) scaleX(${link.offsetWidth})`;
+        indicator.classList.add('is-visible');
+      };
+      links.forEach(link => {
+        link.addEventListener('pointerenter', () => move(link));
+        link.addEventListener('focus', () => move(link));
+      });
+      nav.addEventListener('pointerleave', () => move(current()));
+      nav.addEventListener('focusout', event => { if (!nav.contains(event.relatedTarget)) move(current()); });
+      addEventListener('resize', () => move(current()), {passive:true});
+      addEventListener('hashchange', () => move(current()));
+      requestAnimationFrame(() => move(current()));
+    }
+
+    document.querySelectorAll('details > summary').forEach(summary => {
+      if (summary.querySelector('.details-mark')) return;
+      const mark = document.createElement('span');
+      mark.className = 'details-mark';
+      mark.setAttribute('aria-hidden', 'true');
+      summary.append(mark);
+    });
+
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const items = document.querySelectorAll('.tool, .macro-card, .note-card');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('motion-in');
+          observer.unobserve(entry.target);
+        });
+      }, {threshold:.12});
+      items.forEach((item, index) => {
+        item.style.setProperty('--motion-delay', `${Math.min(index % 6, 5) * 55}ms`);
+        observer.observe(item);
+      });
+    }
   });
 })();
