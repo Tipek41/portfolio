@@ -1,70 +1,69 @@
 (() => {
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
-  const text = (tr, en) => document.documentElement.lang === 'en' ? en : tr;
 
-  function bindSegment(control) {
-    if (!control) return;
-    const buttons = $$('[data-segment]', control);
-    buttons.forEach(button => button.addEventListener('click', () => {
-      const index = Number(button.dataset.segment);
-      control.style.setProperty('--segment-index', index);
-      buttons.forEach((item, at) => item.setAttribute('aria-pressed', String(at === index)));
-      if (control.classList.contains('hero-segment')) {
-        const messages = [
-          ['Projenin genel görünümü hazır.', 'The project overview is ready.'],
-          ['Maliyet ve ilerleme ayrıntıları açıldı.', 'Cost and progress details are open.'],
-          ['İş akışı ve otomasyon adımları gösteriliyor.', 'Workflow and automation steps are shown.']
-        ];
-        const result = $('[data-result]');
-        result.dataset.tr = messages[index][0]; result.dataset.en = messages[index][1]; result.textContent = messages[index][document.documentElement.lang === 'en' ? 1 : 0];
-      }
-    }));
-  }
-  $$('.segment-control').forEach(bindSegment);
+  const setLanguage = lang => {
+    document.documentElement.lang = lang;
+    $$('[data-tr][data-en]').forEach(el => { el.textContent = el.dataset[lang]; });
+    $$('[data-lang]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.lang === lang)));
+    try { localStorage.setItem('siteLanguage', lang); } catch (_) {}
+  };
 
-  $$('.lab-row-trigger').forEach(trigger => trigger.addEventListener('click', () => {
-    const row = trigger.closest('.lab-row');
-    const open = row.classList.contains('is-open');
-    $$('.lab-row').forEach(item => { item.classList.remove('is-open'); $('.lab-row-trigger', item).setAttribute('aria-expanded', 'false'); });
-    if (!open) { row.classList.add('is-open'); trigger.setAttribute('aria-expanded', 'true'); }
+  $$('[data-lang]').forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.lang)));
+  let savedLanguage = 'tr';
+  try { savedLanguage = localStorage.getItem('siteLanguage') || 'tr'; } catch (_) {}
+  setLanguage(savedLanguage === 'en' ? 'en' : 'tr');
+
+  $$('.segment-control').forEach(control => {
+    control.addEventListener('click', event => {
+      const button = event.target.closest('[data-segment]');
+      if (!button) return;
+      $$('[data-segment]', control).forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      $('.segment-thumb', control).style.transform = `translateX(${Number(button.dataset.segment) * 100}%)`;
+    });
+  });
+
+  $$('.copy-demo').forEach(button => button.addEventListener('click', async () => {
+    const label = $('.copy-label', button);
+    const lang = document.documentElement.lang;
+    try { await navigator.clipboard.writeText($('.copy-value', button).textContent); } catch (_) {}
+    button.classList.remove('is-copying');
+    void button.offsetWidth;
+    button.classList.add('is-copying');
+    label.textContent = lang === 'en' ? 'Copied' : 'Kopyalandı';
+    window.setTimeout(() => { label.textContent = lang === 'en' ? 'Copy' : 'Kopyala'; }, 1500);
   }));
 
-  document.addEventListener('click', async event => {
-    const copyButton = event.target.closest('.copy-demo');
-    if (copyButton) {
-      copyButton.classList.remove('is-copied'); copyButton.classList.add('is-copying');
-      try { await navigator.clipboard.writeText($('.copy-value', copyButton).textContent); } catch {}
-      setTimeout(() => { copyButton.classList.remove('is-copying'); copyButton.classList.add('is-copied'); $('.copy-label', copyButton).textContent = text('Kopyalandı', 'Copied'); }, 380);
-      setTimeout(() => { copyButton.classList.remove('is-copied'); $('.copy-label', copyButton).textContent = text('Kopyala', 'Copy'); }, 1800);
-      return;
-    }
-    const doneButton = event.target.closest('.done-demo');
-    if (doneButton) {
-      doneButton.classList.remove('is-done'); void doneButton.offsetWidth; doneButton.classList.add('is-done');
-      $('span', doneButton).textContent = text('Tamamlandı', 'Completed');
-      setTimeout(() => { doneButton.classList.remove('is-done'); $('span', doneButton).textContent = text('İşlemi tamamla', 'Complete action'); }, 1900);
-      return;
-    }
-    const accordionButton = event.target.closest('.mini-accordion button');
-    if (accordionButton) {
-      const item = accordionButton.closest('.mini-accordion'); const open = item.classList.toggle('is-open'); accordionButton.setAttribute('aria-expanded', String(open));
-      return;
-    }
-    const searchButton = event.target.closest('.search-demo button');
-    if (searchButton) {
-      const box = searchButton.closest('.search-demo'); const open = box.classList.toggle('is-open'); if (open) $('input', box).focus();
-      return;
-    }
-  });
-  const portalDemo = $('.portal-demo');
-  if (portalDemo) portalDemo.addEventListener('click', () => portalDemo.classList.toggle('is-open'));
+  $$('.done-demo').forEach(button => button.addEventListener('click', () => {
+    button.classList.remove('is-done');
+    void button.offsetWidth;
+    button.classList.add('is-done');
+    const label = $('span', button);
+    label.textContent = document.documentElement.lang === 'en' ? 'Completed' : 'Tamamlandı';
+  }));
 
-  $$('[data-lang]').forEach(button => button.addEventListener('click', () => {
-    const lang = button.dataset.lang; document.documentElement.lang = lang;
-    document.title = lang === 'tr' ? 'UI Hareket Laboratuvarı · Tolga İpek' : 'UI Motion Lab · Tolga İpek';
-    $$('[data-tr]').forEach(element => element.textContent = element.dataset[lang]);
-    $$('[data-lang]').forEach(item => item.setAttribute('aria-pressed', String(item.dataset.lang === lang)));
-    $$('[data-placeholder-tr]').forEach(input => input.placeholder = input.dataset[lang === 'tr' ? 'placeholderTr' : 'placeholderEn']);
+  $$('.accordion-demo button').forEach(button => button.addEventListener('click', () => {
+    const demo = button.closest('.accordion-demo');
+    const open = !demo.classList.contains('is-open');
+    demo.classList.toggle('is-open', open);
+    button.setAttribute('aria-expanded', String(open));
+  }));
+
+  $$('.search-demo button').forEach(button => button.addEventListener('click', () => {
+    const form = button.closest('.search-demo');
+    const open = !form.classList.contains('is-open');
+    form.classList.toggle('is-open', open);
+    if (open) window.setTimeout(() => $('input', form).focus(), 200);
+  }));
+
+  $$('.portal-demo button').forEach(button => button.addEventListener('click', event => {
+    const demo = button.closest('.portal-demo');
+    const layer = $('.portal-layer', demo);
+    const bounds = demo.getBoundingClientRect();
+    layer.style.left = `${event.clientX - bounds.left - 12}px`;
+    layer.style.top = `${event.clientY - bounds.top - 12}px`;
+    demo.classList.remove('is-open');
+    void demo.offsetWidth;
+    demo.classList.add('is-open');
   }));
 })();
