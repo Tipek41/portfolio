@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>UI Hareket Laboratuvarı · Tolga İpek</title>
+  <meta name="description" content="Mikro etkileşimleri canlı deneyin: seçim, kopyalama, arama, tamamlanma ve geçiş hareketleri.">
+  <meta name="theme-color" content="#08131f">
+  <link rel="canonical" href="https://tolgaipek.com.tr/ui-lab.html">
+  <link rel="icon" href="favicon.svg?v=1" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site-theme.css?v=2">
+  <link rel="stylesheet" href="assets/ui-lab.css?v=1">
+  <script src="assets/site-theme.js?v=3"></script>
+</head>
+<body class="ui-lab-page">
+  <header>
+    <div class="lab-shell lab-header">
+      <a class="lab-brand" href="./">TOLGA İPEK</a>
+      <nav aria-label="Ana menü">
+        <a href="./#tools" data-tr="Araçlar" data-en="Tools">Araçlar</a>
+        <a href="makrolar.html" data-tr="Makrolar" data-en="Macros">Makrolar</a>
+        <a href="excel-pratikleri.html" data-tr="Excel Pratikleri" data-en="Excel Tips">Excel Pratikleri</a>
+        <a href="ui-lab.html" aria-current="page" data-tr="UI Laboratuvarı" data-en="UI Lab">UI Laboratuvarı</a>
+      </nav>
+      <div class="languages" aria-label="Dil">
+        <button type="button" data-lang="tr" aria-pressed="true">TR</button><span>/</span><button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="lab-hero lab-shell">
+      <div class="lab-hero-copy">
+        <h1 data-tr="Hareketleri canlı dene." data-en="Try motion live.">Hareketleri canlı dene.</h1>
+        <p data-tr="İnternette karşıma çıkan iyi mikro etkileşimleri inceliyor, yeniden kodluyor ve kullanılabilir örneklere dönüştürüyorum." data-en="I study useful micro-interactions found online, rebuild them in code and turn them into working examples.">İnternette karşıma çıkan iyi mikro etkileşimleri inceliyor, yeniden kodluyor ve kullanılabilir örneklere dönüştürüyorum.</p>
+        <a class="lab-action" href="#patterns" data-tr="İlk örneği aç" data-en="Open the first demo">İlk örneği aç</a>
+      </div>
+      <div class="hero-stage" data-ui>
+        <div class="stage-copy">
+          <strong data-tr="Görünüm" data-en="View">Görünüm</strong>
+          <span data-tr="Kayan seçim" data-en="Sliding selection">Kayan seçim</span>
+        </div>
+        <div class="segment-control hero-segment" role="group" aria-label="Görünüm seçimi">
+          <span class="segment-thumb" aria-hidden="true"></span>
+          <button type="button" aria-pressed="true" data-segment="0" data-tr="Özet" data-en="Summary">Özet</button>
+          <button type="button" aria-pressed="false" data-segment="1" data-tr="Detay" data-en="Detail">Detay</button>
+          <button type="button" aria-pressed="false" data-segment="2" data-tr="Akış" data-en="Flow">Akış</button>
+        </div>
+        <div class="stage-result" aria-live="polite">
+          <span class="stage-orbit" aria-hidden="true"></span>
+          <p data-result data-tr="Projenin genel görünümü hazır." data-en="The project overview is ready.">Projenin genel görünümü hazır.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pattern-section" id="patterns" aria-labelledby="patterns-title">
+      <div class="lab-shell section-intro">
+        <h2 id="patterns-title" data-tr="Altı hareket, çalışan haliyle." data-en="Six motions, fully working.">Altı hareket, çalışan haliyle.</h2>
+        <p data-tr="Bir satıra dokun; örnek açılır. Yeniden oynat düğmesi hareketi baştan çalıştırır." data-en="Tap a row to open its demo. Replay runs the motion again.">Bir satıra dokun; örnek açılır. Yeniden oynat düğmesi hareketi baştan çalıştırır.</p>
+      </div>
+
+      <div class="pattern-board" data-ui>
+        <article class="lab-row is-open" data-pattern="segment">
+          <button class="lab-row-trigger" type="button" aria-expanded="true">
+            <span class="row-name">Sliding Thumb</span><span class="row-use" data-tr="Seçim" data-en="Selection">Seçim</span><span class="row-state" data-tr="Canlı" data-en="Live">Canlı</span>
+          </button>
+          <div class="lab-detail">
+            <div class="detail-copy"><h3 data-tr="Kayan seçim" data-en="Sliding selection">Kayan seçim</h3><p data-tr="Aktif seçenek, ayrı ayrı buton boyamak yerine tek bir yüzeyin konum değiştirmesiyle anlatılır." data-en="The active option is shown by moving one surface instead of recolouring separate buttons.">Aktif seçenek, ayrı ayrı buton boyamak yerine tek bir yüzeyin konum değiştirmesiyle anlatılır.</p><a href="https://ui-motion-prompts.pages.dev/p/segment_1.html" target="_blank" rel="noopener" data-tr="Kaynak fikri" data-en="Inspiration source">Kaynak fikri</a></div>
+            <div class="demo-space"><div class="segment-control demo-segment" role="group" aria-label="Liste görünümü"><span class="segment-thumb" aria-hidden="true"></span><button type="button" aria-pressed="true" data-segment="0" data-tr="Liste" data-en="List">Liste</button><button type="button" aria-pressed="false" data-segment="1" data-tr="Pano" data-en="Board">Pano</button><button type="button" aria-pressed="false" data-segment="2" data-tr="Takvim" data-en="Calendar">Takvim</button></div></div>
+          </div>
+        </article>
+
+        <article class="lab-row" data-pattern="copy">
+          <button class="lab-row-trigger" type="button" aria-expanded="false"><span class="row-name">Select Sweep</span><span class="row-use" data-tr="Kopyalama" data-en="Copy">Kopyalama</span><span class="row-state" data-tr="Dene" data-en="Try">Dene</span></button>
+          <div class="lab-detail">
+            <div class="detail-copy"><h3 data-tr="Seç ve kopyala" data-en="Select and copy">Seç ve kopyala</h3><p data-tr="Metin, seçim taramasıyla vurgulanır; işlem sonunda kısa ve net bir onay görünür." data-en="A selection sweep highlights the text, followed by concise completion feedback.">Metin, seçim taramasıyla vurgulanır; işlem sonunda kısa ve net bir onay görünür.</p><a href="https://ui-motion-prompts.pages.dev/p/copy_1.html" target="_blank" rel="noopener" data-tr="Kaynak fikri" data-en="Inspiration source">Kaynak fikri</a></div>
+            <div class="demo-space"><button class="copy-demo" type="button"><span class="copy-value">tolgaipek.com.tr/ui-lab</span><span class="copy-label" data-tr="Kopyala" data-en="Copy">Kopyala</span></button></div>
+          </div>
+        </article>
+
+        <article class="lab-row" data-pattern="done">
+          <button class="lab-row-trigger" type="button" aria-expanded="false"><span class="row-name">Check Draw</span><span class="row-use" data-tr="Tamamlandı" data-en="Done">Tamamlandı</span><span class="row-state" data-tr="Dene" data-en="Try">Dene</span></button>
+          <div class="lab-detail">
+            <div class="detail-copy"><h3 data-tr="Çizilerek tamamlanır" data-en="Drawn to completion">Çizilerek tamamlanır</h3><p data-tr="Halka kapanır, onay işareti çizilir ve işlem durumu tek bakışta anlaşılır." data-en="The ring closes, the check draws in and the state becomes clear at a glance.">Halka kapanır, onay işareti çizilir ve işlem durumu tek bakışta anlaşılır.</p><a href="https://ui-motion-prompts.pages.dev/p/done_1.html" target="_blank" rel="noopener" data-tr="Kaynak fikri" data-en="Inspiration source">Kaynak fikri</a></div>
+            <div class="demo-space"><button class="done-demo" type="button"><svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="22"></circle><path d="M15 27l7 7 15-17"></path></svg><span data-tr="İşlemi tamamla" data-en="Complete action">İşlemi tamamla</span></button></div>
+          </div>
+        </article>
+
+        <article class="lab-row" data-pattern="accordion">
+          <button class="lab-row-trigger" type="button" aria-expanded="false"><span class="row-name">Plus to Minus</span><span class="row-use" data-tr="Açılır alan" data-en="Accordion">Açılır alan</span><span class="row-state" data-tr="Dene" data-en="Try">Dene</span></button>
+          <div class="lab-detail">
+            <div class="detail-copy"><h3 data-tr="Artıdan eksiye" data-en="Plus to minus">Artıdan eksiye</h3><p data-tr="İşaret dönüşürken içerik kısa bir hareketle açılır; kontrolün durumu ayrıca açıklama istemez." data-en="The mark transforms as the content opens, making the control state self-explanatory.">İşaret dönüşürken içerik kısa bir hareketle açılır; kontrolün durumu ayrıca açıklama istemez.</p><a href="https://ui-motion-prompts.pages.dev/p/accordion_1.html" target="_blank" rel="noopener" data-tr="Kaynak fikri" data-en="Inspiration source">Kaynak fikri</a></div>
+            <div class="demo-space"><div class="mini-accordion"><button type="button" aria-expanded="false"><span data-tr="Bu hareket ne zaman kullanılır?" data-en="When should this motion be used?">Bu hareket ne zaman kullanılır?</span><i aria-hidden="true"></i></button><p data-tr="Sık sorulan sorular, kod ayrıntıları ve ikincil açıklamalar için." data-en="For FAQs, code details and secondary explanations.">Sık sorulan sorular, kod ayrıntıları ve ikincil açıklamalar için.</p></div></div>
+          </div>
+        </article>
+
+        <article class="lab-row" data-pattern="search">
+          <button class="lab-row-trigger" type="button" aria-expanded="false"><span class="row-name">Icon Expand</span><span class="row-use" data-tr="Arama" data-en="Search">Arama</span><span class="row-state" data-tr="Dene" data-en="Try">Dene</span></button>
+          <div class="lab-detail">
+            <div class="detail-copy"><h3 data-tr="İkondan aramaya" data-en="Icon to search">İkondan aramaya</h3><p data-tr="Dar alanda yalnızca ikon görünür; dokunulduğunda gerçek bir arama alanına dönüşür." data-en="Only an icon is shown in tight spaces; it expands into a real search field on demand.">Dar alanda yalnızca ikon görünür; dokunulduğunda gerçek bir arama alanına dönüşür.</p><a href="https://ui-motion-prompts.pages.dev/p/search_1.html" target="_blank" rel="noopener" data-tr="Kaynak fikri" data-en="Inspiration source">Kaynak fikri</a></div>
+            <div class="demo-space"><div class="search-demo"><button type="button" aria-label="Aramayı aç"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="m16 16 5 5"></path></svg></button><input type="search" data-placeholder-tr="Makrolarda ara" data-placeholder-en="Search macros" placeholder="Makrolarda ara"></div></div>
+          </div>
+        </article>
+
+        <article class="lab-row" data-pattern="portal">
+          <button class="lab-row-trigger" type="button" aria-expanded="false"><span class="row-name">Portal Open</span><span class="row-use" data-tr="Tema geçişi" data-en="Theme transition">Tema geçişi</span><span class="row-state" data-tr="Dene" data-en="Try">Dene</span></button>
+          <div class="lab-detail">
+            <div class="detail-copy"><h3 data-tr="Portal geçişi" data-en="Portal transition">Portal geçişi</h3><p data-tr="Yeni görünüm, tıklanan noktadan dairesel biçimde açılır. Sitenin gece–gündüz düğmesinde de bu mantık kullanılıyor." data-en="The new view opens in a circle from the click point. The site theme switch uses the same idea.">Yeni görünüm, tıklanan noktadan dairesel biçimde açılır. Sitenin gece–gündüz düğmesinde de bu mantık kullanılıyor.</p><a href="https://ui-motion-prompts.pages.dev/p/darkmode_1.html" target="_blank" rel="noopener" data-tr="Kaynak fikri" data-en="Inspiration source">Kaynak fikri</a></div>
+            <div class="demo-space"><button class="portal-demo" type="button"><span class="portal-fill" aria-hidden="true"></span><span data-tr="Portalı aç" data-en="Open portal">Portalı aç</span></button></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="lab-note lab-shell">
+      <h2 data-tr="Bu laboratuvar büyüyecek." data-en="This lab will keep growing.">Bu laboratuvar büyüyecek.</h2>
+      <p data-tr="Buradaki örnekler, iyi arayüz fikirlerini yalnızca izlemek yerine anlayıp yeniden üretmek için hazırlanıyor. İlham kaynağı belirtiliyor; uygulama kodu bu site için bağımsız olarak yazılıyor." data-en="These examples are made to understand and rebuild useful interface ideas instead of merely watching them. Inspiration is credited; implementation code is written independently for this site.">Buradaki örnekler, iyi arayüz fikirlerini yalnızca izlemek yerine anlayıp yeniden üretmek için hazırlanıyor. İlham kaynağı belirtiliyor; uygulama kodu bu site için bağımsız olarak yazılıyor.</p>
+      <p><a href="https://ui-motion-prompts.pages.dev/" target="_blank" rel="noopener">UI Motion Prompts</a> · <span data-tr="İlk koleksiyonun ilham kaynağı" data-en="Inspiration for the first collection">İlk koleksiyonun ilham kaynağı</span></p>
+    </section>
+  </main>
+
+  <footer class="lab-footer">
+    <div class="footer-name">TOLGA İPEK</div>
+    <div class="footer-action"><strong data-tr="Bir sonraki hareketi birlikte seçelim." data-en="Let’s choose the next motion together.">Bir sonraki hareketi birlikte seçelim.</strong><a href="./#about" data-tr="İletişim" data-en="Contact">İletişim</a></div>
+  </footer>
+  <script src="assets/ui-lab.js?v=1"></script>
+</body>
+</html>
