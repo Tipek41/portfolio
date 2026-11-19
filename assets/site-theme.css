@@ -1,0 +1,57 @@
+/* A shared, keyboard-accessible day/night control and raised navigation. */
+:root{--surface:#132237;--surface-hover:#1c344d;--nav-ink:#e7f1ff;--nav-shadow:0 3px 7px #0005,inset 0 1px 0 #ffffff12;--focus:#70caff}
+:root[data-theme=light]{color-scheme:light;--bg:#f1f5fa;--text:#182b43;--ink:#182b43;--muted:#4c627a;--line:#cad6e3;--accent:#0867b7;--blue:#0867b7;--surface:#fff;--surface-hover:#e6f0fb;--nav-ink:#243e59;--nav-shadow:0 3px 8px #203e5f16,inset 0 1px 0 #fff;--focus:#075fa5}
+:root[data-theme=dark]{color-scheme:dark}
+header nav{gap:9px!important}
+header nav a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:9px 15px;border-radius:10px;background:var(--surface);color:var(--nav-ink)!important;box-shadow:var(--nav-shadow);font-size:14px!important;transition:transform .18s,background .18s;white-space:nowrap}
+header nav a:hover{background:var(--surface-hover);transform:translateY(-2px)}
+header nav a:active{transform:translateY(1px)}
+header nav a[aria-current],header nav a.current{background:#1265a3;color:#fff!important}
+.theme-switch{display:inline-flex;align-items:center;gap:9px;flex-shrink:0;background:transparent;border:0;color:var(--nav-ink);padding:5px 0 5px 5px;min-height:44px;font:500 14px/1.2 system-ui;cursor:pointer}
+.theme-track{position:relative;display:block;width:64px;height:32px;border-radius:20px;background:#223d5a;box-shadow:inset 0 2px 4px #0003}
+.theme-track svg{position:absolute;top:8px;width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;color:#d4e8ff}
+.theme-sun{left:8px}.theme-moon{right:8px}.theme-knob{position:absolute;left:4px;top:4px;width:24px;height:24px;background:#fff;border-radius:50%;transition:transform .22s;box-shadow:0 2px 4px #0004}
+[aria-checked=true] .theme-knob{transform:translateX(32px)}
+[data-theme=light] .theme-track{background:#2378b9}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--focus)!important;outline-offset:4px}
+.home{font-size:16px}.home header{height:auto;min-height:88px}.home .nav{min-height:88px;gap:20px}.home .right{gap:14px}.home nav{margin:0 auto}.home .github{display:none}.home .hero{height:340px}.home .hero h1{font-size:clamp(40px,4.8vw,68px);letter-spacing:-2px}.home .hero h1 span{color:inherit;text-shadow:none}.home .hero p{font-size:18px}.home .hero-background{inset:88px 0 auto;height:500px}.home .section{margin-bottom:36px}.home .section-head h2{font-size:26px}.home .section-head>a{font-size:14px}.home .tools{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.home .tool{min-height:92px;padding:18px 16px;background:#102136e8;border-color:#35516d;gap:13px}.home .tool h3{font-size:16px;margin:0}.home .icon{width:40px;height:44px;border:0;border-radius:8px;background:#1c3853;box-shadow:none;color:#8fd0ff}.home .icon svg{width:25px;height:25px}.home .arrow{display:none}.home .about{grid-template-columns:1fr 72px 2fr;gap:24px;margin:40px 0}.home .portrait{width:72px;height:72px}.home .skills{display:none}.home .bio{border:0;padding:12px 0 0;font-size:16px}.about-details summary{font-size:16px;color:var(--text);cursor:pointer;width:fit-content}.home footer .links a{font-size:14px}
+[data-theme=light] body{background:var(--bg);color:var(--text)}
+[data-theme=light] header,[data-theme=light] header.top{background:#f1f5faf5;border-color:var(--line);backdrop-filter:none}
+[data-theme=light] .brand{color:#135284!important}
+[data-theme=light] .hero-background{background:linear-gradient(90deg,#f1f5fa 3%,#f1f5fab8 55%,#f1f5fa30),linear-gradient(0deg,#f1f5fa,transparent 65%),url('hero-forest.webp') center 52%/cover}
+[data-theme=light] .scenery,[data-theme=light] #excel-notes .scenery{background:var(--bg)}
+[data-theme=light] .home .hero p,[data-theme=light] .home .about p,[data-theme=light] .home footer{color:var(--muted)}
+[data-theme=light] .home .tool{background:#ffffffeb;border-color:var(--line)}
+[data-theme=light] .home .icon{background:#e2effb;color:#1368ac}
+[data-theme=light] .home .tool:hover{border-color:#1579c1}
+[data-theme=light] .home .btn{background:#096db9;color:#fff;box-shadow:none}
+[data-theme=light] .home .btn.secondary{background:#fff;color:#195580}
+[data-theme=light] .home footer strong{color:var(--text)}
+[data-theme=light] .languages button,[data-theme=light] .langs button{color:var(--muted)!important}
+[data-theme=light] .languages button[aria-pressed=true],[data-theme=light] .langs button[aria-pressed=true]{color:#075fa5!important}
+/* Learning pages keep their examples and code, with readable light surfaces. */
+[data-theme=light] :is(.macro-card,.macro-panel,.visual-area,.lesson-guide,.lesson-choice,.lesson-panel,.note,.note-card,.panel,.practice,.lesson-body,.guide,.intro){color:var(--text)}
+[data-theme=light] :is(.macro-card,.macro-panel,.visual-area,.lesson-guide,.lesson-choice,.lesson-panel,.note-card,.panel){background:#fff!important;border-color:var(--line)!important}
+[data-theme=light] :is(.intro p,.lead,.crumb,.eyebrow,.panel-heading p,.lesson-guide p,.demo-disclaimer,.simulation-label,.visual-bottom,.lesson-topic,.lesson-num){color:var(--muted)!important}
+[data-theme=light] .template-download{background:#fff;color:#135284;border-color:var(--line)}
+[data-theme=light] #excel-notes{--muted:#4c627a;--stroke:#cad6e3}
+@media(max-width:1150px){.home .wrap{width:calc(100% - 48px)}.home .nav{flex-wrap:wrap;padding:15px 0;gap:14px}.home nav{order:3;width:100%;justify-content:center}.home .right{margin-left:auto}.home .tools{grid-template-columns:repeat(3,minmax(0,1fr))}.home .hero-background{inset:145px 0 auto}header .header-inner,header .top-inner{flex-wrap:wrap;padding-top:14px;padding-bottom:14px;gap:14px}header .header-inner nav,header .top-inner nav{order:4;width:100%;margin:0;justify-content:center}.theme-switch{margin-left:auto}}
+@media(max-width:650px){.home .wrap{width:calc(100% - 32px)}.home .brand{font-size:19px;letter-spacing:1px}.theme-label{display:none}.home nav,header nav{display:flex!important;flex-wrap:wrap;gap:8px!important}.home nav{justify-content:flex-start}.home nav a,header nav a{font-size:14px!important;padding:8px 12px;flex:1 0 auto}.home .hero{height:300px}.home .hero h1{font-size:40px;letter-spacing:-1.5px}.home .hero p{font-size:16px;max-width:300px}.home .actions{gap:9px}.home .btn{font-size:14px;padding:11px 16px}.home .tools{grid-template-columns:repeat(2,minmax(0,1fr))}.home .tool{padding:14px 12px;gap:10px;align-items:flex-start;flex-direction:column;min-height:125px}.home .tool h3{font-size:16px}.home .section-head{gap:12px}.home .section-head h2{font-size:24px}.home .about{grid-template-columns:1fr 72px}.home .about-details{grid-column:1/-1}.home footer .wrap{flex-wrap:wrap}.home footer .links{flex-wrap:wrap}.home .hero-background{height:460px}.languages,.langs{margin-left:0!important}header .header-inner,header .top-inner{padding-left:16px!important;padding-right:16px!important}header .header-inner nav,header .top-inner nav{display:flex!important}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+.home .hero-background{position:absolute;width:100%;pointer-events:none}.home .hero-background:after{display:none}
+[data-theme=light] .home .section-head>a{color:#075fa5}
+[data-theme=light] :is(.macro-card small,.macro-mark,.example-label,.guide-step,.guide-step strong,.guide-step small,.step-controls,.step-controls button,#step-caption,.macro-actions code,.macro-actions .button span:last-child,#copy-status,.requirements,.code-details,summary,footer,footer a:last-child){color:var(--muted)}
+[data-theme=light] .button:not(.primary){color:#135284;border-color:var(--line);background:#fff}
+[data-theme=light] .macro-card[aria-selected=true]{background:#dceeff!important;border-color:#2876b2!important}
+[data-theme=light] .guide-step[aria-pressed=true] strong{color:#075fa5}
+[data-theme=light] .simulation-label{color:#e4f5e9!important}
+[data-theme=light] #excel-notes{--ink:#182b43;background:var(--bg);color:var(--ink)}
+[data-theme=light] #excel-notes :is(.af-lesson,#excel-article,.article,.af-setup){background:#fff;border-color:var(--stroke)}
+[data-theme=light] #excel-notes :is(.lesson-choice strong,.af-lesson-heading p,.af-guide-title,.af-guide-step,.af-guide-step strong,.af-guide-step small,.af-live-result,.af-live-result b,.af-caption-row,.af-benefit,.af-benefit>div,.af-setup summary,.af-summary-action,.af-setup-path,.af-setup-steps button,.af-setup-caption,.af-small-note,.af-sources,.summary,.quick-solution,.section-label span,.demo-caption,.file-note,details,summary,.refs,.footer,.footer b){color:#405c77}
+[data-theme=light] #excel-notes .lesson-choice[aria-selected=true]{background:#dceeff!important;border-color:#2876b2!important}
+[data-theme=light] #excel-notes :is(.caution,.af-benefit>strong){background:#e6f0fb;color:#1a4e77}
+[data-theme=light] #excel-notes .step-button{color:#274c70;border-color:#9eb8cf}
+[data-theme=light] #excel-notes .step-button[aria-pressed=true],[data-theme=light] #excel-notes .af-setup-steps button[aria-pressed=true]{color:#fff}
+[data-theme=light] #excel-notes .top{background:#f1f5fa}
+[data-theme=light] #excel-notes h1 em{color:#0867b7}
+[data-theme=light] #excel-notes .af-kicker{color:#4c627a}
