@@ -28,6 +28,22 @@
     apply(explicit ? event.newValue : (system.matches ? 'dark' : 'light'));
   });
   document.addEventListener('DOMContentLoaded', () => {
+    const primaryNav = document.querySelector('header nav');
+    if (primaryNav && !primaryNav.querySelector('a[href$="ui-lab.html"]')) {
+      const labLink = document.createElement('a');
+      labLink.href = 'ui-lab.html';
+      labLink.dataset.tr = 'UI Laboratuvarı'; labLink.dataset.en = 'UI Lab';
+      labLink.textContent = document.documentElement.lang === 'en' ? 'UI Lab' : 'UI Laboratuvarı';
+      const aboutLink = [...primaryNav.querySelectorAll('a')].find(link => link.hash === '#about');
+      primaryNav.insertBefore(labLink, aboutLink || null);
+    }
+    const toolGrid = document.querySelector('.home .tools');
+    if (toolGrid && !toolGrid.querySelector('a[href="ui-lab.html"]')) {
+      const card = document.createElement('a');
+      card.className = 'tool'; card.href = 'ui-lab.html';
+      card.innerHTML = '<span class="icon" style="--accent:#139cff"><svg aria-hidden="true"><use href="#palette"></use></svg></span><div><h3 data-tr="UI Hareket Laboratuvarı" data-en="UI Motion Lab">UI Hareket Laboratuvarı</h3></div><span class="arrow" aria-hidden="true">→</span>';
+      toolGrid.append(card);
+    }
     const host = document.querySelector('header .right') || document.querySelector('header .languages, header .langs');
     if (!host) return;
     const button = document.createElement('button');
