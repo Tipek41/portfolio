@@ -63,3 +63,19 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 [data-theme=light] #excel-notes .top{background:#f1f5fa}
 [data-theme=light] #excel-notes h1 em{color:#0867b7}
 [data-theme=light] #excel-notes .af-kicker{color:#4c627a}
+
+/* Shared raised surfaces; spreadsheet cells keep their native grid. */
+body :is(button,.btn,.button,.download,.af-download):not(.af-company-button,.theme-switch,[data-segment]),
+body :is(.tool,.motion-card,.macro-card,.lesson-choice,.article,.af-lesson) {
+  box-shadow: var(--nav-shadow), 0 5px 12px rgb(8 25 43 / 10%) !important;
+}
+body :is(.sheet-table,.af-table,.sheet-wrap table,.formula-strip,.formula-bar,.af-formula,.excel-ribbon) {
+  font-family: Calibri, "Segoe UI", Arial, sans-serif;
+}
+.excel-ribbon {
+  display:flex; gap:16px; align-items:center; padding:6px 12px;
+  background:#f4f5f4; color:#303731; border-bottom:1px solid #cbd2ce;
+  font-size:12px; overflow:hidden;
+}
+.excel-ribbon b {border-bottom:2px solid #217346}
+body .sheet-table td:not(.rn):not([class~="chosen"]) {border-color:#d3dad5}
