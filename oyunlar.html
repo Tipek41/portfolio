@@ -22,6 +22,12 @@
   <link rel="stylesheet" href="assets/site-theme.css?v=12">
   <script src="assets/site-navigation.js?v=3"></script>
   <script src="assets/site-theme.js?v=4"></script>
+  <style>
+    body.catalog main>.hero{height:auto!important;min-height:650px!important;display:grid!important;grid-template-columns:1.05fr .95fr!important;align-items:center!important;gap:64px!important;padding:92px 0 70px!important}
+    body.catalog .cube-stage{width:100%;min-height:470px}
+    @media(max-width:900px){body.catalog main>.hero{min-height:0!important;grid-template-columns:1fr!important;padding:56px 0 54px!important;gap:42px!important}}
+    @media(max-width:650px){body.catalog main>.hero{padding:48px 0 38px!important;gap:28px!important}body.catalog .cube-stage{min-height:330px}}
+  </style>
 </head>
 <body class="home catalog">
   <header><div class="wrap nav"><a href="./" class="brand"><img class="brand-logo" src="./favicon.svg?v=3" width="30" height="30" alt="">TOLGA İPEK</a><nav aria-label="Ana menü"></nav><div class="right"><div class="languages" aria-label="Dil"><button type="button" data-language="tr" aria-pressed="true">TR</button><span>/</span><button type="button" data-language="en" aria-pressed="false">EN</button></div></div></div></header>
