@@ -7,13 +7,14 @@
 }
 
 .home:not(.catalog) .hero-background {
+  --hero-scene: url("jeddah-office-night.webp");
   position: fixed;
   inset: 0;
   height: 100%;
   background:
     linear-gradient(0deg, var(--bg), #0c10212e 52%, #0c10210d),
-    linear-gradient(90deg, #0c1021 0%, #0c1021c7 28%, #0c10210d 72%),
-    url('engineering-hero.webp') right center / cover no-repeat;
+    linear-gradient(90deg, #0c1021 0%, #0c10215c 28%, #0c10210d 72%),
+    var(--hero-scene) right center / cover no-repeat;
 }
 
 .home:not(.catalog) main.wrap > .hero {
@@ -42,13 +43,16 @@
 }
 
 [data-theme=light] .home:not(.catalog) .hero-background {
+  --hero-scene: url("jeddah-office-day.webp");
   background:
-    linear-gradient(0deg, var(--bg), #f2effa00 60%),
-    linear-gradient(90deg, var(--bg) 3%, #f2effaee 31%, #f2effa11 74%),
-    url('engineering-hero.webp') right center / cover no-repeat;
+    linear-gradient(0deg, var(--bg), #f2effa00 50%),
+    linear-gradient(90deg, #18203990, #18203926 36%, transparent 55%),
+    var(--hero-scene) right center / cover no-repeat;
 }
 
-[data-theme=light] .home .hero h1 span { color: #493574; }
+[data-theme=light] .home .hero h1 { color: #fff; }
+[data-theme=light] .home .hero h1 span { color: #ddd5ff; }
+[data-theme=light] .home .hero p { color: #eef1fa; }
 [data-theme=light] .home .hero .btn { background: #493574; color: #fff; }
 [data-theme=light] .home .hero .btn:hover { background: #37265d; }
 [data-theme=light] .home .hero .btn.secondary { background: #fff; border-color: #68568c; color: #352952; }
@@ -69,10 +73,14 @@
     margin-inline: -8px;
   }
 
+  [data-theme=light] .home .hero h1 { color: #182b43; }
+  [data-theme=light] .home .hero h1 span { color: #493574; }
+  [data-theme=light] .home .hero p { color: #4c627a; }
+
   .home:not(.catalog) .hero-background,
   [data-theme=light] .home:not(.catalog) .hero-background {
     background: linear-gradient(0deg, var(--bg) 21%, transparent 70%),
-      url('engineering-hero.webp') 85% 4rem / auto min(75svh, 560px) no-repeat;
+      var(--hero-scene) 85% 4rem / auto min(75svh, 560px) no-repeat;
     background-color: var(--bg);
   }
 }

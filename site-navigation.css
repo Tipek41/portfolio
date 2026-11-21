@@ -14,3 +14,6 @@ body.integrated-tool{padding:0}
 @media(max-width:900px){.site-shellnav .site-shellnav-links{display:none}}
 @media(max-width:600px){.site-shellnav .site-shellnav-inner{width:calc(100% - 28px);gap:10px}.site-shellnav .site-shellnav-brand{font-size:17px;letter-spacing:1px}.site-shellnav .site-shellnav-actions{gap:8px}.site-shellnav .site-shellnav-back{font-size:12px;padding:9px 10px}.site-shellnav #langToggle{padding:8px 10px!important}.integrated-content{padding:24px 12px}}
 @media print{.site-shellnav{display:none!important}}
+
+:is(.brand,.lab-brand,.site-shellnav-brand):has(> .brand-logo){display:inline-flex;align-items:center;gap:9px}
+.brand-logo{display:block;width:30px;height:30px;flex:none}

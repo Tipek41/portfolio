@@ -50,11 +50,23 @@
     button.type = 'button'; button.className = 'theme-switch'; button.setAttribute('role', 'switch');
     button.innerHTML = '<span class="theme-label"></span><span class="theme-track" aria-hidden="true"><svg class="theme-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 1v3m0 16v3M1 12h3m16 0h3M4 4l2 2m12 12 2 2M4 20l2-2M18 6l2-2"/></svg><svg class="theme-moon" viewBox="0 0 24 24"><path d="M20 15A9 9 0 0 1 9 4 9 9 0 1 0 20 15Z"/></svg><span class="theme-knob"></span></span>';
     if (host.classList.contains('right')) host.append(button); else host.after(button);
-    button.addEventListener('click', () => {
+    const scenes = new Map();
+    if (document.querySelector('.home:not(.catalog) .hero-background')) {
+      for (const [theme, time] of [['light', 'day'], ['dark', 'night']]) {
+        const image = new Image();
+        image.src = `assets/jeddah-office-${time}.webp`;
+        scenes.set(theme, image.decode().catch(() => {}));
+      }
+    }
+    let switching = false;
+    button.addEventListener('click', async () => {
+      if (switching) return;
       const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
       explicit = true; try { localStorage.setItem(key, theme); } catch {}
       const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!document.startViewTransition || reduced) { apply(theme); return; }
+      switching = true;
+      await scenes.get(theme);
       const rect = button.getBoundingClientRect();
       const x = rect.left + rect.width / 2;
       const y = rect.top + rect.height / 2;
@@ -62,7 +74,13 @@
       document.documentElement.style.setProperty('--portal-x', `${x}px`);
       document.documentElement.style.setProperty('--portal-y', `${y}px`);
       document.documentElement.style.setProperty('--portal-radius', `${radius}px`);
-      document.startViewTransition(() => apply(theme));
+      try {
+        await document.startViewTransition(() => apply(theme)).finished;
+      } catch {
+        apply(theme);
+      } finally {
+        switching = false;
+      }
     });
     new MutationObserver(update).observe(document.documentElement, {attributes:true, attributeFilter:['lang']});
     update();
