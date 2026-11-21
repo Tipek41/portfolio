@@ -30,6 +30,54 @@
     };
 
     render();
+
+    const shell = nav.closest('.nav');
+    const controls = shell?.querySelector('.right');
+    if (shell && controls && !controls.querySelector('.mobile-menu-toggle')) {
+      const toggle = document.createElement('button');
+      toggle.type = 'button';
+      toggle.className = 'mobile-menu-toggle';
+      toggle.setAttribute('aria-controls', 'primary-navigation');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.innerHTML = '<span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>';
+      nav.id ||= 'primary-navigation';
+      controls.append(toggle);
+
+      const label = () => toggle.setAttribute(
+        'aria-label',
+        document.documentElement.lang === 'en' ? 'Open navigation menu' : 'Navigasyon menüsünü aç'
+      );
+      const close = () => {
+        shell.classList.remove('menu-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        label();
+      };
+      toggle.addEventListener('click', () => {
+        const open = shell.classList.toggle('menu-open');
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', document.documentElement.lang === 'en'
+          ? (open ? 'Close navigation menu' : 'Open navigation menu')
+          : (open ? 'Navigasyon menüsünü kapat' : 'Navigasyon menüsünü aç'));
+      });
+      nav.addEventListener('click', event => {
+        if (event.target.closest('a')) close();
+      });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && shell.classList.contains('menu-open')) {
+          close();
+          toggle.focus();
+        }
+      });
+      addEventListener('resize', () => {
+        if (innerWidth > 650) close();
+      }, {passive:true});
+      label();
+      new MutationObserver(label).observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['lang']
+      });
+    }
+
     new MutationObserver(render).observe(document.documentElement, {
       attributes: true,
       attributeFilter: ['lang']
