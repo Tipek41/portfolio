@@ -84,3 +84,20 @@
     background-color: var(--bg);
   }
 }
+
+.home:not(.catalog) .hero .actions .btn {
+  --button-depth: 5px;
+  --button-base: #624ea5;
+  box-shadow: 0 var(--button-depth) 0 var(--button-base) !important;
+  transform: translateY(calc(5px - var(--button-depth)));
+  transition: transform 340ms cubic-bezier(.2,.85,.34,1.55), box-shadow 220ms ease-out, background-color 160ms ease;
+}
+
+.home:not(.catalog) .hero .actions .btn.secondary { --button-base: #080b19; }
+[data-theme="light"] .home:not(.catalog) .hero .actions .btn { --button-base: #271945; }
+[data-theme="light"] .home:not(.catalog) .hero .actions .btn.secondary { --button-base: #9a86be; }
+
+.home:not(.catalog) .hero .actions .btn:active {
+  --button-depth: 0px;
+  transition: transform 85ms ease-out, box-shadow 85ms ease-out;
+}
