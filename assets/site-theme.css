@@ -182,3 +182,82 @@ header,#excel-notes .top,.lab-header{position:sticky!important;top:0;z-index:100
 /* Prevent page-to-page header drift from scrollbar and inherited tracking. */
 html{scrollbar-gutter:stable}
 header nav,header nav a,#excel-notes .top nav,#excel-notes .top nav a{letter-spacing:normal!important}
+
+/* Fixed language and theme controls across every page and state. */
+header :is(.languages,.langs),
+#excel-notes .top .langs{
+  box-sizing:border-box!important;
+  display:grid!important;
+  grid-template-columns:24px 4px 24px!important;
+  align-items:center!important;
+  justify-content:center!important;
+  column-gap:5px!important;
+  width:62px!important;
+  height:28px!important;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue","Segoe UI",Arial,sans-serif!important;
+  font-size:13px!important;
+  font-weight:400!important;
+  line-height:20px!important;
+}
+header :is(.languages,.langs) button,
+#excel-notes .top .langs button{
+  box-sizing:border-box!important;
+  width:24px!important;
+  height:28px!important;
+  min-width:24px!important;
+  padding:0!important;
+  margin:0!important;
+  border:0!important;
+  background:transparent!important;
+  font:400 13px/20px -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue","Segoe UI",Arial,sans-serif!important;
+  letter-spacing:0!important;
+  text-align:center!important;
+}
+header :is(.languages,.langs) > span,
+#excel-notes .top .langs > span{
+  box-sizing:border-box!important;
+  width:4px!important;
+  height:20px!important;
+  margin:0!important;
+  padding:0!important;
+  font:400 13px/20px -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue","Segoe UI",Arial,sans-serif!important;
+  text-align:center!important;
+}
+header :is(.languages,.langs) button[aria-pressed=true],
+#excel-notes .top .langs button[aria-pressed=true]{
+  font-weight:400!important;
+  text-decoration:underline!important;
+  text-underline-offset:6px!important;
+  text-decoration-thickness:1px!important;
+}
+header .theme-switch,
+#excel-notes .top .theme-switch{
+  box-sizing:border-box!important;
+  width:127px!important;
+  min-width:127px!important;
+  height:44px!important;
+  padding:5px 0 5px 5px!important;
+  gap:8px!important;
+  font:500 14px/16.8px -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue","Segoe UI",Arial,sans-serif!important;
+}
+header .theme-label,
+#excel-notes .top .theme-label{
+  display:block!important;
+  flex:0 0 50px!important;
+  width:50px!important;
+  font:500 14px/16.8px -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue","Segoe UI",Arial,sans-serif!important;
+  text-align:left!important;
+  white-space:nowrap!important;
+}
+header .theme-track,
+#excel-notes .top .theme-track{
+  flex:0 0 64px!important;
+  width:64px!important;
+  height:32px!important;
+}
+@media (min-width:1151px){
+  header :is(.languages,.langs),
+  #excel-notes .top .langs{right:155px!important}
+  header .theme-switch,
+  #excel-notes .top .theme-switch{right:15px!important;width:127px!important}
+}
