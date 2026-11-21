@@ -10,6 +10,7 @@
       ['makrolar.html', 'Makrolar', 'Macros'],
       ['excel-pratikleri.html', 'Excel Pratikleri', 'Excel Tips'],
       ['ui-lab.html', 'UI Laboratuvarı', 'UI Lab'],
+      ['oyunlar.html', 'Oyunlar', 'Games'],
       ['#about', 'Hakkımda', 'About']
     ];
 

@@ -287,7 +287,7 @@ header .theme-track,
   .home header nav{display:none!important;position:absolute;left:0;right:0;top:72px;width:100%;margin:0!important;padding:12px 0 16px;grid-template-columns:1fr 1fr;gap:8px!important;background:var(--bg);border-bottom:1px solid var(--line);z-index:30}
   .home .nav.menu-open nav{display:grid!important}
   .home header nav a{min-height:44px;padding:9px 10px!important;display:flex!important;flex:initial!important;font-size:13px!important}
-  .home header nav a:last-of-type{grid-column:1/-1}
+  .home header nav a:last-of-type{grid-column:auto}
   .home .hero-background{pointer-events:none}
 }
 @media(max-width:370px){
