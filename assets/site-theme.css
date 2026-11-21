@@ -3,7 +3,7 @@
 :root[data-theme=light]{color-scheme:light;--bg:#f1f5fa;--text:#182b43;--ink:#182b43;--muted:#4c627a;--line:#cad6e3;--accent:#0867b7;--blue:#0867b7;--surface:#fff;--surface-hover:#e6f0fb;--nav-ink:#243e59;--nav-shadow:0 3px 8px #203e5f16,inset 0 1px 0 #fff;--focus:#075fa5}
 :root[data-theme=dark]{color-scheme:dark}
 header nav{gap:9px!important;position:relative}
-header nav a{position:relative;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:9px 15px;border-radius:10px;background:var(--surface);color:var(--nav-ink)!important;box-shadow:var(--nav-shadow);font-size:14px!important;transition:transform .18s,background .18s;white-space:nowrap;overflow:hidden}
+header nav a{position:relative;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:9px 15px;border-radius:10px;background:var(--surface);color:var(--nav-ink)!important;box-shadow:var(--nav-shadow);font-size:14px!important;font-weight:700;transition:transform .18s,background .18s;white-space:nowrap;overflow:hidden}
 header nav a::after{content:"";position:absolute;inset:0;border:1px solid var(--focus);border-radius:inherit;opacity:0;transform:scaleX(.35);transform-origin:left;transition:transform .2s cubic-bezier(.2,.8,.2,1),opacity .16s;pointer-events:none}
 header nav a:hover::after,header nav a:focus-visible::after{opacity:.75;transform:scaleX(1)}
 header nav a:hover{background:var(--surface-hover);transform:translateY(-2px)}
@@ -83,3 +83,4 @@ body .sheet-table td:not(.rn):not([class~="chosen"]) {border-color:#d3dad5}
 :is(.brand,.lab-brand,.site-shellnav-brand):has(> .brand-logo){display:inline-flex;align-items:center;gap:9px}
 .brand-logo{display:block;width:30px;height:30px;flex:none}
 .brand,.lab-brand,.site-shellnav-brand{font-weight:750}
+header,#excel-notes .top,.lab-header{position:sticky!important;top:0;z-index:1000}
