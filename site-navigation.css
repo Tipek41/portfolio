@@ -17,3 +17,4 @@ body.integrated-tool{padding:0}
 
 :is(.brand,.lab-brand,.site-shellnav-brand):has(> .brand-logo){display:inline-flex;align-items:center;gap:9px}
 .brand-logo{display:block;width:30px;height:30px;flex:none}
+.site-shellnav-brand{font-weight:750}

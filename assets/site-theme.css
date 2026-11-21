@@ -82,5 +82,4 @@ body .sheet-table td:not(.rn):not([class~="chosen"]) {border-color:#d3dad5}
 
 :is(.brand,.lab-brand,.site-shellnav-brand):has(> .brand-logo){display:inline-flex;align-items:center;gap:9px}
 .brand-logo{display:block;width:30px;height:30px;flex:none}
-
-[data-theme="light"] .brand-logo { content:url("../favicon-light.svg"); }
+.brand,.lab-brand,.site-shellnav-brand{font-weight:750}
