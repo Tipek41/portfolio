@@ -261,3 +261,36 @@ header .theme-track,
   header .theme-switch,
   #excel-notes .top .theme-switch{right:15px!important;width:127px!important}
 }
+
+/* Compact mobile header: keeps the hero image visible without removing navigation. */
+.mobile-menu-toggle{display:none}
+@media(max-width:650px){
+  .home header{min-height:72px;height:72px;position:relative;z-index:20}
+  .home .nav{position:relative;min-height:72px;height:72px;padding:0!important;display:flex;flex-wrap:nowrap!important;align-items:center;gap:8px!important}
+  .home .brand{font-size:16px!important;letter-spacing:.7px!important;gap:8px}
+  .home .brand-logo{width:27px;height:27px}
+  .home .right{margin-left:auto!important;display:flex;align-items:center;gap:5px!important}
+  .home .languages{display:flex;align-items:center;gap:2px!important;white-space:nowrap}
+  .home .languages button{min-width:28px;padding:5px 3px!important;font-size:12px!important}
+  .home .languages span{font-size:12px}
+  .home .theme-label{display:none!important}
+  .home .theme-switch{min-width:42px;min-height:40px;padding:4px 0!important;gap:0}
+  .home .theme-track{width:42px;height:24px}
+  .home .theme-track svg{display:none}
+  .home .theme-knob{left:3px;top:3px;width:18px;height:18px}
+  .home [aria-checked=true] .theme-knob{transform:translateX(18px)}
+  .mobile-menu-toggle{width:40px;height:40px;padding:10px;display:grid;align-content:center;gap:4px;border:0;border-radius:8px;background:var(--surface);color:var(--nav-ink);box-shadow:none}
+  .mobile-menu-toggle span{display:block;width:20px;height:2px;border-radius:2px;background:currentColor;transition:transform .2s ease,opacity .2s ease}
+  .menu-open .mobile-menu-toggle span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .menu-open .mobile-menu-toggle span:nth-child(2){opacity:0}
+  .menu-open .mobile-menu-toggle span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+  .home header nav{display:none!important;position:absolute;left:0;right:0;top:72px;width:100%;margin:0!important;padding:12px 0 16px;grid-template-columns:1fr 1fr;gap:8px!important;background:var(--bg);border-bottom:1px solid var(--line);z-index:30}
+  .home .nav.menu-open nav{display:grid!important}
+  .home header nav a{min-height:44px;padding:9px 10px!important;display:flex!important;flex:initial!important;font-size:13px!important}
+  .home header nav a:last-of-type{grid-column:1/-1}
+  .home .hero-background{pointer-events:none}
+}
+@media(max-width:370px){
+  .home .brand{font-size:0!important}
+  .home .brand-logo{width:30px;height:30px}
+}
