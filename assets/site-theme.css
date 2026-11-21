@@ -84,3 +84,20 @@ body .sheet-table td:not(.rn):not([class~="chosen"]) {border-color:#d3dad5}
 .brand-logo{display:block;width:30px;height:30px;flex:none}
 .brand,.lab-brand,.site-shellnav-brand{font-weight:750}
 header,#excel-notes .top,.lab-header{position:sticky!important;top:0;z-index:1000}
+
+/* Keep the global header geometry identical to the home page. */
+@media (min-width:1151px){
+  header,#excel-notes .top{height:88px!important;min-height:88px!important}
+  header > .nav,
+  header .header-inner,
+  header .lab-header,
+  #excel-notes .top-inner{
+    width:min(1320px,calc(100% - 88px))!important;
+    max-width:none!important;
+    height:88px!important;
+    min-height:88px!important;
+    margin-inline:auto!important;
+    padding:0!important;
+  }
+  :is(.brand,.lab-brand){font-size:23px!important;letter-spacing:3px!important}
+}
