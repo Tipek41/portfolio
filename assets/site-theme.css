@@ -178,3 +178,7 @@ header,#excel-notes .top,.lab-header{position:sticky!important;top:0;z-index:100
     font-size:14px!important;
   }
 }
+
+/* Prevent page-to-page header drift from scrollbar and inherited tracking. */
+html{scrollbar-gutter:stable}
+header nav,header nav a,#excel-notes .top nav,#excel-notes .top nav a{letter-spacing:normal!important}
