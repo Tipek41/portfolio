@@ -1,10 +1,53 @@
 /* Shared appearance preference, applied before rendering to avoid a theme flash. */
 (() => {
   const key = 'tolga-theme';
-  const system = matchMedia('(prefers-color-scheme: dark)');
+  const untilKey = 'tolga-theme-until';
+  const istanbul = { latitude: 41.0082, longitude: 28.9784, timeZone: 'Europe/Istanbul' };
+  const rad = degrees => degrees * Math.PI / 180;
+  const normalize = (value, range) => (value % range + range) % range;
+  const dayOfYear = (year, month, day) => Math.floor((Date.UTC(year, month - 1, day) - Date.UTC(year, 0, 0)) / 86400000);
+  const istanbulDate = (date = new Date()) => {
+    const parts = new Intl.DateTimeFormat('en-CA', {
+      timeZone: istanbul.timeZone, year: 'numeric', month: 'numeric', day: 'numeric'
+    }).formatToParts(date).reduce((result, part) => {
+      if (part.type !== 'literal') result[part.type] = Number(part.value);
+      return result;
+    }, {});
+    return { year: parts.year, month: parts.month, day: parts.day };
+  };
+  const solarTime = ({ year, month, day }, sunrise) => {
+    const longitudeHour = istanbul.longitude / 15;
+    const estimate = dayOfYear(year, month, day) + ((sunrise ? 6 : 18) - longitudeHour) / 24;
+    const meanAnomaly = 0.9856 * estimate - 3.289;
+    const trueLongitude = normalize(meanAnomaly + 1.916 * Math.sin(rad(meanAnomaly)) + 0.02 * Math.sin(rad(2 * meanAnomaly)) + 282.634, 360);
+    let rightAscension = normalize(Math.atan(0.91764 * Math.tan(rad(trueLongitude))) * 180 / Math.PI, 360);
+    rightAscension += Math.floor(trueLongitude / 90) * 90 - Math.floor(rightAscension / 90) * 90;
+    rightAscension /= 15;
+    const sinDeclination = 0.39782 * Math.sin(rad(trueLongitude));
+    const cosDeclination = Math.cos(Math.asin(sinDeclination));
+    const hourCosine = (Math.cos(rad(90.833)) - sinDeclination * Math.sin(rad(istanbul.latitude))) /
+      (cosDeclination * Math.cos(rad(istanbul.latitude)));
+    const hourAngle = (sunrise ? 360 - Math.acos(hourCosine) * 180 / Math.PI : Math.acos(hourCosine) * 180 / Math.PI) / 15;
+    const utcHour = normalize(hourAngle + rightAscension - 0.06571 * estimate - 6.622 - longitudeHour, 24);
+    return Date.UTC(year, month - 1, day) + utcHour * 3600000;
+  };
+  const solarState = (now = Date.now()) => {
+    const date = istanbulDate(new Date(now));
+    const sunrise = solarTime(date, true);
+    const sunset = solarTime(date, false);
+    const tomorrow = istanbulDate(new Date(now + 86400000));
+    if (now < sunrise) return { theme: 'dark', next: sunrise };
+    if (now < sunset) return { theme: 'light', next: sunset };
+    return { theme: 'dark', next: solarTime(tomorrow, true) };
+  };
   let saved;
-  try { saved = localStorage.getItem(key); } catch {}
-  let explicit = saved === 'light' || saved === 'dark';
+  let savedUntil = 0;
+  try {
+    saved = localStorage.getItem(key);
+    savedUntil = Number(localStorage.getItem(untilKey)) || 0;
+  } catch {}
+  let explicit = (saved === 'light' || saved === 'dark') && savedUntil > Date.now();
+  let automaticTimer;
   const apply = theme => {
     document.documentElement.dataset.theme = theme;
     document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#08131f' : '#f1f5fa');
@@ -20,12 +63,29 @@
     button.title = en ? 'Switch day / night mode' : 'Gündüz / gece modunu değiştir';
     button.querySelector('.theme-label').textContent = en ? (dark ? 'Night' : 'Day') : (dark ? 'Gece' : 'Gündüz');
   }
-  apply(explicit ? saved : (system.matches ? 'dark' : 'light'));
-  system.addEventListener('change', event => { if (!explicit) apply(event.matches ? 'dark' : 'light'); });
+  const applyAutomatic = () => {
+    if (explicit && savedUntil > Date.now()) {
+      apply(saved);
+    } else {
+      explicit = false;
+      const state = solarState();
+      apply(state.theme);
+      try { localStorage.removeItem(key); localStorage.removeItem(untilKey); } catch {}
+      savedUntil = state.next;
+    }
+    clearTimeout(automaticTimer);
+    const next = explicit ? savedUntil : solarState().next;
+    automaticTimer = setTimeout(applyAutomatic, Math.max(1000, Math.min(next - Date.now() + 1000, 2147483647)));
+  };
+  applyAutomatic();
   addEventListener('storage', event => {
-    if (event.key !== key) return;
-    explicit = event.newValue === 'dark' || event.newValue === 'light';
-    apply(explicit ? event.newValue : (system.matches ? 'dark' : 'light'));
+    if (event.key !== key && event.key !== untilKey) return;
+    try {
+      saved = localStorage.getItem(key);
+      savedUntil = Number(localStorage.getItem(untilKey)) || 0;
+    } catch {}
+    explicit = (saved === 'light' || saved === 'dark') && savedUntil > Date.now();
+    applyAutomatic();
   });
   document.addEventListener('DOMContentLoaded', () => {
     const primaryNav = document.querySelector('header nav');
@@ -62,7 +122,13 @@
     button.addEventListener('click', async () => {
       if (switching) return;
       const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-      explicit = true; try { localStorage.setItem(key, theme); } catch {}
+      const state = solarState();
+      explicit = true;
+      saved = theme;
+      savedUntil = state.next;
+      try { localStorage.setItem(key, theme); localStorage.setItem(untilKey, String(savedUntil)); } catch {}
+      clearTimeout(automaticTimer);
+      automaticTimer = setTimeout(applyAutomatic, Math.max(1000, savedUntil - Date.now() + 1000));
       const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!document.startViewTransition || reduced) { apply(theme); return; }
       switching = true;
