@@ -83,6 +83,31 @@ html,body{
  cursor:pointer;
 }
 
+#gesture-guide{
+ position:fixed;
+ z-index:40;
+ display:none;
+ height:4px;
+ min-width:14px;
+ border-radius:999px;
+ pointer-events:none;
+ transform-origin:left center;
+ background:#52e59a;
+ box-shadow:0 0 12px rgba(53,226,138,.9);
+}
+#gesture-guide::after{
+ content:"";
+ position:absolute;
+ right:-2px;
+ top:50%;
+ width:13px;
+ height:13px;
+ border-top:4px solid #52e59a;
+ border-right:4px solid #52e59a;
+ transform:translateY(-50%) rotate(45deg);
+ filter:drop-shadow(0 0 4px rgba(53,226,138,.8));
+}
+
 
 button{
  font-family:inherit;
@@ -95,6 +120,7 @@ button{
 .hint{position:fixed;z-index:10;left:18px;bottom:170px;color:var(--text-1);font-size:13px;line-height:1.45}.hint b{color:var(--text-0)}
 .credit{position:fixed;z-index:10;right:18px;bottom:170px;color:var(--text-2);font-size:12px}.credit a{color:var(--text-1)}
 #modal-backdrop{display:none;position:fixed;z-index:80;inset:0;background:rgba(0,0,0,.72);place-items:center}.modal{width:min(420px,calc(100% - 32px));padding:30px;background:#122033;border-radius:20px;text-align:center}.modal h2{margin:0 0 8px}.modal p{color:var(--text-1)}#modal-backdrop.show{display:grid}
+#help-backdrop{display:none;position:fixed;z-index:90;inset:0;padding:20px;background:rgba(0,0,0,.76);place-items:center}#help-backdrop.show{display:grid}.help-modal{width:min(560px,100%);max-height:calc(100vh - 40px);overflow:auto;text-align:left}.help-modal h2{margin-bottom:6px}.help-intro{margin:0 0 20px}.help-steps{display:grid;gap:10px;margin:0;padding:0;list-style:none}.help-steps li{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:start;padding:13px;border:1px solid rgba(255,255,255,.1);border-radius:12px;background:#0c1928}.help-icon{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;background:#19344a;color:#52e59a;font-size:19px;font-weight:800}.help-steps strong{display:block;margin-bottom:3px}.help-steps span:last-child{color:var(--text-1);font-size:14px;line-height:1.45}.help-close{width:100%;margin-top:16px}
 @media(max-width:700px){#scene{inset:64px 0 224px}.game-bar{height:64px;padding:0 14px}.game-title{font-size:15px}.back{font-size:13px}.stats{gap:10px;font-size:11px}.stats strong{font-size:14px}.game-controls{bottom:10px;grid-template-columns:1fr;gap:9px;padding:10px}.actions,.sizes{justify-content:center}.move-pad{grid-template-columns:repeat(6,1fr)}.move-btn{min-height:40px;font-size:13px;padding:0}.control,.seg-btn{min-height:38px}.hint{bottom:238px;left:12px;font-size:11px}.credit{display:none}}
 @media(max-width:420px){.game-title{display:none}.stats{margin-left:auto}.back{white-space:nowrap}.move-pad{grid-template-columns:repeat(6,1fr)}.control{padding:0 11px}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
@@ -108,16 +134,33 @@ button{
   <div class="stats"><span>Hamle<strong id="moves">0</strong></span><span>Süre<strong id="time">00:00.0</strong></span></div>
 </header>
 
-<p class="hint"><b>Boş alanda sürükle:</b> kamerayı çevir<br><b>Renkli yüze tıkla / sürükle:</b> yüzü döndür<br><b>Sağ tık:</b> ters yönde döndür</p>
+<p class="hint"><b>Boş alanda sürükle:</b> kamerayı çevir<br><b>Renkli yüzde sürükle:</b> oku takip et, bırakınca döner<br><b>Sağ tık:</b> ters yönde döndür</p>
 <p class="credit">MIT lisanslı <a href="https://github.com/graph90/rubik-cube-3d" target="_blank" rel="noopener">graph90/rubik-cube-3d</a> temel alınmıştır.</p>
 
 <section class="game-controls" aria-label="Oyun kontrolleri">
-  <div class="actions"><button class="control primary" id="btn-scramble" type="button">Karıştır</button><button class="control" id="btn-reset" type="button">Sıfırla</button></div>
+  <div class="actions"><button class="control primary" id="btn-scramble" type="button">Karıştır</button><button class="control" id="btn-reset" type="button">Sıfırla</button><button class="control" id="btn-help" type="button">Yardım</button></div>
   <div class="move-pad" id="movepad" aria-label="Yüz hamleleri"></div>
   <div class="sizes" id="size-seg" aria-label="Küp boyutu"><button class="seg-btn" type="button" data-size="2">2×2</button><button class="seg-btn" type="button" data-size="3" aria-pressed="true">3×3</button><button class="seg-btn" type="button" data-size="4">4×4</button></div>
 </section>
 
 <div id="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="solved-title"><div class="modal"><h2 id="solved-title">Küp tamamlandı</h2><p>Hamle sayın ve süren kaydedildi.</p><button class="control primary" id="btn-again" type="button">Yeniden oyna</button></div></div>
+
+<div id="help-backdrop" role="dialog" aria-modal="true" aria-labelledby="help-title">
+ <div class="modal help-modal">
+  <h2 id="help-title">Rubik Küp nasıl oynanır?</h2>
+  <p class="help-intro">Klavye kullanmadan, doğrudan küpün üzerinde oynayabilirsin.</p>
+  <ol class="help-steps">
+   <li><span class="help-icon">1</span><span><strong>Önce karıştır</strong>Karıştır düğmesi küpü çözülebilir rastgele bir konuma getirir.</span></li>
+   <li><span class="help-icon">↔</span><span><strong>Kamerayı ayarla</strong>Küpün dışındaki boş alanda sürükleyerek küpü farklı açılardan görüntüle.</span></li>
+   <li><span class="help-icon">↗</span><span><strong>Yüzü döndür</strong>Renkli bir kare üzerinde sürükle. Yeşil yön oku hareketini gösterir; bıraktığında ilgili yüz döner.</span></li>
+   <li><span class="help-icon">↻</span><span><strong>Ters dönüş</strong>Bir yüzü ters yönde çevirmek için sağ tıkla veya yüzü karşı yöne sürükle.</span></li>
+   <li><span class="help-icon">⏱</span><span><strong>Süre ve hamle</strong>İlk yüz hareketinde sayaç otomatik başlar. Her dönüş bir hamle olarak sayılır.</span></li>
+  </ol>
+  <button class="control primary help-close" id="btn-help-close" type="button">Anladım, oyuna dön</button>
+ </div>
+</div>
+
+<div id="gesture-guide" aria-hidden="true"></div>
 
 <div id="scene">
 <div id="stage">
@@ -539,6 +582,7 @@ function updateMovesDisplay(){
 }
 const sceneEl=document.getElementById("scene");
 const cubeGroupEl=document.getElementById("cubeGroup");
+const gestureGuide=document.getElementById("gesture-guide");
 let yaw=35;
 let pitch=-22;
 let zoom=1;
@@ -579,8 +623,21 @@ function pointerDown(x,y,face=null){
  sceneEl.classList.add("dragging");
 }
 function pointerMove(x,y){
-    if(faceGesture)
+    if(faceGesture){
+        const dx=x-faceGesture.startX;
+        const dy=y-faceGesture.startY;
+        const distance=Math.hypot(dx,dy);
+        if(distance<8){
+            gestureGuide.style.display="none";
+            return;
+        }
+        gestureGuide.style.display="block";
+        gestureGuide.style.left=faceGesture.startX+"px";
+        gestureGuide.style.top=faceGesture.startY+"px";
+        gestureGuide.style.width=Math.min(distance,150)+"px";
+        gestureGuide.style.transform=`translateY(-50%) rotate(${Math.atan2(dy,dx)*180/Math.PI}deg)`;
         return;
+    }
     if(!dragging)
         return;
     let dx=x-lastX;
@@ -593,6 +650,7 @@ function pointerMove(x,y){
     applyCamera();
 }
 function pointerUp(x=0,y=0){
+ gestureGuide.style.display="none";
  if(faceGesture){
   const move=faceMove(faceGesture.face);
   const dx=x-faceGesture.startX;
@@ -642,6 +700,7 @@ sceneEl.addEventListener(
  "pointercancel",
  ()=>{
   faceGesture=null;
+  gestureGuide.style.display="none";
   pointerUp();
  }
 );
@@ -784,6 +843,17 @@ if(againBtn)
   hideModal();
   reset();
  };
+const helpBackdrop=document.getElementById("help-backdrop");
+document.getElementById("btn-help")?.addEventListener("click",()=>helpBackdrop.classList.add("show"));
+document.getElementById("btn-help-close")?.addEventListener("click",()=>helpBackdrop.classList.remove("show"));
+helpBackdrop?.addEventListener("click",event=>{
+ if(event.target===helpBackdrop)
+  helpBackdrop.classList.remove("show");
+});
+window.addEventListener("keydown",event=>{
+ if(event.key==="Escape")
+  helpBackdrop?.classList.remove("show");
+});
 let sizeSeg=
 document.getElementById(
  "size-seg"
