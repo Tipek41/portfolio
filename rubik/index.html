@@ -624,6 +624,8 @@ function pointerDown(x,y,face=null){
 }
 function pointerMove(x,y){
     if(faceGesture){
+        faceGesture.lastX=x;
+        faceGesture.lastY=y;
         const dx=x-faceGesture.startX;
         const dy=y-faceGesture.startY;
         const distance=Math.hypot(dx,dy);
@@ -696,6 +698,16 @@ sceneEl.addEventListener(
  "pointerup",
  e=>pointerUp(e.clientX,e.clientY)
 );
+window.addEventListener("pointerup",e=>{
+ if(faceGesture || dragging)
+  pointerUp(e.clientX,e.clientY);
+});
+sceneEl.addEventListener("lostpointercapture",()=>{
+ if(faceGesture)
+  pointerUp(faceGesture.lastX??faceGesture.startX,faceGesture.lastY??faceGesture.startY);
+ else if(dragging)
+  pointerUp();
+});
 sceneEl.addEventListener(
  "pointercancel",
  ()=>{
