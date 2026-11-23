@@ -80,6 +80,7 @@ html,body{
 .face.sticker{
  box-shadow:
  inset 0 0 0 3px #101114;
+ cursor:pointer;
 }
 
 
@@ -107,7 +108,7 @@ button{
   <div class="stats"><span>Hamle<strong id="moves">0</strong></span><span>Süre<strong id="time">00:00.0</strong></span></div>
 </header>
 
-<p class="hint"><b>Sürükle:</b> küpü çevir<br><b>U D L R F B:</b> yüzleri döndür</p>
+<p class="hint"><b>Boş alanda sürükle:</b> kamerayı çevir<br><b>Renkli yüze tıkla / sürükle:</b> yüzü döndür<br><b>Sağ tık:</b> ters yönde döndür</p>
 <p class="credit">MIT lisanslı <a href="https://github.com/graph90/rubik-cube-3d" target="_blank" rel="noopener">graph90/rubik-cube-3d</a> temel alınmıştır.</p>
 
 <section class="game-controls" aria-label="Oyun kontrolleri">
@@ -335,6 +336,7 @@ function buildCube(size){
 function renderCubie(c){
  let el=document.createElement("div");
  el.className="cubie";
+ el._cubie=c;
  el.style.width=faceSize+"px";
  el.style.height=faceSize+"px";
  el.style.marginLeft=(-faceSize/2)+"px";
@@ -347,6 +349,7 @@ function renderCubie(c){
  ]){
   let f=document.createElement("div");
   f.className="face";
+  f.dataset.face=key;
   f.style.width=faceSize+"px";
   f.style.height=faceSize+"px";
   f.style.marginLeft=(-faceSize/2)+"px";
@@ -523,6 +526,7 @@ function stopTimer(){
     clearInterval(timerHandle);
     timerHandle=null;
  }
+ timerStart=null;
 }
 function updateTimeDisplay(ms){
     let min=Math.floor(ms/60000);
@@ -541,6 +545,7 @@ let zoom=1;
 let dragging=false;
 let lastX=0;
 let lastY=0;
+let faceGesture=null;
 function applyCamera(){
  cubeGroupEl.style.transform=
   `
@@ -550,13 +555,32 @@ function applyCamera(){
   `;
 }
 applyCamera();
-function pointerDown(x,y){
+function faceMove(face){
+ const cubie=face?.parentElement?._cubie;
+ const localKey=face?.dataset.face;
+ if(!cubie || !localKey)
+  return null;
+ const local=[0,0,0];
+ const axis=AXIS.indexOf(localKey[1]);
+ local[axis]=localKey[0]==="p"?1:-1;
+ const world=matVec(cubie.orient,local);
+ const worldAxis=world.findIndex(value=>Math.abs(value)>.5);
+ const sign=Math.sign(world[worldAxis]);
+ return MOVE_KEYS.find(key=>MOVES[key].axis===worldAxis && MOVES[key].sign===sign)||null;
+}
+function pointerDown(x,y,face=null){
+ if(face){
+  faceGesture={face,startX:x,startY:y};
+  return;
+ }
  dragging=true;
  lastX=x;
  lastY=y;
  sceneEl.classList.add("dragging");
 }
 function pointerMove(x,y){
+    if(faceGesture)
+        return;
     if(!dragging)
         return;
     let dx=x-lastX;
@@ -568,7 +592,18 @@ function pointerMove(x,y){
     pitch=Math.max(-85,Math.min(85,pitch));
     applyCamera();
 }
-function pointerUp(){
+function pointerUp(x=0,y=0){
+ if(faceGesture){
+  const move=faceMove(faceGesture.face);
+  const dx=x-faceGesture.startX;
+  const dy=y-faceGesture.startY;
+  const dragged=Math.hypot(dx,dy)>12;
+  const prime=dragged && (Math.abs(dx)>Math.abs(dy)?dx<0:dy>0);
+  faceGesture=null;
+  if(move && !busy)
+   performMove(move,{prime,userInitiated:true});
+  return;
+ }
  dragging=false;
  sceneEl.classList.remove(
   "dragging"
@@ -577,12 +612,16 @@ function pointerUp(){
 sceneEl.addEventListener(
  "pointerdown",
  e=>{
+  if(e.button===2)
+   return;
   sceneEl.setPointerCapture(
    e.pointerId
   );
+  const face=e.target.closest(".face.sticker");
   pointerDown(
    e.clientX,
-   e.clientY
+   e.clientY,
+   face
   );
  }
 );
@@ -597,12 +636,24 @@ sceneEl.addEventListener(
 );
 sceneEl.addEventListener(
  "pointerup",
- pointerUp
+ e=>pointerUp(e.clientX,e.clientY)
 );
 sceneEl.addEventListener(
  "pointercancel",
- pointerUp
+ ()=>{
+  faceGesture=null;
+  pointerUp();
+ }
 );
+sceneEl.addEventListener("contextmenu",e=>{
+ const face=e.target.closest(".face.sticker");
+ if(!face)
+  return;
+ e.preventDefault();
+ const move=faceMove(face);
+ if(move && !busy)
+  performMove(move,{prime:true,userInitiated:true});
+});
 sceneEl.addEventListener(
  "wheel",
  e=>{
