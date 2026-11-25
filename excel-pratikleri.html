@@ -52,4 +52,4 @@ function draw(){const filtered=step>0&&step<4,filled=step>=3,selected=step===2||
 all('[data-step]').forEach(b=>b.addEventListener('click',()=>{step=Number(b.dataset.step);draw()}));all('[data-language]').forEach(b=>b.addEventListener('click',()=>{lang=b.dataset.language;root.setAttribute('lang',lang);all('[data-tr]').forEach(e=>e.textContent=e.dataset[lang]);all('[data-language]').forEach(e=>e.setAttribute('aria-pressed',String(e.dataset.language===lang)));q('.nav').setAttribute('aria-label',lang==='tr'?'Ana menü':'Main navigation');q('.excel').setAttribute('aria-label',lang==='tr'?'Örnek Excel tablosu':'Sample Excel worksheet');q('.demo-controls').setAttribute('aria-label',lang==='tr'?'Uygulama adımları':'Practice steps');draw()}));draw();})();
 </script>
 </div>
-<script src="assets/excel-autofilter.js?v=4"></script><script src="assets/excel-shortcuts.js?v=3"></script></body></html>
+<script src="assets/excel-autofilter.js?v=4"></script><script src="assets/excel-shortcuts.js?v=4"></script></body></html>
