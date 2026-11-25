@@ -823,3 +823,10 @@ input:focus-visible,
 .app{max-height:none;min-height:min(98vh,900px);overflow:visible}.board{width:min(60vh,620px);height:min(60vh,620px)}
 @media(max-width:700px){body{align-items:flex-start}.app{width:100%;border-radius:0;padding:10px;min-height:100dvh}.game-area{flex-direction:column;gap:7px}.player-bar{width:100%;flex-direction:row;padding:6px 10px}.captured{max-width:none;margin-left:auto}.board{width:min(94vw,60vh);height:min(94vw,60vh)}.extras{grid-template-columns:1fr}.fen-panel{display:none}.controls{gap:4px}button{font-size:13px;padding:8px 10px}}
 .promotion-dialog::before{content:"Piyonun dönüşeceği taşı seç"}
+
+/* Compact game navigation, fixed in the same corner on all devices. */
+.game-home-link{position:fixed;z-index:50;top:max(10px,env(safe-area-inset-top));left:max(10px,env(safe-area-inset-left));display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 12px;border:1px solid rgba(255,255,255,.2);border-radius:10px;background:#101b2bea;color:#f4f7fa;font:700 14px/1.2 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:0;text-decoration:none;white-space:nowrap;box-shadow:0 3px 12px #0002;backdrop-filter:blur(10px)}
+.game-home-link:hover{background:#20344e}.game-home-link:focus-visible{outline:3px solid #6bc997;outline-offset:3px}
+
+body{padding-top:max(62px,calc(env(safe-area-inset-top) + 52px));padding-bottom:12px}
+@media(max-width:700px){.app{min-height:calc(100dvh - 62px)}}
