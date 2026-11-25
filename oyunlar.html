@@ -21,6 +21,7 @@
     @media(max-width:900px){.wrap{width:calc(100% - 40px)}main{padding-top:54px}.intro{grid-template-columns:1fr;margin-bottom:40px}.games{grid-template-columns:1fr}.game-card{min-height:500px}.preview{height:320px}}
     @media(max-width:650px){.wrap{width:calc(100% - 28px)}header{height:72px}.nav{height:72px}.brand{font-size:16px;letter-spacing:.7px}.brand-logo{width:27px;height:27px}main{padding:42px 0 54px}.intro{gap:24px}.intro h1{font-size:60px}.intro p{font-size:17px}.games{gap:16px}.game-card{min-height:440px}.preview{height:270px}.cube{transform:scale(.82) rotate(-4deg)}.card-copy{padding:23px;align-items:flex-start}.card-copy h2{font-size:38px}.card-copy p{font-size:15px}.card-action{padding:10px 15px}.credits{flex-direction:column}}
     @media(prefers-reduced-motion:reduce){.game-card{transition:none}}
+    .chess-preview{background:#17332e}.chess-board-preview{width:270px;aspect-ratio:1;display:grid;grid-template-columns:repeat(4,1fr);border:8px solid #0d201c;transform:rotate(-5deg);box-shadow:0 18px 40px #0005}.chess-board-preview span{display:grid;place-items:center;font-size:45px;line-height:1;color:#11231f;background:#d4e7cf}.chess-board-preview span:nth-child(8n+2),.chess-board-preview span:nth-child(8n+4),.chess-board-preview span:nth-child(8n+5),.chess-board-preview span:nth-child(8n+7){background:#66a47d}.credits{flex-wrap:wrap}
   </style>
   <link rel="stylesheet" href="assets/site-theme.css?v=12">
   <script src="assets/site-navigation.js?v=3"></script>
@@ -29,10 +30,10 @@
 <body class="home catalog">
   <header><div class="wrap nav"><a href="./" class="brand"><img class="brand-logo" src="./favicon.svg?v=3" width="30" height="30" alt="">TOLGA İPEK</a><nav aria-label="Ana menü"></nav><div class="right"><div class="languages" aria-label="Dil"><button type="button" data-language="tr" aria-pressed="true">TR</button><span>/</span><button type="button" data-language="en" aria-pressed="false">EN</button></div></div></div></header>
   <main class="wrap">
-    <section class="intro"><h1 data-tr="Bir oyun seç" data-en="Choose a game">Bir oyun seç</h1><p data-tr="Kurulum gerektirmeden tarayıcıda çalışan iki açık kaynak bulmaca oyunu." data-en="Two open-source puzzle games that run directly in your browser without installation.">Kurulum gerektirmeden tarayıcıda çalışan iki açık kaynak bulmaca oyunu.</p></section>
+    <section class="intro"><h1 data-tr="Bir oyun seç" data-en="Choose a game">Bir oyun seç</h1><p data-tr="Kurulum gerektirmeden tarayıcıda çalışan bulmaca ve strateji oyunları." data-en="Puzzle and strategy games that run directly in your browser without installation.">Kurulum gerektirmeden tarayıcıda çalışan bulmaca ve strateji oyunları.</p></section>
     <section class="games" aria-label="Oyunlar">
       <a class="game-card" href="rubik/">
-        <span class="card-meta">3D · 2×2–4×4</span>
+        <span class="card-meta">3D · 3×3</span>
         <div class="preview rubik-preview" aria-hidden="true"><div class="cube"><div class="face-grid cube-top"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="face-grid cube-left"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="face-grid cube-right"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div>
         <div class="card-copy"><div><h2 data-tr="Rubik Küp" data-en="Rubik's Cube">Rubik Küp</h2><p data-tr="Küpü karıştır, yüzleri döndür ve süreye karşı çöz." data-en="Scramble, turn the faces and solve against the clock.">Küpü karıştır, yüzleri döndür ve süreye karşı çöz.</p></div><span class="card-action" data-tr="Oyna" data-en="Play">Oyna</span></div>
       </a>
@@ -41,8 +42,13 @@
         <div class="preview board-preview" aria-hidden="true"><div class="mini-board"><span class="n2">2</span><span></span><span class="n4">4</span><span></span><span class="n8">8</span><span class="n16">16</span><span></span><span class="n2">2</span><span></span><span class="n32">32</span><span class="n64">64</span><span></span><span class="n4">4</span><span class="n128">128</span><span class="n256">256</span><span></span></div></div>
         <div class="card-copy"><div><h2>2048</h2><p data-tr="Aynı sayıları birleştir ve 2048 taşına ulaş." data-en="Merge matching numbers and reach the 2048 tile.">Aynı sayıları birleştir ve 2048 taşına ulaş.</p></div><span class="card-action" data-tr="Oyna" data-en="Play">Oyna</span></div>
       </a>
+      <a class="game-card" href="chess/">
+        <span class="card-meta" data-tr="Strateji · Bilgisayar / 2 kişi" data-en="Strategy · Computer / 2 players">Strateji · Bilgisayar / 2 kişi</span>
+        <div class="preview chess-preview" aria-hidden="true"><div class="chess-board-preview"><span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span>♙</span><span>♙</span><span>♙</span><span>♙</span><span>♖</span><span>♘</span><span>♗</span><span>♕</span></div></div>
+        <div class="card-copy"><div><h2 data-tr="Satranç" data-en="Chess">Satranç</h2><p data-tr="Bilgisayara meydan oku veya aynı cihazda iki kişi oyna." data-en="Challenge the computer or play with a friend on one device.">Bilgisayara meydan oku veya aynı cihazda iki kişi oyna.</p></div><span class="card-action" data-tr="Oyna" data-en="Play">Oyna</span></div>
+      </a>
     </section>
-    <div class="credits"><span>Rubik: <a href="https://github.com/graph90/rubik-cube-3d" target="_blank" rel="noopener">graph90/rubik-cube-3d</a> · MIT</span><span>2048: <a href="https://github.com/gabrielecirulli/2048" target="_blank" rel="noopener">gabrielecirulli/2048</a> · MIT</span></div>
+    <div class="credits"><span>Rubik: Tolga İpek</span><span>Satranç: <a href="https://github.com/zrnge/chess" target="_blank" rel="noopener">zrnge/chess</a> · MIT</span><span>2048: <a href="https://github.com/gabrielecirulli/2048" target="_blank" rel="noopener">gabrielecirulli/2048</a> · MIT</span></div>
   </main>
   <footer><div class="wrap">© 2026 Tolga İpek</div></footer>
   <script>
