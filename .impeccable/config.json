@@ -22,6 +22,15 @@
         ],
         "createdAt": "2026-11-26T00:00:00.000Z",
         "reason": "Claude: the checkerboard behind the image preview is the standard transparency indicator for PNG/WebP output, a functional surface rather than decoration."
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-26T16:34:19.597Z",
+        "reason": "Claude: static parser compares white text on the tool planes and the vermilion about block to the paper ground; rendered-URL detect with real backgrounds returns 0 findings."
       }
     ]
   }
