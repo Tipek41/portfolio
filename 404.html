@@ -1,31 +1,54 @@
 <!doctype html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' data: blob: https://cdnjs.cloudflare.com; worker-src 'self' blob: https://cdnjs.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#060e19">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1">
-  <title>Sayfa bulunamadı · Tolga İpek</title>
-  <style>
-    :root { color-scheme: dark; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #060e19; color: #f2f6ff; }
-    * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; min-height: 100svh; display: grid; place-items: center; padding: 32px 24px; }
-    main { width: 100%; max-width: 580px; }
-    .code { margin: 0 0 20px; color: #139cff; font-size: 16px; font-weight: 600; letter-spacing: 3px; }
-    h1 { margin: 0 0 16px; font-size: clamp(32px, 7vw, 52px); line-height: 1.15; letter-spacing: -1px; }
-    .message { margin: 0 0 32px; color: #acbdd1; font-size: 17px; line-height: 1.6; }
-    a { display: inline-block; padding: 13px 20px; border: 1px solid #139cff; border-radius: 10px; color: #f2f6ff; text-decoration: none; font-size: 15px; font-weight: 600; }
-    a:hover { background: #139cff; color: #060e19; }
-    a:focus-visible { outline: 2px solid #f2f6ff; outline-offset: 5px; }
-  </style>
+<meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f1f1ee">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1">
+<title data-tr="Sayfa bulunamadı · Tolga İpek" data-en="Page not found · Tolga İpek">Sayfa bulunamadı · Tolga İpek</title>
+<link rel="preload" href="/assets/fonts/Archivo-400-900-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/site.css?v=1"><script src="/assets/site.js?v=1" defer></script><style>
+.lost{min-height:calc(100vh - 140px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));max-width:1440px;margin:0 auto;border-bottom:2px solid var(--line);overflow:hidden}
+.lost-text{grid-column:1/8;padding:48px var(--gut);border-right:2px solid var(--line)}
+.lost .lost-code{margin:0;font-weight:900;font-size:clamp(96px,16vw,240px);line-height:.8;letter-spacing:-.06em;color:var(--red)}
+.lost h1{margin:28px 0 0;font-weight:900;font-size:clamp(34px,4vw,56px);line-height:1;letter-spacing:-.03em}
+.lost p{margin:14px 0 0;max-width:46ch;font-size:18px}
+.lost-links{display:grid;grid-template-columns:1fr 1fr;margin-top:32px;border-top:2px solid var(--line);border-left:2px solid var(--line)}
+.lost-links a{display:flex;align-items:center;gap:10px;padding:16px;border-right:2px solid var(--line);border-bottom:2px solid var(--line);text-decoration:none;font-weight:800}
+.lost-links a i{width:18px;height:18px;flex:none;border:2px solid var(--ink)}
+.lost-links a:hover{background:var(--ink);color:var(--paper)}
+.lost-sun{grid-column:8/13;position:relative;min-height:420px;background:var(--paper)}
+.lost-sun::before{content:"";position:absolute;width:min(30vw,380px);aspect-ratio:1;border-radius:50%;background:var(--red);left:50%;top:50%;translate:-50% -50%}
+@media(prefers-reduced-motion:no-preference){.lost-sun::before{animation:sink 1.4s var(--ease) both}}
+@keyframes sink{from{translate:-50% 40%}to{translate:-50% -50%}}
+@media(max-width:900px){.lost-text{grid-column:1/-1;border-right:0}.lost-sun{grid-column:1/-1;min-height:240px;border-top:2px solid var(--line)}.lost-sun::before{width:200px}}
+@media(max-width:520px){.lost-links{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-  <main>
-    <p class="code">404</p>
-    <h1>Sayfa bulunamadı</h1>
-    <p class="message">Aradığınız sayfa taşınmış veya kaldırılmış olabilir.</p>
-    <a href="/">Ana sayfaya dön →</a>
-  </main>
+<a class="skip" href="#main" data-tr="İçeriğe geç" data-en="Skip to content">İçeriğe geç</a>
+<header class="top">
+ <a class="brand" href="/">TOLGA İPEK</a>
+ <nav aria-label="Ana menü" data-aria-label-tr="Ana menü" data-aria-label-en="Main navigation"><a href="/#araclar" data-tr="Araçlar" data-en="Tools">Araçlar</a><a href="/makrolar.html" data-tr="Makrolar" data-en="Macros">Makrolar</a><a href="/excel-pratikleri.html" data-tr="Excel Pratikleri" data-en="Excel Tips">Excel Pratikleri</a><a href="/#hakkimda" data-tr="Hakkımda" data-en="About">Hakkımda</a></nav>
+ <div class="tools-links">
+  <div class="lang" role="group" aria-label="Dil" data-aria-label-tr="Dil" data-aria-label-en="Language"><button type="button" class="active" data-lang="tr" aria-pressed="true">TR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+  <a href="https://github.com/Tipek41" target="_blank" rel="noopener">GitHub<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+  <a href="https://www.linkedin.com/in/tolga-ipek-0982a86b/" target="_blank" rel="noopener">LinkedIn<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+ </div>
+</header>
+<main id="main" class="lost">
+ <div class="lost-text">
+  <p class="lost-code">404</p>
+  <h1 data-tr="Bu sayfa burada değil." data-en="This page isn’t here.">Bu sayfa burada değil.</h1>
+  <p data-tr="Adres değişmiş ya da sayfa kaldırılmış olabilir. Araçlar hâlâ burada:" data-en="The address may have changed or the page was removed. The tools are still here:">Adres değişmiş ya da sayfa kaldırılmış olabilir. Araçlar hâlâ burada:</p>
+  <nav class="lost-links" aria-label="Araçlar" data-aria-label-tr="Araçlar" data-aria-label-en="Tools"><a class="sw-red" href="/pdf-atolyesi.html"><i aria-hidden="true" style="background:var(--red)"></i><span data-tr="PDF Atölyesi" data-en="PDF Workshop">PDF Atölyesi</span></a><a class="sw-indigo" href="/veri-donusturucu/"><i aria-hidden="true" style="background:var(--indigo)"></i><span data-tr="Veri Dönüştürücü" data-en="Data Converter">Veri Dönüştürücü</span></a><a class="sw-ochre" href="/gorsel-boyutlandirici/"><i aria-hidden="true" style="background:var(--ochre)"></i><span data-tr="Görsel Boyutlandırıcı" data-en="Image Resizer">Görsel Boyutlandırıcı</span></a><a class="sw-teal" href="/kubart/"><i aria-hidden="true" style="background:var(--teal)"></i><span>KubArt</span></a></nav>
+ </div>
+ <div class="lost-sun" aria-hidden="true"></div>
+</main>
+<footer class="foot">
+ <span>© <span data-year>2026</span> Tolga İpek</span>
+ <span data-tr="Dosyalar cihazınızda işlenir · takip yok · reklam yok" data-en="Files stay on your device · no tracking · no ads">Dosyalar cihazınızda işlenir · takip yok · reklam yok</span>
+ <a class="foot-end" href="/" data-tr="Ana sayfa" data-en="Home">Ana sayfa</a>
+</footer>
 </body>
 </html>

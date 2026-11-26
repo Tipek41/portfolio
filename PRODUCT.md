@@ -23,7 +23,7 @@ Every browser tool runs entirely on the visitor's device; files are never upload
 
 ## Capabilities and Constraints
 - Hosted on GitHub Pages as static HTML/CSS/JS (no build step today). Custom domain via Cloudflare DNS.
-- Every page carries a Content-Security-Policy meta tag: scripts only from self, cdn.jsdelivr.net and cdnjs.cloudflare.com; fonts self-hosted from `assets/fonts/` (Google Fonts still allowed by older pages' CSP); images self/data/blob.
+- Every page carries a Content-Security-Policy meta tag: scripts only from self, cdn.jsdelivr.net and cdnjs.cloudflare.com; fonts self-hosted from `assets/fonts/`; no third-party font or style requests on any page; images self/data/blob.
 - Bilingual TR/EN via `data-tr` / `data-en` attributes and a small `localize()` script; must be kept.
 - No analytics, cookies, ads or third-party trackers; must stay that way.
 

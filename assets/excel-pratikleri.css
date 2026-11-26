@@ -1,7 +1,195 @@
-#excel-notes{font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.65;--muted:#bacbdc;--stroke:#c2d7ee24}
-#excel-notes [hidden]{display:none!important}#excel-notes .shell{max-width:1280px;padding:0 42px}#excel-notes button{font-family:inherit}#excel-notes .scenery{position:fixed;background:linear-gradient(100deg,#07111ff5 5%,#07111fce 60%,#07111f9e),url('hero-forest.webp') center/cover;opacity:1}#excel-notes .top{background:#0a1523d9;backdrop-filter:blur(20px)}#excel-notes .brand{font-size:19px;letter-spacing:1.2px}#excel-notes .nav{font-size:13px}#excel-notes .intro{padding:35px 0 29px}#excel-notes .crumb{margin-bottom:30px;color:#b2c6d9}#excel-notes .eyebrow{font-size:10px;letter-spacing:2.8px;color:#a1bed8}#excel-notes h1{font-size:clamp(29px,3.9vw,49px);line-height:1.23;letter-spacing:-1.9px;margin-top:15px;max-width:1050px;font-weight:600}#excel-notes h1 em{color:#9bcaff}#excel-notes .lead{font-size:14px;color:#c3d2e3;max-width:780px;margin-top:17px}#excel-notes .lesson-tabs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 25px}#excel-notes .lesson-choice{display:flex;text-align:left;gap:17px;align-items:center;background:#112237c9;color:#c8d6e5;border:1px solid #b5d2f32a;border-radius:14px;padding:19px 22px;min-width:0;transition:background .15s,border-color .15s}#excel-notes .lesson-choice[aria-selected=true]{background:#17324d;border-color:#7cbaf377;box-shadow:inset 0 1px 0 #d7edff0d}#excel-notes .lesson-choice .lesson-num{font-size:12px;color:#89afcf;border-right:1px solid #adc8df30;padding-right:17px;align-self:stretch;display:flex;align-items:center}#excel-notes .lesson-choice .lesson-topic{display:block;font-size:10px;color:#a2bfd9;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:5px}#excel-notes .lesson-choice strong{display:block;color:#edf5fd;font-size:17px;letter-spacing:-.5px;font-weight:500;line-height:1.4}#excel-notes .lesson-choice .lesson-arrow{font-size:20px;margin-left:auto;color:#9cc7ed}#excel-notes .af-lesson,#excel-notes #excel-article{padding:30px;border:1px solid #bfd5ec27;border-radius:20px;background:#0d1c2df5;margin-bottom:32px}#excel-notes .af-lesson-heading{display:flex;justify-content:space-between;align-items:center;gap:22px;margin-bottom:28px}#excel-notes .af-kicker{font-size:10px;letter-spacing:1.6px;color:#9ebdd5;display:block}#excel-notes .af-lesson h2{font-size:clamp(24px,2.4vw,31px);line-height:1.3;letter-spacing:-1px;font-weight:600;margin:10px 0}#excel-notes .af-lesson-heading p{font-size:13px;margin:0;color:#c3d2e1;max-width:650px}#excel-notes .af-download{font-size:12px;padding:11px 19px;color:#eef7ff;background:#1473d2;border:1px solid #4597e533;border-radius:25px;display:flex;align-items:center;gap:15px;white-space:nowrap}#excel-notes .af-download:hover{background:#2485e3}#excel-notes .af-stage-layout{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:26px}#excel-notes .af-workbook{background:#fff;color:#24352e;border-radius:11px;overflow:hidden;border:1px solid #9cb6a6;box-shadow:0 14px 45px #02091338;min-width:0}#excel-notes .af-titlebar{display:flex;align-items:center;gap:9px;background:#176b43;padding:9px 13px;color:#fff;font:11px/1.6 'Segoe UI',sans-serif;flex-wrap:wrap}#excel-notes .af-x{width:21px;height:21px;border:1px solid #bddfcb7d;display:grid;place-items:center;font-weight:600}#excel-notes .af-demo-label{margin-left:auto;font-size:8px;letter-spacing:1px;color:#d0eadb}#excel-notes .af-ribbon-tabs{background:#f6f8f6;display:flex;gap:24px;align-items:center;border-bottom:1px solid #dae1dc;font:11px/1.5 'Segoe UI',sans-serif;padding:10px 14px 0}#excel-notes .af-ribbon-tabs>*{padding-bottom:9px}#excel-notes .af-ribbon-tabs strong{font-weight:600;color:#176b43;border-bottom:2px solid #176b43}#excel-notes .af-ribbon{display:flex;align-items:center;padding:10px 14px;gap:17px;background:#fbfcfb;border-bottom:1px solid #d9e2dc}#excel-notes .af-ribbon-group{display:flex;flex-direction:column;text-align:center;border-right:1px solid #d4ded7;padding-right:14px}#excel-notes #af-apply{border:1px solid #bad3c2;border-radius:5px;padding:7px 12px;background:#edf6ef;color:#1e5033;font:12px 'Segoe UI',sans-serif;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:80px}#excel-notes #af-apply:hover{background:#d3ebdb;border-color:#398c59}#excel-notes #af-apply svg{width:24px;height:24px;stroke:#227244;stroke-width:1.5;fill:none}#excel-notes .af-ribbon-group small{font:9px 'Segoe UI',sans-serif;color:#6b776e;margin-top:5px}#excel-notes .af-ribbon-help{font:11px/1.5 'Segoe UI',sans-serif;color:#607768;max-width:180px}#excel-notes .af-clear{margin-left:auto;align-self:center;font:10px/1.5 'Segoe UI',sans-serif;background:#fff;color:#4b6254;padding:7px 10px;border:1px solid #c7d4cb;border-radius:4px}#excel-notes .af-formula{display:flex;align-items:center;gap:15px;padding:6px 12px;font:12px/1.5 'Segoe UI',sans-serif;border-bottom:1px solid #dce3de;background:#fff}#excel-notes #af-cell{min-width:38px}#excel-notes .af-formula i{border-left:1px solid #d6dfd8;color:#7a897e;padding-left:13px;font-family:Georgia,serif}#excel-notes .af-table-scroll{overflow-x:auto;min-height:325px;background:linear-gradient(#ffffff00,#ffffff00)}#excel-notes .af-table{width:100%;table-layout:fixed;border-collapse:collapse;font:11px/1.5 'Segoe UI',sans-serif;color:#26382e;min-width:530px}#excel-notes .af-row-col{width:28px}#excel-notes .af-doc-col{width:70px}#excel-notes .af-company-col{width:138px}#excel-notes .af-desc-col{width:125px}#excel-notes .af-amount-col{width:90px}#excel-notes .af-status-col{width:90px}#excel-notes .af-table th,#excel-notes .af-table td{border:1px solid #e1e7e2;height:31px;padding:6px 9px;overflow-wrap:break-word}#excel-notes .af-table th{background:#e8f0ea;font-size:10px;font-weight:500;text-align:left;white-space:normal}#excel-notes .af-table .af-letters th{padding:2px;height:22px;background:#f1f4f1;color:#728176;text-align:center;font-weight:400;font-size:10px}#excel-notes .af-table .af-rownum{background:#f3f6f3;color:#78897d;text-align:center;font-size:9px;padding:3px}#excel-notes .af-company-button{color:inherit;border:0;background:transparent;display:block;width:100%;text-align:left;font:inherit;padding:0;cursor:pointer}#excel-notes .af-table td.af-selected{background:#e4f0e7;box-shadow:inset 0 0 0 2px #21844b;position:relative}#excel-notes .af-table td.af-selected:after{content:'';position:absolute;right:0;bottom:0;width:5px;height:5px;background:#21844b}#excel-notes .af-table .af-right{text-align:right;font-variant-numeric:tabular-nums}#excel-notes .af-statusbar{display:flex;align-items:center;justify-content:space-between;font:10px/1.5 'Segoe UI',sans-serif;padding:8px 12px;background:#eef3ef;color:#53725d;gap:10px}#excel-notes .af-statusbar>span:first-child{background:#fff;border-bottom:2px solid #27814c;padding:2px 9px}#excel-notes .af-guide{padding:8px 0;min-width:0}#excel-notes .af-guide-title{font-size:10px;letter-spacing:2px;color:#9db9d2;margin-bottom:24px}#excel-notes .af-guide-step{display:flex;gap:12px;margin-bottom:24px;color:#bbcadb}#excel-notes .af-guide-step>span{border:1px solid #55728e;color:#bad8ef;border-radius:50%;width:26px;height:26px;flex-shrink:0;display:grid;place-items:center;font-size:11px}#excel-notes .af-guide-step strong{display:block;font-size:12px;font-weight:500;margin:2px 0 5px;color:#dae6f2}#excel-notes .af-guide-step small{display:block;font-size:11px;line-height:1.6;color:#b2c6d9}#excel-notes .af-guide-step.is-active>span{background:#3679b9;border-color:#6aade8;color:#fff}#excel-notes .af-live-result{font-size:12px;line-height:1.6;border-top:1px solid #8baecc36;padding-top:17px;color:#b4d6f5;min-height:70px;overflow-wrap:anywhere}#excel-notes .af-live-result b{font-size:27px;font-weight:500;display:block;color:#eaf5ff;line-height:1.4}#excel-notes .af-caption-row{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;font-size:10px;color:#a9bfd3;margin-top:12px}#excel-notes .af-benefit{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:21px 0 0;margin-top:23px;border-top:1px solid #b2cee52b;font-size:11px;color:#b4c6d8}#excel-notes .af-benefit>div{display:flex;align-items:center;gap:9px;flex-wrap:wrap;color:#c7d6e4}#excel-notes .af-benefit b{color:#799bb8;font-weight:400}#excel-notes .af-short-label{margin-left:auto}#excel-notes .af-benefit>strong{font-weight:500;color:#c4e7ff;background:#1c3c58;padding:5px 12px;border-radius:5px}#excel-notes .af-setup{padding-top:0;margin-top:28px;border:1px solid #a8c5e32b;border-radius:12px;background:#12263a;overflow:hidden}#excel-notes .af-setup summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:19px 22px;cursor:pointer;list-style:none;color:#e1edf8}#excel-notes .af-setup summary::-webkit-details-marker{display:none}#excel-notes .af-setup summary strong{display:block;font-size:15px;font-weight:500;margin-top:5px;line-height:1.5}#excel-notes .af-summary-action{font-size:11px;color:#adcde9;white-space:nowrap}#excel-notes .af-setup-content{padding:0 22px 22px}#excel-notes .af-setup-path{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:12px;color:#c8dced;margin:2px 0 20px}#excel-notes .af-setup-path b{font-weight:400;color:#84a7c6}#excel-notes .af-setup-path strong{font-weight:500}#excel-notes .af-setup-steps{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:14px}#excel-notes .af-setup-steps button{border:1px solid #6b93b54d;background:transparent;color:#c0d1df;border-radius:6px;font-size:11px;padding:8px 12px}#excel-notes .af-setup-steps button[aria-pressed=true]{background:#254c6e;color:#f5f9ff;border-color:#719fc5}#excel-notes .af-options{background:#f7f8fa;border-radius:8px;overflow:hidden;color:#2c3642;font:11px/1.5 'Segoe UI',Arial,sans-serif;border:1px solid #b6c1cc}#excel-notes .af-options-title{padding:10px 14px;background:#fff;border-bottom:1px solid #d6dce3;font-size:13px;display:flex;justify-content:space-between;gap:10px}#excel-notes .af-options-title small{font-size:10px;color:#75818e}#excel-notes .af-options-body{display:grid;grid-template-columns:160px 1fr}#excel-notes .af-options-sidebar{display:flex;flex-direction:column;background:#eef1f5;padding:14px 0;gap:2px}#excel-notes .af-options-sidebar>*{padding:8px 12px}#excel-notes .af-options-sidebar strong{font-weight:500;background:#dbe7f2;color:#215b8d;border-left:3px solid #407eaf}#excel-notes .af-options-main{padding:20px;min-width:0}#excel-notes .af-options-columns{display:grid;grid-template-columns:1fr 75px 1fr;gap:15px;align-items:center}#excel-notes .af-options-columns>div{min-width:0}#excel-notes .af-options-columns label{display:block;font-size:10px;margin-bottom:6px}#excel-notes .af-options-select{border:1px solid #aebcc9;padding:5px 8px;background:#fff;margin-bottom:8px;display:flex;justify-content:space-between}#excel-notes .af-command-list{border:1px solid #bac6d1;min-height:160px;background:#fff;display:flex;flex-direction:column;padding:7px 0;gap:2px}#excel-notes .af-command-list>*{padding:5px 9px;font-weight:400;overflow-wrap:anywhere}#excel-notes .af-command-list strong{font-weight:500}#excel-notes .af-tree-child{margin-left:13px}#excel-notes .af-tree-command{margin-left:27px}#excel-notes .af-add-arrow{padding:6px 4px;border:1px solid #a6b5c2;border-radius:3px;text-align:center;background:#f0f4f7;color:#1f4d70;font-size:11px}#excel-notes .af-options-footer{display:flex;gap:8px;margin-top:8px}#excel-notes .af-options-footer span,#excel-notes .af-options-bottom span{display:block;border:1px solid #b2bfcb;padding:5px 9px;background:#fff;border-radius:2px;min-width:56px;text-align:center}#excel-notes .af-options-bottom{display:flex;justify-content:flex-end;gap:8px;margin-top:17px}#excel-notes .af-setup-highlight{background:#d9eafa!important;color:#164b78!important;box-shadow:inset 0 0 0 1px #79a4c9}#excel-notes .af-setup-caption{font-size:13px;line-height:1.65;color:#d7e7f4;margin:15px 0 4px;min-height:42px}#excel-notes .af-small-note{font-size:10px;color:#b2c9de;margin:8px 0 0}#excel-notes .af-sources{font-size:10px;color:#9fb8d0;margin:19px 0 0}#excel-notes .af-sources a{text-decoration:underline;text-underline-offset:3px}#excel-notes .footer{margin-top:6px;padding-block:21px}#excel-notes #excel-article h2{font-size:30px;letter-spacing:-1px}#excel-notes #excel-article .summary{font-size:14px}#excel-notes #excel-article .section-label h3{font-size:16px}#excel-notes #excel-article .excel{max-width:950px;margin:0 auto}#excel-notes #excel-article table{font-size:14px}#excel-notes #excel-article .data-head{font-size:13px}#excel-notes #excel-article .excel-title,#excel-notes #excel-article .formula-bar{font-size:13px}#excel-notes #excel-article th,#excel-notes #excel-article td{height:35px}#excel-notes #excel-article .step-button{font-size:12px;padding:9px 14px}#excel-notes #excel-article .demo-caption,#excel-notes #excel-article .caution{font-size:13px}#excel-notes #excel-article .quick-solution{font-size:13px}
-@media(max-width:1050px){#excel-notes .af-stage-layout{grid-template-columns:1fr}#excel-notes .af-guide{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding-top:0}#excel-notes .af-guide-title{display:none}#excel-notes .af-guide-step{margin-bottom:0}#excel-notes .af-live-result{grid-column:1/-1;min-height:0;display:flex;align-items:center;gap:12px;padding-top:10px}#excel-notes .af-live-result b{font-size:22px}#excel-notes .af-lesson-heading{align-items:flex-start}#excel-notes .af-lesson-heading>div{min-width:0}#excel-notes .af-lesson-heading .af-download{margin-top:10px}#excel-notes .af-options-body{grid-template-columns:140px 1fr}}
-@media(max-width:780px){#excel-notes .shell{padding:0 21px}#excel-notes .af-lesson,#excel-notes #excel-article{padding:24px 19px}#excel-notes .lesson-choice{padding:16px;gap:12px}#excel-notes .lesson-choice strong{font-size:15px}#excel-notes .lesson-choice .lesson-num{padding-right:12px}#excel-notes .af-lesson-heading{flex-direction:column;gap:12px}#excel-notes .af-lesson-heading .af-download{margin-top:0}#excel-notes .af-options-sidebar{display:none}#excel-notes .af-options-body{grid-template-columns:1fr}#excel-notes .af-options-main{padding:15px}#excel-notes .af-options-columns{gap:10px;grid-template-columns:1fr 60px 1fr}#excel-notes .af-setup summary{padding:17px}#excel-notes .af-setup-content{padding:0 15px 18px}#excel-notes .af-summary-action{white-space:normal;max-width:75px}#excel-notes .af-benefit{gap:10px}#excel-notes .af-benefit .af-short-label{margin-left:0}#excel-notes h1{font-size:36px}#excel-notes .intro{padding-top:24px}#excel-notes .af-guide{gap:11px}#excel-notes .af-guide-step{gap:8px}#excel-notes .af-guide-step>span{width:23px;height:23px}#excel-notes .af-guide-step small{font-size:10px}}
-@media(max-width:540px){#excel-notes .shell{padding:0 14px}#excel-notes h1{font-size:29px;letter-spacing:-1.1px}#excel-notes .lead{font-size:13px}#excel-notes .lesson-tabs{gap:10px;grid-template-columns:1fr}#excel-notes .lesson-choice{padding:13px 15px}#excel-notes .lesson-choice .lesson-topic{font-size:9px;margin-bottom:2px}#excel-notes .lesson-choice strong{font-size:14px}#excel-notes .lesson-choice .lesson-num{font-size:10px}#excel-notes .af-lesson,#excel-notes #excel-article{padding:22px 14px;border-radius:15px}#excel-notes .af-guide{grid-template-columns:1fr;gap:15px}#excel-notes .af-guide-step small{font-size:11px}#excel-notes .af-live-result{grid-column:auto}#excel-notes .af-table-scroll{min-height:325px}#excel-notes .af-titlebar{font-size:10px;padding:8px 10px}#excel-notes .af-demo-label{display:none}#excel-notes .af-ribbon-tabs{gap:16px;font-size:10px;padding:10px 10px 0}#excel-notes .af-ribbon{gap:10px;padding:10px}#excel-notes .af-ribbon-help{display:none}#excel-notes .af-ribbon-group{padding-right:12px}#excel-notes .af-caption-row{font-size:10px}#excel-notes .af-options-columns{grid-template-columns:1fr;gap:10px}#excel-notes .af-add-arrow{max-width:90px;justify-self:center;transform:none}#excel-notes .af-command-list{min-height:0}#excel-notes .af-options-columns label{font-size:11px}#excel-notes .af-setup-caption{font-size:12px}#excel-notes .af-setup summary strong{font-size:14px}#excel-notes .af-setup summary{gap:12px}#excel-notes .af-summary-action{font-size:10px}#excel-notes .af-setup-steps button{padding:8px;font-size:10px}#excel-notes #excel-article h2{font-size:24px}#excel-notes #excel-article table{font-size:12px}#excel-notes #excel-article .data-head{font-size:11px}#excel-notes #excel-article .formula-bar{font-size:12px}#excel-notes #excel-article .excel-title{font-size:10px}#excel-notes #excel-article .step-button{font-size:10px;padding:8px}}
-#excel-notes .af-table{font-size:13px}#excel-notes .af-table th{font-size:12px}#excel-notes .af-table th,#excel-notes .af-table td{height:34px}#excel-notes .af-table .af-letters th{font-size:11px}#excel-notes .af-table .af-rownum{font-size:11px}#excel-notes .af-titlebar{font-size:12px}#excel-notes .af-ribbon-tabs{font-size:12px}#excel-notes .af-formula{font-size:13px}#excel-notes .af-guide-step strong{font-size:13px}#excel-notes .af-guide-step small{font-size:12px}#excel-notes .af-statusbar{font-size:11px}#excel-notes .af-table{min-width:620px}
-@media(prefers-reduced-motion:reduce){#excel-notes *{transition:none!important;scroll-behavior:auto!important}}
+/* Excel tips page: grid-poster frame; Excel simulation rules kept from the previous build */
+
+#excel-notes{display:block}
+#excel-notes [hidden]{display:none!important}
+.lesson-tabs{display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--ink);border-bottom:0}
+.ui .lesson-choice{display:flex;align-items:center;gap:16px;text-align:left;padding:18px 22px;background:var(--paper);border:0;min-height:88px;font-weight:500}
+.ui .lesson-choice+.lesson-choice{border-left:2px solid var(--ink)}
+.ui .lesson-choice:hover{background:var(--field);color:var(--ink)}
+.ui .lesson-choice[aria-selected=true]{background:var(--ink);color:var(--paper)}
+.lesson-num{font-weight:900;font-size:15px}
+.lesson-topic{display:block;font-size:14px;font-weight:700;opacity:.85}
+.lesson-choice strong{display:block;font-size:20px;font-weight:900;line-height:1.15}
+.lesson-arrow{margin-left:auto;font-size:20px}
+.af-lesson,#excel-article{border:2px solid var(--ink);background:var(--paper);padding:32px}
+.af-lesson-heading{display:flex;gap:24px;align-items:flex-start;justify-content:space-between;margin-bottom:26px}
+.af-kicker{font-size:15px;font-weight:800;color:var(--red)}
+.af-lesson h2,#excel-article h2{font-size:clamp(28px,3vw,42px);font-weight:900;letter-spacing:-.02em;line-height:1.05;margin:6px 0 10px}
+.af-lesson-heading p{margin:0;max-width:66ch}
+.af-download,.download{display:inline-flex;gap:10px;align-items:center;white-space:nowrap;text-decoration:none;font-weight:700;padding:11px 18px;min-height:44px;background:var(--ink);color:var(--paper);border:2px solid var(--ink)}
+.af-download:hover,.download:hover{background:var(--red);border-color:var(--red);color:#fff}
+.af-stage-layout{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px}
+.af-workbook{border:2px solid var(--ink)!important;border-radius:0!important;box-shadow:none!important}
+.af-guide-title{font-size:15px;font-weight:900;margin:0 0 10px}
+.af-guide-step{display:flex;gap:12px;align-items:flex-start;border-top:2px solid var(--ink);padding:12px 0 14px}
+.af-guide-step>span{height:28px;width:28px;border:2px solid var(--ink);font-size:13px;font-weight:900;display:grid;place-items:center;flex-shrink:0}
+.af-guide-step strong{display:block;font-size:15px;font-weight:800;margin:2px 0 4px}
+.af-guide-step small{display:block;font-size:13px;line-height:1.45;color:var(--muted)}
+.af-guide-step.is-active>span{background:var(--red);border-color:var(--red);color:#fff}
+.af-live-result{border-top:2px solid var(--ink);padding-top:14px;font-size:15px;line-height:1.5}
+.af-caption-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:10px}
+.af-benefit{display:flex;align-items:center;gap:12px;flex-wrap:wrap;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:14px 0;margin:24px 0;font-size:14px}
+.af-benefit>div{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.af-benefit b{font-weight:900}
+.af-short-label{margin-left:auto;font-weight:700}
+.af-benefit>strong{background:var(--stone);padding:4px 10px;font-weight:900}
+.af-setup{border:2px solid var(--ink);background:var(--field)}
+.af-setup summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;list-style:none}
+.af-setup summary::-webkit-details-marker{display:none}
+.af-setup summary strong{display:block;font-size:19px;font-weight:900}
+.af-summary-action{font-weight:800;white-space:nowrap;text-decoration:underline;text-underline-offset:4px}
+.af-setup-content{padding:0 20px 20px;border-top:2px solid var(--ink)}
+.af-setup-path{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:16px 0;font-size:14px}
+.af-setup-path b{font-weight:900}
+.af-setup-steps{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.ui .af-setup-steps button{font-size:14px;padding:6px 12px;min-height:40px}
+.ui .af-setup-steps button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.af-setup-caption{font-size:15px;font-weight:600;margin:14px 0 6px}
+.af-small-note,.af-sources{font-size:13px;color:var(--muted);margin:8px 0 0}
+.af-sources{margin-top:18px}
+.af-sources a{color:var(--ink);text-underline-offset:3px}
+.article-meta{display:flex;gap:10px;align-items:center;font-size:14px;font-weight:700}
+.tag{background:var(--red);color:#fff;padding:2px 8px;font-weight:800}
+.summary{max-width:70ch;margin:0 0 18px}
+.quick-solution{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:14px 16px;background:var(--field);border-left:6px solid var(--red);margin:0 0 26px;font-weight:600}
+kbd{font:700 14px/1.2 Consolas,ui-monospace,monospace;background:var(--paper);border:2px solid var(--ink);padding:4px 8px}
+.section-label{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.section-label h3{margin:0;font-size:20px;font-weight:900}
+.section-label span{font-size:13px;color:var(--muted)}
+.demo-controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.ui .step-button{font-size:14px;padding:6px 12px;min-height:40px}
+.ui .step-button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.demo-caption{min-height:48px;font-size:15px;margin:12px 0}
+.caution{padding:12px 14px;background:var(--field);border-left:6px solid var(--ochre);font-size:14px}
+.actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin:22px 0}
+.file-note{font-size:13px;color:var(--muted)}
+#excel-article details{border-top:2px solid var(--ink);padding-top:14px}
+#excel-article summary{cursor:pointer;font-weight:800}
+#excel-article details li{margin:8px 0;line-height:1.55}
+.refs{font-size:13px;color:var(--muted)}
+.refs a{color:var(--ink)}
+@media(max-width:1100px){.af-stage-layout{grid-template-columns:1fr}}
+@media(max-width:760px){.lesson-tabs{grid-template-columns:1fr}.ui .lesson-choice+.lesson-choice{border-left:0;border-top:2px solid var(--ink)}.af-lesson,#excel-article{padding:22px 18px}.af-lesson-heading{display:block}.af-lesson-heading .af-download{margin-top:14px}.af-short-label{margin-left:0}.af-setup summary{padding:14px}.af-setup-content{padding:0 14px 14px}}
+
+/* Excel simulation */
+#excel-notes .excel{background:#fff;border-radius:9px;overflow:hidden;color:#24332d;border:1px solid #9db5a9}
+#excel-notes .excel-title{background:#176b43;color:#fff;display:flex;align-items:center;gap:10px;font-size:11px;padding:8px 12px}
+#excel-notes .excel-mark{font-size:13px;font-weight:600;border:1px solid #9dc7ac;line-height:19px;width:21px;text-align:center}
+#excel-notes .excel-file{min-width:0;overflow-wrap:anywhere}
+#excel-notes .formula-bar{display:flex;align-items:center;gap:12px;font-size:11px;padding:7px 10px;background:#f5f7f6;border-bottom:1px solid #d9e1dc;font-family:Consolas,monospace}
+#excel-notes .formula-bar b{font-weight:400;min-width:34px}
+#excel-notes .formula-bar i{color:#6e7b74;border-left:1px solid #d1d9d3;padding-left:10px}
+#excel-notes .formula{overflow-wrap:anywhere}
+#excel-notes .sheet-wrap{overflow-x:auto}
+#excel-notes table{width:100%;border-collapse:collapse;font-size:12px;table-layout:fixed;font-variant-numeric:tabular-nums}
+#excel-notes th{border-right:1px solid #e0e6e1;border-bottom:1px solid #e0e6e1;padding:6px 11px;height:30px}
+#excel-notes .letters th{background:#edf1ee;font-weight:400;color:#617065;height:24px;padding:2px 10px;text-align:center;font-size:11px}
+#excel-notes .rownum{width:35px;background:#f1f4f2;color:#768178;text-align:center;font-size:10px;padding:3px}
+#excel-notes .description{width:37%}
+#excel-notes .data-head{background:#e0eee5;font-weight:500;text-align:left;font-size:11px}
+#excel-notes .number{text-align:right}
+#excel-notes .sub td:not(.rownum){background:#eff6f1;font-weight:500}
+#excel-notes .selected td:nth-last-child(-n+2){background:#deeee3;border-top:1px solid #208449;border-bottom:1px solid #208449}
+#excel-notes .selected td:last-child{border-right:2px solid #208449}
+#excel-notes .selected td:nth-last-child(2){border-left:2px solid #208449}
+#excel-notes .filled td:last-child{background:#d9efdf;color:#176b43;font-weight:600}
+#excel-notes .sheet-footer{display:flex;align-items:center;gap:15px;justify-content:space-between;padding:6px 12px;background:#f0f4f1;font-size:10px;color:#52695c}
+#excel-notes .sheet-tab{background:#fff;border-bottom:2px solid #208449;padding:1px 11px;color:#176b43}
+@media(max-width:430px){#excel-notes table{font-size:11px}
+#excel-notes th{padding:6px}}
+#excel-notes .af-workbook{background:#fff;color:#24352e;border-radius:11px;overflow:hidden;border:1px solid #9cb6a6;box-shadow:0 14px 45px #02091338;min-width:0}
+#excel-notes .af-titlebar{display:flex;align-items:center;gap:9px;background:#176b43;padding:9px 13px;color:#fff;font:11px/1.6 'Segoe UI',sans-serif;flex-wrap:wrap}
+#excel-notes .af-x{width:21px;height:21px;border:1px solid #bddfcb7d;display:grid;place-items:center;font-weight:600}
+#excel-notes .af-demo-label{margin-left:auto;font-size:8px;letter-spacing:1px;color:#d0eadb}
+#excel-notes .af-ribbon-tabs{background:#f6f8f6;display:flex;gap:24px;align-items:center;border-bottom:1px solid #dae1dc;font:11px/1.5 'Segoe UI',sans-serif;padding:10px 14px 0}
+#excel-notes .af-ribbon-tabs>*{padding-bottom:9px}
+#excel-notes .af-ribbon-tabs strong{font-weight:600;color:#176b43;border-bottom:2px solid #176b43}
+#excel-notes .af-ribbon{display:flex;align-items:center;padding:10px 14px;gap:17px;background:#fbfcfb;border-bottom:1px solid #d9e2dc}
+#excel-notes .af-ribbon-group{display:flex;flex-direction:column;text-align:center;border-right:1px solid #d4ded7;padding-right:14px}
+#excel-notes #af-apply{border:1px solid #bad3c2;border-radius:5px;padding:7px 12px;background:#edf6ef;color:#1e5033;font:12px 'Segoe UI',sans-serif;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:80px}
+#excel-notes #af-apply:hover{background:#d3ebdb;border-color:#398c59}
+#excel-notes #af-apply svg{width:24px;height:24px;stroke:#227244;stroke-width:1.5;fill:none}
+#excel-notes .af-ribbon-group small{font:9px 'Segoe UI',sans-serif;color:#6b776e;margin-top:5px}
+#excel-notes .af-ribbon-help{font:11px/1.5 'Segoe UI',sans-serif;color:#607768;max-width:180px}
+#excel-notes .af-clear{margin-left:auto;align-self:center;font:10px/1.5 'Segoe UI',sans-serif;background:#fff;color:#4b6254;padding:7px 10px;border:1px solid #c7d4cb;border-radius:4px}
+#excel-notes .af-formula{display:flex;align-items:center;gap:15px;padding:6px 12px;font:12px/1.5 'Segoe UI',sans-serif;border-bottom:1px solid #dce3de;background:#fff}
+#excel-notes #af-cell{min-width:38px}
+#excel-notes .af-formula i{border-left:1px solid #d6dfd8;color:#56675b;padding-left:13px;font-family:Georgia,serif}
+#excel-notes .af-table-scroll{overflow-x:auto;min-height:325px;background:linear-gradient(#ffffff00,#ffffff00)}
+#excel-notes .af-table{width:100%;table-layout:fixed;border-collapse:collapse;font:11px/1.5 'Segoe UI',sans-serif;color:#26382e;min-width:530px}
+#excel-notes .af-row-col{width:28px}
+#excel-notes .af-doc-col{width:70px}
+#excel-notes .af-company-col{width:138px}
+#excel-notes .af-desc-col{width:125px}
+#excel-notes .af-amount-col{width:90px}
+#excel-notes .af-status-col{width:90px}
+#excel-notes .af-table th,#excel-notes .af-table td{border:1px solid #e1e7e2;height:31px;padding:6px 9px;overflow-wrap:break-word}
+#excel-notes .af-table th{background:#e8f0ea;font-size:10px;font-weight:500;text-align:left;white-space:normal}
+#excel-notes .af-table .af-letters th{padding:2px;height:22px;background:#f1f4f1;color:#526357;text-align:center;font-weight:400;font-size:10px}
+#excel-notes .af-table .af-rownum{background:#f3f6f3;color:#56675b;text-align:center;font-size:9px;padding:3px}
+#excel-notes .af-company-button{color:inherit;border:0;background:transparent;display:block;width:100%;text-align:left;font:inherit;padding:0;cursor:pointer}
+#excel-notes .af-table td.af-selected{background:#e4f0e7;box-shadow:inset 0 0 0 2px #21844b;position:relative}
+#excel-notes .af-table td.af-selected:after{content:'';position:absolute;right:0;bottom:0;width:5px;height:5px;background:#21844b}
+#excel-notes .af-table .af-right{text-align:right;font-variant-numeric:tabular-nums}
+#excel-notes .af-statusbar{display:flex;align-items:center;justify-content:space-between;font:10px/1.5 'Segoe UI',sans-serif;padding:8px 12px;background:#eef3ef;color:#53725d;gap:10px}
+#excel-notes .af-statusbar>span:first-child{background:#fff;border-bottom:2px solid #27814c;padding:2px 9px}
+#excel-notes .af-options{background:#f7f8fa;border-radius:8px;overflow:hidden;color:#2c3642;font:11px/1.5 'Segoe UI',Arial,sans-serif;border:1px solid #b6c1cc}
+#excel-notes .af-options-title{padding:10px 14px;background:#fff;border-bottom:1px solid #d6dce3;font-size:13px;display:flex;justify-content:space-between;gap:10px}
+#excel-notes .af-options-title small{font-size:10px;color:#75818e}
+#excel-notes .af-options-body{display:grid;grid-template-columns:160px 1fr}
+#excel-notes .af-options-sidebar{display:flex;flex-direction:column;background:#eef1f5;padding:14px 0;gap:2px}
+#excel-notes .af-options-sidebar>*{padding:8px 12px}
+#excel-notes .af-options-sidebar strong{font-weight:500;background:#dbe7f2;color:#215b8d;border-left:3px solid #407eaf}
+#excel-notes .af-options-main{padding:20px;min-width:0}
+#excel-notes .af-options-columns{display:grid;grid-template-columns:1fr 75px 1fr;gap:15px;align-items:center}
+#excel-notes .af-options-columns>div{min-width:0}
+#excel-notes .af-options-columns label{display:block;font-size:10px;margin-bottom:6px}
+#excel-notes .af-options-select{border:1px solid #aebcc9;padding:5px 8px;background:#fff;margin-bottom:8px;display:flex;justify-content:space-between}
+#excel-notes .af-command-list{border:1px solid #bac6d1;min-height:160px;background:#fff;display:flex;flex-direction:column;padding:7px 0;gap:2px}
+#excel-notes .af-command-list>*{padding:5px 9px;font-weight:400;overflow-wrap:anywhere}
+#excel-notes .af-command-list strong{font-weight:500}
+#excel-notes .af-tree-child{margin-left:13px}
+#excel-notes .af-tree-command{margin-left:27px}
+#excel-notes .af-add-arrow{padding:6px 4px;border:1px solid #a6b5c2;border-radius:3px;text-align:center;background:#f0f4f7;color:#1f4d70;font-size:11px}
+#excel-notes .af-options-footer{display:flex;gap:8px;margin-top:8px}
+#excel-notes .af-options-footer span,#excel-notes .af-options-bottom span{display:block;border:1px solid #b2bfcb;padding:5px 9px;background:#fff;border-radius:2px;min-width:56px;text-align:center}
+#excel-notes .af-options-bottom{display:flex;justify-content:flex-end;gap:8px;margin-top:17px}
+#excel-notes .af-setup-highlight{background:#d9eafa!important;color:#164b78!important;box-shadow:inset 0 0 0 1px #79a4c9}
+#excel-notes #excel-article .excel{max-width:950px;margin:0 auto}
+#excel-notes #excel-article table{font-size:14px}
+#excel-notes #excel-article .data-head{font-size:13px}
+#excel-notes #excel-article .excel-title,#excel-notes #excel-article .formula-bar{font-size:13px}
+#excel-notes #excel-article th{height:35px}
+@media(max-width:1050px){#excel-notes .af-options-body{grid-template-columns:140px 1fr}}
+@media(max-width:780px){#excel-notes .af-options-sidebar{display:none}
+#excel-notes .af-options-body{grid-template-columns:1fr}
+#excel-notes .af-options-main{padding:15px}
+#excel-notes .af-options-columns{gap:10px;grid-template-columns:1fr 60px 1fr}}
+@media(max-width:540px){#excel-notes .af-table-scroll{min-height:325px}
+#excel-notes .af-titlebar{font-size:10px;padding:8px 10px}
+#excel-notes .af-demo-label{display:none}
+#excel-notes .af-ribbon-tabs{gap:16px;font-size:10px;padding:10px 10px 0}
+#excel-notes .af-ribbon{gap:10px;padding:10px}
+#excel-notes .af-ribbon-help{display:none}
+#excel-notes .af-ribbon-group{padding-right:12px}
+#excel-notes .af-options-columns{grid-template-columns:1fr;gap:10px}
+#excel-notes .af-add-arrow{max-width:90px;justify-self:center;transform:none}
+#excel-notes .af-command-list{min-height:0}
+#excel-notes .af-options-columns label{font-size:11px}
+#excel-notes #excel-article table{font-size:12px}
+#excel-notes #excel-article .data-head{font-size:11px}
+#excel-notes #excel-article .formula-bar{font-size:12px}
+#excel-notes #excel-article .excel-title{font-size:10px}}
+#excel-notes .af-table{font-size:13px}
+#excel-notes .af-table th{font-size:12px}
+#excel-notes .af-table th,#excel-notes .af-table td{height:34px}
+#excel-notes .af-table .af-letters th{font-size:11px}
+#excel-notes .af-table .af-rownum{font-size:11px}
+#excel-notes .af-titlebar{font-size:12px}
+#excel-notes .af-ribbon-tabs{font-size:12px}
+#excel-notes .af-formula{font-size:13px}
+#excel-notes .af-statusbar{font-size:11px}
+#excel-notes .af-table{min-width:620px}.af-live-result b{display:block;font-size:24px;font-weight:900;line-height:1.1}
+#excel-notes .af-demo-label{font-size:11px;letter-spacing:.02em}
+#excel-notes .af-ribbon-group small{font-size:11px}
+#excel-notes .af-clear{font-size:12px}

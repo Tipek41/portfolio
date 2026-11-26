@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' data: blob: https://cdnjs.cloudflare.com; worker-src 'self' blob: https://cdnjs.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; connect-src 'self' data: blob:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veri Dönüştürücü · Tolga İpek</title>
+    <title data-tr="Veri Dönüştürücü · Tolga İpek" data-en="Data Converter · Tolga İpek">Veri Dönüştürücü · Tolga İpek</title>
 <meta name="description" content="Metin, CSV ve TSV verilerini analiz edin; biçimlendirilmiş Excel (XLSX) veya CSV dosyalarına tarayıcınızda dönüştürün.">
 <link rel="canonical" href="https://tolgaipek.com.tr/veri-donusturucu/">
 <meta property="og:type" content="website">
@@ -19,249 +19,53 @@
     <!-- EXCELJS LIBRARY (Gerçek .xlsx çıktısı için) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js" integrity="sha384-P7KKlGD3Ng66Ds7oTliLzTnol6DbK+k7PafNYXIBDQ4b5eFWtmqctplDVOxslglR" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
-    <style>
-        :root {
-            --bg-color: #111329;
-            --card-bg: #1b1e37;
-            --border-color: #383e60;
-            --accent-1: #94c7ff;
-            --accent-2: #c9adff;
-            --accent-3: #ffa7cf;
-            --danger: #ff6b6b;
-            --text-light: #e2e8f0;
-            --text-muted: #94a3b8;
-        }
-
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            background-image: radial-gradient(circle at 15% 50%, #334e8466, transparent 25%),
-                              radial-gradient(circle at 85% 30%, #ac428540, transparent 25%);
-            background-attachment: fixed;
-            color: var(--text-light);
-            min-height: 100vh;
-            box-sizing: border-box;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        header h1 {
-            margin: 0 0 10px 0;
-            font-size: 2.2rem;
-            background: linear-gradient(45deg, var(--accent-1), var(--accent-2), var(--accent-3));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .subtitle {
-            margin: 0;
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.4;
-        }
-
-        main {
-            display: grid;
-            grid-template-columns: 370px 1fr;
-            gap: 22px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        @media (max-width: 860px) {
-            main {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        section {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-        }
-
-        h2 {
-            margin-top: 0;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--accent-1);
-        }
-
-        .num {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 24px;
-            height: 24px;
-            background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
-            color: var(--bg-color);
-            border-radius: 50%;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-
-        .drop-zone {
-            border: 2px dashed var(--border-color);
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 20px;
-            min-height: 44px;
-        }
-
-        .drop-zone:hover, .drop-zone.dragover {
-            border-color: var(--accent-2);
-            background-color: rgba(201, 173, 255, 0.05);
-        }
-
-        .drop-zone input[type="file"] {
-            display: none;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 6px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        select {
-            width: 100%;
-            padding: 10px 35px 10px 10px;
-            background-color: rgba(0,0,0,0.2);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            color: var(--text-light);
-            box-sizing: border-box;
-            min-height: 44px;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2394a3b8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E");
-            background-repeat: no-repeat;
-            background-position: right 12px top 50%;
-            background-size: 12px auto;
-            cursor: pointer;
-        }
-        
-        select:focus {
-            outline: none;
-            border-color: var(--accent-1);
-        }
-
-        /* Liste elemanlarının okunabilirliğini artıran yeni kural */
-        option {
-            background-color: var(--card-bg);
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            min-height: 44px;
-            margin-bottom: 10px;
-            transition: opacity 0.2s;
-        }
-
-        .btn-primary {
-            background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
-            color: var(--bg-color);
-        }
-
-        .btn-secondary {
-            background: var(--border-color);
-            color: var(--text-light);
-        }
-        
-        .btn-danger {
-            background: rgba(255, 107, 107, 0.1);
-            color: var(--danger);
-            border: 1px solid rgba(255, 107, 107, 0.3);
-            margin-top: 20px;
-        }
-        
-        .btn-danger:hover {
-            background: rgba(255, 107, 107, 0.2);
-        }
-
-        .btn:hover {
-            opacity: 0.9;
-        }
-
-        .table-container {
-            overflow-x: auto;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
-            margin-bottom: 15px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.85rem;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-            border-right: 1px solid rgba(56, 62, 96, 0.4);
-            white-space: nowrap;
-        }
-
-        th {
-            background-color: rgba(0,0,0,0.3);
-            color: var(--accent-1);
-            font-weight: 600;
-        }
-
-        #file-name-display {
-            color: var(--accent-3);
-            margin-top: 10px;
-            font-size: 0.9rem;
-            word-break: break-all;
-            text-align: center;
-        }
-        
-        hr {
-            border: 0;
-            height: 1px;
-            background: var(--border-color);
-            margin: 20px 0;
-        }
-    </style>
-<link rel="stylesheet" href="../site-navigation.css?v=1"><link rel="icon" type="image/svg+xml" href="../favicon.svg?v=1"></head>
-<body class="integrated-tool"><nav class="site-shellnav" aria-label="Site menüsü"><div class="site-shellnav-inner"><a class="site-shellnav-brand" href="../">TOLGA İPEK</a><div class="site-shellnav-links"><a href="../#tools">Araçlar ve Projeler</a><a href="../#about">Hakkımda</a></div><div class="site-shellnav-actions"><a class="site-shellnav-back" href="../">← Ana sayfaya dön</a></div></div></nav><div class="integrated-content">
-    <header>
-        <h1>Veri Dönüştürücü</h1>
-        <p class="subtitle">Herhangi bir metin, CSV, TSV veya veri dosyasını anında analiz edip biçimlendirilmiş gerçek XLSX veya CSV formatlarına dönüştürün.</p>
-    </header>
-
-    <main>
+    
+<link rel="icon" type="image/svg+xml" href="../favicon.svg?v=1"><link rel="preload" href="/assets/fonts/Archivo-400-900-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/site.css?v=1"><script src="/assets/site.js?v=1" defer></script><style>
+:root{--text-muted:var(--muted);--accent-3:var(--ink)}
+.veri{display:grid;grid-template-columns:380px minmax(0,1fr);gap:0}
+.veri>section{border:2px solid var(--ink);padding:28px;min-width:0;background:var(--paper)}
+.veri>section+section{border-left:0}
+.veri h2{margin:0 0 18px;font-weight:900;font-size:24px;line-height:1.1;display:flex;align-items:center;gap:12px}
+.num{display:inline-grid;place-items:center;width:32px;height:32px;background:var(--tool);color:var(--tool-ink);font:900 16px/1 Archivo,sans-serif;flex:none}
+.drop-zone{border:2px dashed var(--ink);background:var(--field);padding:36px 18px;text-align:center;cursor:pointer;font-weight:700;font-size:18px;line-height:1.35}
+.drop-zone small{font-weight:500;font-size:14px}
+.drop-zone:hover,.drop-zone.dragover{background:var(--tool);color:var(--tool-ink);border-style:solid}
+.drop-zone input[type=file]{display:none}
+#file-name-display{margin:10px 0 18px;font-size:14px;font-weight:700;word-break:break-all}
+.form-group{margin-bottom:16px}
+.veri label{display:block;margin-bottom:8px;font-size:15px}
+.veri select{width:100%}
+.veri hr{border:0;border-top:2px solid var(--ink);margin:26px 0}
+.ui .btn{display:block;width:100%;margin-bottom:10px;min-height:50px;font-size:16px}
+.ui .btn-danger{background:none;border-color:var(--red);color:var(--red);margin-top:18px}
+.ui .btn-danger:hover:not(:disabled){background:var(--red);color:#fff}
+.table-container{overflow-x:auto;border:2px solid var(--ink);background:var(--field);margin-bottom:14px}
+.table-container:has(>p){min-height:220px}
+.table-container>p{color:var(--muted);text-align:center;padding:60px 20px!important;margin:0}
+table{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid #c9c9c3;border-right:1px solid #e0e0da;white-space:nowrap}
+th{background:var(--tool);color:var(--tool-ink);font-weight:800;position:sticky;top:0;border-right-color:rgba(255,255,255,.25)}
+tbody tr:nth-child(even) td{background:#f7f7f4}
+#table-info{font-size:14px;color:var(--ink)!important}
+@media(max-width:900px){.veri{grid-template-columns:1fr}.veri>section+section{border-left:2px solid var(--ink);border-top:0}}
+@media(max-width:520px){.veri>section{padding:18px}}
+</style>
+</head>
+<body class="ui b-indigo"><a class="skip" href="#main" data-tr="İçeriğe geç" data-en="Skip to content">İçeriğe geç</a>
+<header class="top">
+ <a class="brand" href="/">TOLGA İPEK</a>
+ <nav aria-label="Ana menü" data-aria-label-tr="Ana menü" data-aria-label-en="Main navigation"><a href="/#araclar" aria-current="page" data-tr="Araçlar" data-en="Tools">Araçlar</a><a href="/makrolar.html" data-tr="Makrolar" data-en="Macros">Makrolar</a><a href="/excel-pratikleri.html" data-tr="Excel Pratikleri" data-en="Excel Tips">Excel Pratikleri</a><a href="/#hakkimda" data-tr="Hakkımda" data-en="About">Hakkımda</a></nav>
+ <div class="tools-links">
+  <div class="lang" role="group" aria-label="Dil" data-aria-label-tr="Dil" data-aria-label-en="Language"><button type="button" class="active" data-lang="tr" aria-pressed="true">TR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+  <a href="https://github.com/Tipek41" target="_blank" rel="noopener">GitHub<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+  <a href="https://www.linkedin.com/in/tolga-ipek-0982a86b/" target="_blank" rel="noopener">LinkedIn<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+ </div>
+</header>
+<section class="band b-indigo vt-veri" aria-labelledby="page-title">
+ <div class="band-main"><span class="n">02</span><h1 id="page-title" data-tr="Veri Dönüştürücü" data-en="Data Converter">Veri Dönüştürücü</h1><p class="band-lede" data-tr="TXT, CSV, TSV veya DAT dosyasını oku, düzenli bir Excel tablosu ya da temiz bir CSV olarak indir." data-en="Read a TXT, CSV, TSV or DAT file and download it as a clean Excel table or CSV.">TXT, CSV, TSV veya DAT dosyasını oku, düzenli bir Excel tablosu ya da temiz bir CSV olarak indir.</p></div>
+ <div class="band-side"><p class="band-note" data-tr="Türkçe karakterler ve noktalı virgül ayırıcı Türkçe Excel için ayarlı. Dosya cihazınızdan çıkmaz." data-en="Set up for Turkish characters and semicolon-separated Turkish Excel. The file never leaves your device.">Türkçe karakterler ve noktalı virgül ayırıcı Türkçe Excel için ayarlı. Dosya cihazınızdan çıkmaz.</p><nav class="switch" aria-label="Araçlar" data-aria-label-tr="Araçlar" data-aria-label-en="Tools"><a class="sw-red" href="/pdf-atolyesi.html"><i aria-hidden="true"></i><span data-tr="PDF Atölyesi" data-en="PDF Workshop">PDF Atölyesi</span></a><a class="sw-indigo" href="/veri-donusturucu/" aria-current="page"><i aria-hidden="true"></i><span data-tr="Veri Dönüştürücü" data-en="Data Converter">Veri Dönüştürücü</span></a><a class="sw-ochre" href="/gorsel-boyutlandirici/"><i aria-hidden="true"></i><span data-tr="Görsel Boyutlandırıcı" data-en="Image Resizer">Görsel Boyutlandırıcı</span></a><a class="sw-teal" href="/kubart/"><i aria-hidden="true"></i><span>KubArt</span></a></nav></div>
+</section>
+<main id="main" class="page veri">
         <section id="controls">
             <h2><span class="num">1</span> Veri Yükle</h2>
             
@@ -271,7 +75,7 @@
             </div>
             <div id="file-name-display"></div>
 
-            <div class="form-group" style="margin-top: 15px;">
+            <div class="form-group">
                 <label>Karakter Kodlaması (Encoding)</label>
                 <select id="encoding-select">
                     <option value="windows-1254">Türkçe (Windows-1254) - Önerilen</option>
@@ -280,7 +84,7 @@
                 </select>
             </div>
 
-            <div class="form-group" style="margin-top:15px;">
+            <div class="form-group">
                 <label>CSV Dışa Aktarım Ayırıcısı</label>
                 <select id="csv-separator">
                     <option value=";">Noktalı Virgül (;) - Türkçe Excel</option>
@@ -306,8 +110,12 @@
             <div id="table-info" style="text-align:center; color:var(--text-muted); font-size:0.9rem;"></div>
         </section>
     </main>
-
-    <script>
+<footer class="foot">
+ <span>© <span data-year>2026</span> Tolga İpek</span>
+ <span data-tr="Dosyalar cihazınızda işlenir · takip yok · reklam yok" data-en="Files stay on your device · no tracking · no ads">Dosyalar cihazınızda işlenir · takip yok · reklam yok</span>
+ <a class="foot-end" href="/#araclar" data-tr="Diğer araçlar" data-en="Other tools">Diğer araçlar</a>
+</footer>
+<script>
         let globalHeaders = [];
         let globalData = [];
         let originalFileName = "tablo";
@@ -637,6 +445,5 @@
             link.click();
             document.body.removeChild(link);
         });
-    </script>
-</div></body>
+    </script></body>
 </html>

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' data: blob: https://cdnjs.cloudflare.com; worker-src 'self' blob: https://cdnjs.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; connect-src 'self' data: blob:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>KubArt</title>
   <meta name="description" content="KubArt ile görsellerinizi istediğiniz tablo ölçüsüne göre A4 sayfalara bölün, önizleyin ve PDF olarak yazdırın.">
@@ -18,107 +18,96 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="KubArt">
   <meta name="twitter:description" content="Görsellerinizi tablo ölçüsüne göre A4 sayfalara bölün ve PDF olarak yazdırın.">
-  <style>
-    :root{--blue:#0071e3;--blue2:#0066cc;--ink:#1d1d1f;--sub:#6e6e73;--line:#dedee2;--soft:#f5f5f7;--warn:#9a5b00;--warnbg:#fff8e8;--ok:#167545}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}button,input,select{font:inherit}button{cursor:pointer}.topbar{height:54px;background:rgba(255,255,255,.88);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid rgba(0,0,0,.06);display:flex;align-items:center;justify-content:space-between;padding:0 max(24px,calc((100vw - 1180px)/2));position:sticky;top:0;z-index:5}.logo{font-weight:750;font-size:16px;letter-spacing:-.035em}.logo span{color:var(--blue)}.version{font-size:11px;color:var(--blue);background:#eef5ff;padding:6px 10px;border-radius:20px;font-weight:700}.hero{padding:62px 24px 46px;text-align:center;background:radial-gradient(ellipse 55% 50% at 50% 96%,rgba(116,168,255,.13),transparent 75%),#fff}.hero .eyebrow{color:var(--blue);font-size:14px;font-weight:650;margin:0 0 12px}.hero h1{font-size:clamp(43px,6.5vw,78px);letter-spacing:-.07em;line-height:1.03;margin:0 auto 18px;font-weight:760;max-width:980px}.hero h1 .tone{background:linear-gradient(95deg,#0174df,#806cde 80%);-webkit-background-clip:text;background-clip:text;color:transparent}.hero .desc{font-size:clamp(16px,2vw,21px);line-height:1.45;letter-spacing:-.02em;color:var(--sub);max-width:720px;margin:0 auto}.content{background:var(--soft);padding:48px 24px 80px}.content-inner{max-width:1180px;margin:auto}.workspace{display:grid;grid-template-columns:minmax(340px,450px) minmax(0,1fr);gap:20px;align-items:start}.card{border-radius:25px;background:#fff;box-shadow:0 2px 16px rgba(0,0,0,.035);border:1px solid rgba(0,0,0,.04);overflow:hidden}.settings{padding:28px}.card-tag{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8d8d92;font-weight:750}.card h2{letter-spacing:-.04em;font-size:27px;margin:7px 0 6px}.card-lead{font-size:13px;color:var(--sub);margin:0 0 22px}.upload-zone{position:relative;min-height:145px;border:1px dashed #c9d9ee;border-radius:17px;background:linear-gradient(145deg,#f7fbff,#f4f7fc);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px;text-align:center;transition:.2s}.upload-zone.drag,.upload-zone:hover,.upload-zone:focus-within{border-color:var(--blue);background:#eef6ff}.upload-zone input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}.upload-icon{width:40px;height:40px;border-radius:13px;background:#e2efff;color:var(--blue);display:grid;place-items:center;font-size:22px;margin-bottom:9px}.upload-text{font-size:14px;font-weight:680;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.upload-subtext{font-size:11px;color:var(--sub);margin-top:5px}.divider{height:1px;background:#ededf0;margin:23px 0}.group-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}.group-title h3{font-size:15px;margin:0;letter-spacing:-.02em}.group-title span{font-size:11px;color:#a0a0a6}.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{min-width:0}.field.full{grid-column:1/-1}.field label{display:block;color:#525258;font-size:12px;font-weight:650;margin-bottom:7px}.field input,.field select{width:100%;height:44px;border:1px solid #d9d9de;background:#fff;border-radius:11px;padding:0 12px;outline:0;color:var(--ink);font-size:14px}.field input:focus,.field select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,113,227,.13)}.field small{display:block;color:#8b8b91;font-size:11px;line-height:1.35;margin-top:6px}.warning{display:none;margin-top:13px;border:1px solid #f1d497;background:var(--warnbg);color:#704200;border-radius:13px;padding:12px 13px;font-size:12px;line-height:1.45}.warning.show{display:block}.warning strong{display:block;margin-bottom:3px}.crop-controls{display:none;margin-top:12px;padding:13px;border-radius:13px;background:#f7f7f9}.crop-controls.show{display:grid;grid-template-columns:1fr 1fr;gap:12px}.range-line label{display:flex;justify-content:space-between;font-size:11px;color:#626269;margin-bottom:5px}.range-line input{width:100%;accent-color:var(--blue)}.cal-box{background:#f7f9fc;border-radius:15px;padding:15px}.cal-status{font-size:11px;color:var(--ok);font-weight:700;margin-top:9px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:23px}.btn{min-height:44px;border-radius:23px;border:0;font-weight:670;font-size:13px;transition:.2s;padding:0 14px}.btn-primary{background:var(--blue);color:#fff}.btn-primary:hover{background:var(--blue2)}.btn-secondary{color:var(--blue);background:#eef5ff}.btn-secondary:hover{background:#e4f0ff}.btn-plain{grid-column:1/-1;color:#4b4b52;background:#f3f3f5}.preview-card{display:flex;flex-direction:column;position:sticky;top:74px}.preview-top{padding:27px 28px 20px;display:flex;justify-content:space-between;gap:12px}.preview-top h2{margin:7px 0 5px}.badge{height:max-content;border-radius:20px;background:#f0f5fc;color:#3470b0;padding:7px 11px;font-size:11px;font-weight:670;white-space:nowrap}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#ededf0;border-top:1px solid #ededf0;border-bottom:1px solid #ededf0}.metric{background:#fff;padding:16px 18px}.metric-label{font-size:9px;color:#8a8a90;text-transform:uppercase;letter-spacing:.06em;font-weight:750}.metric-value{font-size:18px;font-weight:700;letter-spacing:-.035em;margin-top:4px}.preview-stage{min-height:430px;padding:26px;background:radial-gradient(ellipse 45% 38% at 75% 85%,rgba(163,131,232,.17),transparent 75%),radial-gradient(ellipse 52% 42% at 22% 15%,rgba(92,166,243,.15),transparent 75%),#f9fafd}.stage-label{display:flex;justify-content:space-between;font-size:10px;color:#929298;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:18px}#grid-preview{display:grid;gap:13px;max-width:100%;overflow:auto;min-height:320px;align-content:center;justify-content:center}.empty-preview{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}.empty-sheet{width:105px;height:140px;background:#fff;border:1px solid #e8e8ea;border-radius:7px;box-shadow:0 20px 38px rgba(93,100,126,.18);margin-bottom:24px;transform:rotate(-4deg)}.empty-preview strong{font-size:16px}.empty-preview p{color:var(--sub);font-size:12px;margin:7px 0 0}.preview-page{background:#fff;position:relative;overflow:hidden;border-radius:5px;box-shadow:0 9px 24px rgba(50,58,75,.17);width:125px}.preview-page canvas{width:100%;height:100%;display:block}.card-label{position:absolute;bottom:6px;right:6px;background:rgba(29,29,31,.82);color:white;padding:3px 6px;border-radius:4px;font-size:9px}.preview-bottom{font-size:11px;line-height:1.45;color:#74747a;padding:14px 28px;border-top:1px solid #ededf0}.footer{text-align:center;padding:30px;color:#aaaab0;font-size:12px}.footer b{color:#797980}.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:20px;z-index:20}.modal.show{display:flex}.modal-box{width:min(470px,100%);background:#fff;border-radius:22px;padding:25px;box-shadow:0 30px 80px rgba(0,0,0,.25)}.modal-box h3{margin:0 0 8px;font-size:22px}.modal-box p{color:var(--sub);font-size:13px;line-height:1.5;margin:0 0 18px}.modal-actions{display:grid;gap:8px}.modal-actions button{text-align:left;border:1px solid #e2e2e7;background:#fff;border-radius:13px;padding:12px 14px;color:var(--ink)}.modal-actions button:hover{border-color:var(--blue);background:#f5f9ff}.modal-actions strong,.modal-actions span{display:block}.modal-actions span{font-size:11px;color:var(--sub);margin-top:3px}
-    @media(max-width:950px){.workspace{grid-template-columns:1fr}.preview-card{position:static}.hero{padding-top:48px}.preview-stage{min-height:370px}}
-    @media(max-width:600px){.topbar{padding:0 17px}.hero{padding:48px 18px 38px}.hero h1{font-size:44px}.content{padding:34px 12px 60px}.settings{padding:21px}.preview-top{padding:22px}.metric{padding:12px 8px}.metric-value{font-size:15px}.preview-stage{padding:18px;min-height:340px}.actions{grid-template-columns:1fr}.btn-plain{grid-column:auto}}
-    @media print{body{background:#fff!important;margin:0!important}.topbar,.hero,.content,.footer,.modal{display:none!important}#print-mount,#print-mount *{visibility:visible!important}#print-mount{position:absolute;left:0;top:0;width:100%}.page-sheet{width:210mm;height:297mm;page-break-after:always;display:flex;align-items:center;justify-content:center;margin:0;padding:0}.page-sheet canvas{width:210mm;height:297mm;display:block}@page{size:A4 portrait;margin:0}}
   
-    /* MacroShelf-inspired midnight blue theme; flat background, no homepage imagery */
-    :root{color-scheme:dark;--blue:#139cff;--blue2:#54b7ff;--ink:#f2f6ff;--sub:#acbdd1;--line:#2a3e56;--soft:#091829;--warn:#ffcb7b;--warnbg:#382d1b;--ok:#79dcb0}
-    html,body{background:#060e19;color:var(--ink)}
-    body{background:#060e19}
-    .topbar{background:#07111e;border-bottom:1px solid #2a3e56;color:#f2f6ff}
-    .version{background:#102d4a;color:#8dd4ff}
-    .hero{background:#060e19;color:#f2f6ff}
-    .hero .eyebrow{color:#54b7ff}
-    .hero h1 .tone{background:linear-gradient(95deg,#54b7ff,#a3d9ff);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .content{background:#060e19}
-    .card,.modal-box{background:#0c1d30;border:1px solid #2a3e56;box-shadow:0 8px 28px #0002;color:#f2f6ff}
-    .card-tag,.group-title span,.card-lead,.field label,.modal-box p,.modal-actions span{color:#acbdd1}
-    .upload-zone{background:#10253b;border-color:#315676;color:#f2f6ff}
-    .upload-zone.drag,.upload-zone:hover,.upload-zone:focus-within{background:#12314e;border-color:#139cff}
-    .upload-icon{background:#163d60;color:#8dd4ff}
-    .divider{background:#2a3e56}
-    input,select,textarea{background:#10253b;color:#f2f6ff;border-color:#31506c;color-scheme:dark}
-    input::placeholder,textarea::placeholder{color:#92a8c0}
-    .modal-actions button{background:#10253b;border-color:#31506c;color:#f2f6ff}
-    .modal-actions button:hover{background:#173a59}
-    .footer{background:#060e19;color:#acbdd1}
-    @media print{html,body{background:#fff!important;color:#000!important}}
+<link rel="preload" href="/assets/fonts/Archivo-400-900-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/site.css?v=1"><script src="/assets/site.js?v=1" defer></script><style>
+.workspace{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr)}
+.card{border:2px solid var(--ink);background:var(--paper);min-width:0}
+.card+.card{border-left:0}
+.preview-card{align-self:start;position:sticky;top:16px}
+.settings{padding:28px}
+.card h2{margin:0;font-weight:900;font-size:24px;line-height:1.1;display:flex;align-items:center;gap:12px}
+.card h2::before{display:inline-grid;place-items:center;width:32px;height:32px;background:var(--tool);color:var(--tool-ink);font:900 16px/1 Archivo,sans-serif;flex:none}
+.settings h2::before{content:"1"}.preview-card h2::before{content:"2"}
+.card-lead{margin:8px 0 20px;color:var(--muted);font-size:15px}
+.upload-zone{position:relative;min-height:150px;border:2px dashed var(--ink);background:var(--field);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px;text-align:center}
+.upload-zone:hover,.upload-zone.drag{background:var(--tool);color:var(--tool-ink);border-style:solid}
+.upload-zone input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+.upload-icon{width:40px;height:40px;display:grid;place-items:center;background:var(--ink);color:var(--paper);font-size:22px;font-weight:900;margin-bottom:10px}
+.upload-text{font-weight:900;font-size:19px}
+.upload-subtext{font-size:14px;margin-top:4px}
+.divider{border-top:2px solid var(--ink);margin:24px 0}
+.group-title{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:14px}
+.group-title h3{margin:0;font-size:19px;font-weight:900}
+.group-title span{font-size:13px;color:var(--muted);font-weight:600}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{min-width:0}.field.full{grid-column:1/-1}
+.field label{display:block;font-size:15px;margin-bottom:8px}
+.field input,.field select{width:100%}
+.field small{display:block;color:var(--muted);font-size:13px;line-height:1.4;margin-top:6px}
+.warning{display:none;margin-top:14px;padding:12px 14px;font-size:14px;line-height:1.45;background:var(--field);border-left:6px solid var(--ochre)}
+.warning.show{display:block}
+.warning strong{display:block;margin-bottom:3px}
+.crop-controls{display:none;margin-top:14px;padding:14px;border:2px solid var(--ink);background:var(--field)}
+.crop-controls.show{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.range-line label{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px}
+.range-line input{width:100%}
+.cal-box{padding:16px;border:2px solid var(--ink);background:var(--field)}
+.cal-status{font-size:14px;font-weight:600;margin-top:12px}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+.ui .btn{min-height:48px;font-size:15px;padding:0 14px}
+.ui .btn-plain{grid-column:1/-1;background:none;border-style:dashed}
+.ui .btn-plain:hover:not(:disabled){border-style:solid}
+.preview-top{padding:28px 28px 20px;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.preview-top .card-lead{margin-bottom:0}
+.badge{white-space:nowrap;font-size:13px;font-weight:800;padding:6px 10px;background:var(--tool);color:var(--tool-ink)}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);background:var(--field)}
+.metric{padding:16px 18px}.metric+.metric{border-left:2px solid var(--ink)}
+.metric-label{font-size:13px;color:var(--muted);font-weight:600}
+.metric-value{font-size:22px;font-weight:900;margin-top:4px;font-variant-numeric:tabular-nums}
+.preview-stage{padding:22px 28px}
+.stage-label{display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-bottom:14px}
+#grid-preview{display:grid;gap:12px;max-width:100%;overflow:auto;min-height:320px;align-content:center;justify-content:center;background:#dfdfd9;padding:18px}
+.empty-preview{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.empty-sheet{width:105px;height:148px;background:#fff;border:2px solid var(--ink);margin-bottom:22px}
+.empty-preview strong{font-size:19px;font-weight:900}
+.empty-preview p{color:var(--muted);margin:6px 0 0}
+.preview-page{background:#fff;position:relative;overflow:hidden;width:125px;outline:1px solid #b9b9b3}
+.preview-page canvas{width:100%;height:100%;display:block}
+.card-label{position:absolute;bottom:6px;right:6px;background:var(--ink);color:var(--paper);padding:2px 6px;font-size:11px;font-weight:700}
+.preview-bottom{font-size:14px;line-height:1.5;padding:16px 28px;border-top:2px solid var(--ink)}
+.modal{position:fixed;inset:0;background:rgba(20,20,20,.7);display:none;align-items:center;justify-content:center;padding:20px;z-index:20}
+.modal.show{display:flex}
+.modal-box{width:min(480px,100%);background:var(--paper);border:2px solid var(--ink);padding:26px}
+.modal-box h3{margin:0 0 8px;font-size:22px;font-weight:900}
+.modal-actions{display:grid;gap:10px;margin-top:18px}
+.ui .modal-actions button{text-align:left;padding:12px 14px;display:block;width:100%}
+.modal-actions strong,.modal-actions span{display:block}
+.modal-actions span{font-weight:500;font-size:14px;margin-top:2px}
+#print-mount{display:none}
+@media(max-width:980px){.workspace{grid-template-columns:1fr}.card+.card{border-left:2px solid var(--ink);border-top:0}}
+@media(max-width:520px){.settings{padding:18px}.preview-top,.preview-stage,.preview-bottom{padding-left:18px;padding-right:18px}.actions{grid-template-columns:1fr}.metric{padding:12px}.metric-value{font-size:18px}.crop-controls.show{grid-template-columns:1fr}}
+@media print{body{background:#fff!important;margin:0!important}.skip,.top,.band,.content,.foot,.modal{display:none!important}#print-mount{display:block!important;position:absolute;left:0;top:0;width:100%}#print-mount,#print-mount *{visibility:visible!important}.page-sheet{width:210mm;height:297mm;page-break-after:always;display:flex;align-items:center;justify-content:center;margin:0;padding:0}.page-sheet canvas{width:210mm;height:297mm;display:block}@page{size:A4 portrait;margin:0}}
+</style>
+</head>
+<body class="ui b-teal">
+<a class="skip" href="#main" data-tr="İçeriğe geç" data-en="Skip to content">İçeriğe geç</a>
+<header class="top">
+ <a class="brand" href="/">TOLGA İPEK</a>
+ <nav aria-label="Ana menü" data-aria-label-tr="Ana menü" data-aria-label-en="Main navigation"><a href="/#araclar" aria-current="page" data-tr="Araçlar" data-en="Tools">Araçlar</a><a href="/makrolar.html" data-tr="Makrolar" data-en="Macros">Makrolar</a><a href="/excel-pratikleri.html" data-tr="Excel Pratikleri" data-en="Excel Tips">Excel Pratikleri</a><a href="/#hakkimda" data-tr="Hakkımda" data-en="About">Hakkımda</a></nav>
+ <div class="tools-links">
+  <div class="lang" role="group" aria-label="Dil" data-aria-label-tr="Dil" data-aria-label-en="Language"><button type="button" class="active" data-lang="tr" aria-pressed="true">TR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+  <a href="https://github.com/Tipek41" target="_blank" rel="noopener">GitHub<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+  <a href="https://www.linkedin.com/in/tolga-ipek-0982a86b/" target="_blank" rel="noopener">LinkedIn<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+ </div>
+</header>
+<section class="band b-teal vt-kubart" aria-labelledby="page-title">
+ <div class="band-main"><span class="n">04</span><h1 id="page-title">KubArt</h1><p class="band-lede" data-tr="Görseli A4 sayfalara böl, gerçek ölçüde PDF hazırla, evde poster ya da tuval bas." data-en="Split an image onto A4 sheets, make a true-size PDF and print a poster or canvas at home.">Görseli A4 sayfalara böl, gerçek ölçüde PDF hazırla, evde poster ya da tuval bas.</p></div>
+ <div class="band-side"><p class="band-note" data-tr="Yazıcı kalibrasyonu dahil. Görsel cihazınızda işlenir, sunucuya yüklenmez." data-en="Printer calibration included. The image is processed on your device and never uploaded.">Yazıcı kalibrasyonu dahil. Görsel cihazınızda işlenir, sunucuya yüklenmez.</p><nav class="switch" aria-label="Araçlar" data-aria-label-tr="Araçlar" data-aria-label-en="Tools"><a class="sw-red" href="/pdf-atolyesi.html"><i aria-hidden="true"></i><span data-tr="PDF Atölyesi" data-en="PDF Workshop">PDF Atölyesi</span></a><a class="sw-indigo" href="/veri-donusturucu/"><i aria-hidden="true"></i><span data-tr="Veri Dönüştürücü" data-en="Data Converter">Veri Dönüştürücü</span></a><a class="sw-ochre" href="/gorsel-boyutlandirici/"><i aria-hidden="true"></i><span data-tr="Görsel Boyutlandırıcı" data-en="Image Resizer">Görsel Boyutlandırıcı</span></a><a class="sw-teal" href="/kubart/" aria-current="page"><i aria-hidden="true"></i><span>KubArt</span></a></nav></div>
+</section>
 
-    /* Readable midnight workspace */
-    :root{--blue:#4dafff;--blue2:#79c3ff;--ink:#f4f7fc;--sub:#b8c8dc;--line:#30465e;--soft:#091829}
-    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.5}
-    .topbar{height:64px}.logo{font-size:21px;letter-spacing:-.025em}
-    #langToggle{background:#142b43!important;border-color:#405b77!important;color:#edf5ff!important;font-size:14px!important;padding:8px 16px!important}
-    .hero{padding:44px 24px 36px}.hero .eyebrow{font-size:14px;letter-spacing:.02em}
-    .hero h1{font-size:clamp(34px,4.5vw,56px);line-height:1.14;letter-spacing:-.04em;font-weight:700;max-width:900px}
-    .hero h1 .tone{background:none;color:#79c3ff;-webkit-text-fill-color:#79c3ff}
-    .hero .desc{font-size:18px;line-height:1.65;letter-spacing:0;max-width:760px}
-    .content{padding:20px 24px 64px}.content-inner{max-width:1280px}
-    .workspace{grid-template-columns:minmax(400px,480px) minmax(0,1fr);gap:24px}
-    .card{border-radius:18px;box-shadow:0 12px 32px #0002}
-    .settings{padding:28px}.card-tag{font-size:12px;letter-spacing:.08em;color:#8fbce3}
-    .card h2{font-size:28px;line-height:1.25;letter-spacing:-.025em;margin:9px 0}
-    .card-lead{font-size:15px;line-height:1.6;color:var(--sub)}
-    .upload-zone{min-height:154px;border-radius:12px;border-color:#54789b;background:#10283f}
-    .upload-text{font-size:16px;white-space:normal;overflow-wrap:anywhere}.upload-subtext{font-size:13px;color:var(--sub)}
-    .group-title{gap:12px;align-items:baseline}.group-title h3{font-size:17px;letter-spacing:0}.group-title span{font-size:12px;color:var(--sub);text-align:right}
-    .fields{gap:16px}.field label{font-size:14px;color:#dbe7f5;font-weight:600}
-    .field input,.field select{height:48px;background:#091827;color:#f4f7fc;border:1px solid #486582;font-size:16px;border-radius:9px;padding:0 12px}
-    .field select{height:auto;min-height:48px;padding:12px 10px}.field select option{background:#10253b;color:#f4f7fc}
-    .field input:focus,.field select:focus{border-color:#79c3ff;box-shadow:0 0 0 3px #4dafff30}
-    .field small{font-size:13px;line-height:1.6;color:var(--sub);margin-top:8px}
-    .divider{margin:25px 0;background:var(--line)}
-    .cal-box,.crop-controls{background:#10283f;border:1px solid #304b66;border-radius:12px;padding:16px}
-    .range-line label{font-size:13px;color:#dbe7f5}.cal-status{font-size:13px;line-height:1.6;color:#8ce0b9}
-    .actions{gap:10px}.btn{min-height:48px;font-size:14px;font-weight:600;border-radius:10px;padding:12px 16px;line-height:1.4}
-    .btn-primary{background:#4dafff;color:#061422}.btn-primary:hover{background:#79c3ff}
-    .btn-secondary{background:#193b59;color:#e4f3ff;border:1px solid #486c8e}.btn-secondary:hover{background:#244d70}
-    .btn-plain{background:#132b42;color:#dce9f8;border:1px solid #36536e}.btn-plain:hover{background:#1b3b56}
-    button:focus-visible,.upload-zone:focus-within{outline:3px solid #9bd4ff;outline-offset:3px}
-    .preview-card{top:84px}.preview-top{padding:28px;align-items:start}
-    .badge{background:#173c57;color:#bce7ff;font-size:12px;white-space:normal;text-align:center;max-width:160px}
-    .metrics{background:var(--line);border-color:var(--line)}
-    .metric{background:#10253b;padding:18px 16px;min-width:0}
-    .metric-label{font-size:11px;letter-spacing:.04em;color:#b8c8dc}.metric-value{font-size:19px;letter-spacing:-.015em;color:#f4f7fc;overflow-wrap:anywhere}
-    .preview-stage{background:#081522;padding:26px;min-height:430px}
-    .stage-label{font-size:12px;color:#aec6dc;gap:12px;letter-spacing:.025em}
-    .empty-preview strong{font-size:18px;color:#edf5ff}.empty-preview p{font-size:14px;color:var(--sub)}
-    .empty-sheet{background:#e8f0f9;border-color:#fff;box-shadow:0 16px 32px #0004}
-    .preview-bottom{font-size:13px;line-height:1.7;color:#b8c8dc;border-color:var(--line);padding:18px 26px}.preview-bottom b{color:#edf5ff}
-    .warning{color:#ffe0a6;background:#34291a;border-color:#8d6a32;font-size:14px;line-height:1.6}
-    .footer{font-size:13px}.footer b{color:#edf5ff}
-    .modal-box p{font-size:15px}.modal-actions button{padding:15px;font-size:15px}.modal-actions span{font-size:13px;line-height:1.6}
-    #print-mount{display:none}
-    @media(max-width:1050px){.workspace{grid-template-columns:1fr}.preview-card{position:static}}
-    @media(max-width:600px){.hero{padding:32px 20px 24px}.hero h1{font-size:36px}.hero .desc{font-size:16px}.content{padding:12px 12px 40px}.settings{padding:22px}.preview-top{padding:22px;flex-wrap:wrap}.preview-stage{padding:18px}.metric{padding:14px 10px}.metric-value{font-size:16px}.metric-label{font-size:10px}.group-title{flex-wrap:wrap;gap:4px}.actions{grid-template-columns:1fr}.stage-label{font-size:11px}.card h2{font-size:26px}}
-    @media print{#print-mount{display:block}.page-sheet{break-after:page}}
-
-
-    /* Shared site navigation, matching PDF Atölyesi. */
-    .topbar{height:80px;padding:0;position:relative}
-    .site-nav{width:min(1320px,calc(100% - 88px));margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .site-nav a{text-decoration:none;color:inherit}
-    .site-brand{font-size:23px;letter-spacing:3px;font-weight:750;color:#8dd4ff!important;white-space:nowrap}
-    .site-links{display:flex;gap:30px;font-size:14px}.site-links a:hover{color:#54b7ff}
-    .site-actions{display:flex;align-items:center;gap:12px}
-    .site-back{border:1px solid #259eff;border-radius:10px;padding:8px 18px;display:inline-flex;align-items:center;white-space:nowrap;background:#0c223a88;font-size:14px}
-    .site-back:hover{border-color:#8dd4ff;background:#123557}
-    .site-nav a:focus-visible{outline:2px solid #70caff;outline-offset:4px}
-    @media(max-width:900px){.site-links{display:none}}
-    @media(max-width:600px){.topbar{padding:0}.site-nav{width:calc(100% - 28px);gap:10px}.site-brand{font-size:17px;letter-spacing:1px}.site-actions{gap:8px}.site-back{font-size:12px;padding:9px 10px}#langToggle{padding:8px 10px!important}}
-
-  </style>
-<link rel="stylesheet" href="../site-navigation.css?v=1"></head>
-<body>
-  <nav class="site-shellnav" aria-label="Site menüsü"><div class="site-shellnav-inner"><a class="site-shellnav-brand" href="../">TOLGA İPEK</a><div class="site-shellnav-links"><a href="../#tools">Araçlar ve Projeler</a><a href="../#about">Hakkımda</a></div><div class="site-shellnav-actions"><a class="site-shellnav-back" href="../">← Ana sayfaya dön</a><button id="langToggle" type="button" aria-label="Switch language" style="border:1px solid #d9d9de;background:#fff;border-radius:18px;padding:7px 11px;color:#1d1d1f;font-size:12px;font-weight:700;cursor:pointer">EN</button></div></div></nav>
-  <header class="hero"><p class="eyebrow">Ölçü kontrollü A4 şablon</p><h1>Tuvaline tam uyan<br><span class="tone">hatasız bir çıktı.</span></h1><p class="desc">Görsel oranını kontrol eder, gerekirse kırpar ve yazıcı kalibrasyonuna göre gerçek ölçülü A4 PDF hazırlar.</p></header>
-  <main class="content"><div class="content-inner"><div class="workspace">
+  <main id="main" class="content page"><div class="content-inner"><div class="workspace">
     <section class="card settings">
-      <div class="card-tag">01 / Ayarlar</div><h2>Tablonu hazırla.</h2><p class="card-lead">Görseli yükle, tuval ölçüsünü ve yerleşim şeklini belirle.</p>
+      <h2>Tablonu hazırla.</h2><p class="card-lead">Görseli yükle, tuval ölçüsünü ve yerleşim şeklini belirle.</p>
       <div class="upload-zone" id="dropZone"><input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" aria-label="Görsel seç"><div class="upload-icon">↑</div><div class="upload-text" id="uploadLabel">Görsel seç veya buraya bırak</div><div class="upload-subtext">JPG, PNG veya WEBP</div></div>
       <div class="divider"></div>
       <div class="group-title"><h3>Tuval ölçüsü</h3><span>cm</span></div>
@@ -148,13 +137,18 @@
       <div class="actions"><button class="btn btn-primary" id="generateBtn" type="button">Önizlemeyi oluştur</button><button class="btn btn-secondary" id="pdfBtn" type="button">A4 PDF’yi indir</button><button class="btn btn-plain" id="printBtn" type="button">Tarayıcıdan yazdır — %100</button></div>
     </section>
     <section class="card preview-card">
-      <div class="preview-top"><div><div class="card-tag">02 / Önizleme</div><h2>Sayfalarını gör.</h2><p class="card-lead" style="margin-bottom:0">Kesmeden önce ölçüyü ve dizilimi kontrol et.</p></div><span class="badge" id="previewBadge">Hazır</span></div>
+      <div class="preview-top"><div><h2>Sayfalarını gör.</h2><p class="card-lead" style="margin-bottom:0">Kesmeden önce ölçüyü ve dizilimi kontrol et.</p></div><span class="badge" id="previewBadge">Hazır</span></div>
       <div class="metrics"><div class="metric"><div class="metric-label">Görsel sonucu</div><div class="metric-value" id="resTarget">—</div></div><div class="metric"><div class="metric-label">A4 sayfası</div><div class="metric-value" id="resPages">—</div></div><div class="metric"><div class="metric-label">Dizilim</div><div class="metric-value" id="resGrid">—</div></div></div>
       <div class="preview-stage"><div class="stage-label"><span>Canlı önizleme</span><span>A4 · 21 × 29,7 cm</span></div><div id="grid-preview"><div class="empty-preview"><div class="empty-sheet"></div><strong>Görselin burada görünecek.</strong><p>Başlamak için bir dosya seç.</p></div></div></div>
       <div class="preview-bottom"><b>Baskı ayarı:</b> PDF’yi “Gerçek boyut / Actual Size / %100” ile yazdır. “Sayfaya sığdır / Fit to Page” kapalı olmalıdır. Emin değilsen önce kalibrasyon PDF’sini bas.</div>
     </section>
   </div></div></main>
-  <footer class="footer"><b>KubArt</b> · Görseller yalnızca tarayıcında işlenir.</footer>
+  <footer class="foot">
+ <span>© <span data-year>2026</span> Tolga İpek</span>
+ <span data-tr="Dosyalar cihazınızda işlenir · takip yok · reklam yok" data-en="Files stay on your device · no tracking · no ads">Dosyalar cihazınızda işlenir · takip yok · reklam yok</span>
+ <a class="foot-end" href="/#araclar" data-tr="Diğer araçlar" data-en="Other tools">Diğer araçlar</a>
+</footer>
+
   <div id="print-mount"></div>
   <div class="modal" id="ratioModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-box"><h3 id="modalTitle">Görsel oranı tuvalle uyuşmuyor</h3><p id="modalText"></p><div class="modal-actions"><button data-mode="cover"><strong>Tam  ölçüye kırp — önerilen</strong><span>Tuval tamamen dolar; görsel bozulmaz, taşan bölüm kırpılır.</span></button><button data-mode="contain"><strong>Görselin tamamını sığdır</strong><span>Hiçbir bölüm kırpılmaz; tuvalde boşluk kalabilir.</span></button><button data-mode="width"><strong>Genişliği sabitleyerek devam et</strong><span>Oran korunur; sonuç tuval yüksekliğini aşabilir.</span></button></div></div></div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha384-JcnsjUPPylna1s1fvi1u12X5qjY5OL56iySh75FdtrwhO/SWXgMjoVqcKyIIWOLk" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -304,15 +298,15 @@
       tr: {
       }
     };
-    const button=document.getElementById('langToggle');
-    let lang=localStorage.getItem('kubArtLanguage')==='en'?'en':'tr';
+    
+    let lang='tr';
     const originals=new Map();
     Object.keys(translations.en).forEach(sel=>{
       document.querySelectorAll(sel).forEach((el,i)=>originals.set(sel+'|'+i,el.innerHTML));
     });
     function setLang(next){
-      lang=next; localStorage.setItem('kubArtLanguage',lang);
-      document.documentElement.lang=lang; button.textContent=lang==='tr'?'EN':'TR';
+      lang=next;
+      document.documentElement.lang=lang; 
       for(const [sel,english] of Object.entries(translations.en)){
         document.querySelectorAll(sel).forEach((el,i)=>{
           const tr=originals.get(sel+'|'+i);
@@ -343,7 +337,7 @@
       Object.entries(labelMap).forEach(([id,values])=>{const el=document.querySelector(`label[for="${id}"]`);if(el)el.textContent=values[lang==='en'?0:1]});
       if(window.refreshKubArtLanguage) window.refreshKubArtLanguage();
     }
-    button.addEventListener('click',()=>setLang(lang==='tr'?'en':'tr'));
+    document.addEventListener('site:lang',e=>setLang(e.detail.lang));
     window.kubArtLang=()=>lang;
     setLang(lang);
   })();

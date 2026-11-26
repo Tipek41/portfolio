@@ -99,7 +99,7 @@ The homepage is one modernist grid poster in the Ikko Tanaka lineage. Flat colou
 
 The density is bold and sparse. The hero gives the name the full left seven columns and a photo plane the right five. The four tool planes run in one ordered strip beneath. The macro list is a ruled four-column grid of narrow tiles, and the about section pairs a stone plane with a text block. The photo is a plane, printed in the same grammar as the others: a grayscale duotone on ochre, not a framed portrait.
 
-The direction contract sketched the first viewport with the tool planes as a 2x2 grid in the right five columns. The shipped build differs: the photo plane holds that position and the four planes run as a strip below the hero. The build is canonical here. The world refuses the dark glass-card tool hub, the notebook and graph-paper metaphor (the user rejected it), gradients, shadows, glass, and rounded corners. This is the first and so far only surface in this system. The tool pages, macro pages and the Excel tips page still use an older dark design; that is migration debt, not part of this system.
+The direction contract sketched the first viewport with the tool planes as a 2x2 grid in the right five columns. The shipped build differs: the photo plane holds that position and the four planes run as a strip below the hero. The build is canonical here. The world refuses the dark glass-card tool hub, the notebook and graph-paper metaphor (the user rejected it), gradients, shadows, glass, and rounded corners. Every page now uses this system through one shared shell (`assets/site.css`, `assets/site.js`): the same header, footer and controls, and a colour band at the top of each tool page that repeats the plane the homepage links from. The old dark tool hub is gone.
 
 **Key Characteristics:**
 - Flat colour planes, one per tool, with no gradients, shadows or glass.
@@ -158,15 +158,15 @@ A small, flat palette of seven hues on a paper ground. Colour lives in planes; i
 The page is a twelve-column grid (`grid12`): `grid-template-columns: repeat(12, minmax(0, 1fr))`, `gap: 0`, `max-width: 1440px`, centred. Every block starts and ends on a column line.
 
 - **Header:** flex row, padding 20px 40px, 28px gap. Brand left, nav centre-left, language toggle and external links pushed right by an auto margin. Bordered below by a 2px ink rule.
-- **Hero:** `min-height: min(56vh, 520px)`, two blocks. The wordmark block spans columns 1–7 with a 2px ink rule on its right edge and padding 36px 40px 32px. The photo plane spans columns 8–12, full hero height, ochre ground, image aligned to the bottom. The circle is 220px, positioned at `left: calc(58.333% − 110px)` and `top: calc(50% − 110px)`, so its centre sits on the seven-column boundary, vertically centred.
-- **Tools strip:** four planes, each three columns wide (`span 3`), equal height (min 320px), separated by 2px ink rules.
+- **Hero:** `height: clamp(420px, calc(100svh − 348px), 640px)` so the four tool planes finish inside a 1440×900 first viewport; the photo is absolutely positioned and never sets the height. Two blocks. The wordmark block spans columns 1–7 with a 2px ink rule on its right edge and padding 36px 40px 32px. The photo plane spans columns 8–12, full hero height, ochre ground, image aligned to the bottom. The circle is 220px, positioned at `left: calc(58.333% − 110px)` and `top: calc(50% − 110px)`, so its centre sits on the seven-column boundary, vertically centred.
+- **Tools strip:** four planes, each three columns wide (`span 3`), equal height (min 260px), separated by 2px ink rules.
 - **Macros:** a full-width section with padding 56px 40px 48px. The heading and note are followed by a four-column ruled grid of eight tiles (3 columns each on the 12-col grid), with 2px ink rules on top, left, and between tiles.
 - **About:** a stone plane spanning four columns (min-height 300px) and a bio block spanning eight columns with padding 40px.
 - **Footer:** flex row, padding 20px 40px, centred to the same 1440px max width.
 - **Breakpoint, 1100px:** the in-page nav is hidden; the hero stacks (wordmark full width, photo full width at 360px tall, below it); the circle is hidden; the tool planes become a 2x2 grid (`span 6`); macro tiles go to two columns; the about blocks stack full width.
 - **Breakpoint, 700px:** header wraps with 16px 18px padding; the language toggle and external links span the full width; planes stack in one column (min 220px); macros go to one column; section padding drops to 40px 18px; the gutter drops to 18px.
 - **Spacing:** observed padding values are 20, 28, 32, 36, 40, 48 and 56px. They are not a normalised scale and should not be treated as one. The reused values are the 40px desktop gutter and the 18px mobile gutter.
-- **Motion:** smooth in-page scrolling with a 90px scroll padding. All transitions are removed under `prefers-reduced-motion: reduce`.
+- **Motion:** see the Motion section. Smooth in-page scrolling; everything is removed under `prefers-reduced-motion: reduce`.
 
 ### Named Rules
 **The Twelve-Column Rule.** Every block aligns to the twelve-column unit. Horizontal positions are column counts, not pixel offsets. The circle's position is the one exception, expressed as 7/12 of the hero width.
@@ -185,7 +185,7 @@ Square everywhere. Plane edges, rule ends, tile corners and the photo frame are 
 Lines are 2px solid ink, drawn as grid-cell borders. Icons are two stroke-based SVG arrows (a plain arrow and an external-link arrow), set at 1em with a 2.2 stroke, round caps and round joins. They are functional action indicators, not a decorative icon set.
 
 ### Named Rules
-**The One Curve Rule.** The vermilion circle is the sole curve in the system. Do not add a second curve, rounded corner or pill.
+**The One Curve Rule.** The vermilion circle is the sole decorative curve, one per page (the homepage hero disc, which returns as the about-section iris; the 404 sun). Do not add a second curve, rounded corner or pill. A functional guide inside a tool, such as the visa-photo face oval, is not decoration and is allowed.
 
 ## Components
 
@@ -215,6 +215,23 @@ Links at 15px and 500. On hover each link gets a 2px vermilion underline at a 5p
 ### Vermilion Circle (signature)
 A single 220px vermilion disc, `pointer-events: none`, placed over the wordmark and photo at the seven-column boundary, vertically centred. It is hidden below 1100px.
 
+### Tool Band (shared shell)
+The top of every inner page: a full-width plane in the page's colour (`.band` with `b-red`, `b-indigo`, `b-ochre`, `b-teal`, `b-ink` for macros, `b-stone` for Excel tips). Columns 1–8 hold the number, the page title in 900 at `clamp(44px, 6.2vw, 96px)` and a lede; columns 9–12, behind a 2px ink rule, hold the privacy line and, on tool pages, a switcher to the other three tools (16px colour squares with ink borders). The page colour is also exposed as `--tool` / `--tool-ink`, so step numbers, the table header and primary-button hover take it.
+
+### Tool Controls
+Inside `body.ui`: fields, selects and buttons are square with a 2px ink border on white (`--field`), 44px minimum height. The primary action is solid ink and turns to the page colour on hover. Panels are paper with a 2px ink border; adjacent panels share one rule. Step numbers are filled squares in the page colour, never circles. Notes use a 6px left bar (page colour for help, ochre for warnings).
+
+### Excel simulations (exception)
+The animated Excel windows on the macros and Excel-tips pages keep Excel's own green title bar, grey headers and Segoe UI, because they depict Excel. Their frame is a 2px ink rule; their greys are darkened to pass AA.
+
+## Motion
+
+- **Entrance (homepage, once on load):** the two name lines rise out of a clip (0.9s, `cubic-bezier(.22,1,.36,1)`), the photo and the four planes wipe up in sequence, the disc scales in last. Tool-page titles rise the same way.
+- **Disc sink (scroll, homepage):** the hero disc translates 260px down over the first 80vh of scroll and sinks behind the tool strip (`animation-timeline: scroll(root)`).
+- **Iris (scroll, homepage about section):** the same disc reappears at 80% / 50% of the bio block and grows until the block is vermilion; text turns from ink to white as it is covered (`animation-timeline: view()`, `entry 5%–95%`). Without scroll-timeline support or under reduced motion the block is simply vermilion with white text.
+- **Plane morph (between pages):** cross-document view transitions. Only the clicked plane is named (`vt-on`), so it grows into the next page's band; nothing else lingers. Browsers without support load normally.
+- **Never:** cards or tiles fading in on scroll, parallax on text, scroll-jacking, bounce.
+
 ## Do's and Don'ts
 
 ### Do:
@@ -224,7 +241,8 @@ A single 220px vermilion disc, `pointer-events: none`, placed over the wordmark 
 - **Do** keep the circle to one 220px vermilion disc, off-centre on the seven-column boundary.
 - **Do** keep the photo as a grayscale duotone plane on ochre (`grayscale(1) contrast(1.1)`, multiply).
 - **Do** signal hover with brightness (1.08), an arrow nudge (6px), or an ink inversion for macro tiles, over 0.15–0.2s.
-- **Do** honour `prefers-reduced-motion` by removing transitions.
+- **Do** honour `prefers-reduced-motion`: every animation and the page transition are removed, and every surface shows its finished state.
+- **Do** build every inner page from the shared shell (header, band, footer, `body.ui` controls) instead of page-local chrome.
 - **Do** self-host Archivo from `assets/fonts/`.
 
 ### Don't:
