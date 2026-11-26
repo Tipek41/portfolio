@@ -4,23 +4,17 @@
     <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; connect-src 'self' data: blob:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-tr="Veri Dönüştürücü · Tolga İpek" data-en="Data Converter · Tolga İpek">Veri Dönüştürücü · Tolga İpek</title>
-<meta name="description" content="Metin, CSV ve TSV verilerini analiz edin; biçimlendirilmiş Excel (XLSX) veya CSV dosyalarına tarayıcınızda dönüştürün.">
+<meta name="description" content="Metin, CSV ve TSV dosyalarını oku; tarayıcında düzenli bir Excel (XLSX) tablosuna ya da CSV dosyasına çevir.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1">
 <link rel="canonical" href="https://tolgaipek.com.tr/veri-donusturucu/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Tolga İpek">
-<meta property="og:title" content="Veri Dönüştürücü · Tolga İpek">
-<meta property="og:description" content="Metin, CSV ve TSV verilerini analiz edin; biçimlendirilmiş Excel (XLSX) veya CSV dosyalarına tarayıcınızda dönüştürün.">
-<meta property="og:url" content="https://tolgaipek.com.tr/veri-donusturucu/">
-<meta property="og:locale" content="tr_TR">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Veri Dönüştürücü · Tolga İpek">
-<meta name="twitter:description" content="Metin, CSV ve TSV verilerini analiz edin; biçimlendirilmiş Excel (XLSX) veya CSV dosyalarına tarayıcınızda dönüştürün.">
+<meta name="theme-color" content="#f1f1ee">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Tolga İpek"><meta property="og:locale" content="tr_TR"><meta property="og:locale:alternate" content="en_US">
+<meta property="og:title" content="Veri Dönüştürücü · Tolga İpek"><meta property="og:description" content="Metin, CSV ve TSV dosyalarını oku; tarayıcında düzenli bir Excel (XLSX) tablosuna ya da CSV dosyasına çevir."><meta property="og:url" content="https://tolgaipek.com.tr/veri-donusturucu/">
+<meta property="og:image" content="https://tolgaipek.com.tr/assets/share/veri.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 
     <!-- EXCELJS LIBRARY (Gerçek .xlsx çıktısı için) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js" integrity="sha384-P7KKlGD3Ng66Ds7oTliLzTnol6DbK+k7PafNYXIBDQ4b5eFWtmqctplDVOxslglR" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
-    
-<link rel="icon" type="image/svg+xml" href="../favicon.svg?v=1"><link rel="preload" href="/assets/fonts/Archivo-400-900-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/site.css?v=1"><script src="/assets/site.js?v=1" defer></script><style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js" integrity="sha384-P7KKlGD3Ng66Ds7oTliLzTnol6DbK+k7PafNYXIBDQ4b5eFWtmqctplDVOxslglR" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link rel="preload" href="/assets/fonts/Archivo-400-900-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/site.css?v=1"><script src="/assets/site.js?v=1" defer></script><style>
 :root{--text-muted:var(--muted);--accent-3:var(--ink)}
 .veri{display:grid;grid-template-columns:380px minmax(0,1fr);gap:0}
 .veri>section{border:2px solid var(--ink);padding:28px;min-width:0;background:var(--paper)}
@@ -63,20 +57,20 @@ tbody tr:nth-child(even) td{background:#f7f7f4}
 </header>
 <section class="band b-indigo vt-veri" aria-labelledby="page-title">
  <div class="band-main"><span class="n">02</span><h1 id="page-title" data-tr="Veri Dönüştürücü" data-en="Data Converter">Veri Dönüştürücü</h1><p class="band-lede" data-tr="TXT, CSV, TSV veya DAT dosyasını oku, düzenli bir Excel tablosu ya da temiz bir CSV olarak indir." data-en="Read a TXT, CSV, TSV or DAT file and download it as a clean Excel table or CSV.">TXT, CSV, TSV veya DAT dosyasını oku, düzenli bir Excel tablosu ya da temiz bir CSV olarak indir.</p></div>
- <div class="band-side"><p class="band-note" data-tr="Türkçe karakterler ve noktalı virgül ayırıcı Türkçe Excel için ayarlı. Dosya cihazınızdan çıkmaz." data-en="Set up for Turkish characters and semicolon-separated Turkish Excel. The file never leaves your device.">Türkçe karakterler ve noktalı virgül ayırıcı Türkçe Excel için ayarlı. Dosya cihazınızdan çıkmaz.</p><nav class="switch" aria-label="Araçlar" data-aria-label-tr="Araçlar" data-aria-label-en="Tools"><a class="sw-red" href="/pdf-atolyesi.html"><i aria-hidden="true"></i><span data-tr="PDF Atölyesi" data-en="PDF Workshop">PDF Atölyesi</span></a><a class="sw-indigo" href="/veri-donusturucu/" aria-current="page"><i aria-hidden="true"></i><span data-tr="Veri Dönüştürücü" data-en="Data Converter">Veri Dönüştürücü</span></a><a class="sw-ochre" href="/gorsel-boyutlandirici/"><i aria-hidden="true"></i><span data-tr="Görsel Boyutlandırıcı" data-en="Image Resizer">Görsel Boyutlandırıcı</span></a><a class="sw-teal" href="/kubart/"><i aria-hidden="true"></i><span>KubArt</span></a></nav></div>
+ <div class="band-side"><p class="band-note" data-tr="Türkçe karakterler ve noktalı virgül ayırıcı Türkçe Excel için ayarlı. Dosya cihazından çıkmaz." data-en="Set up for Turkish characters and semicolon-separated Turkish Excel. The file never leaves your device.">Türkçe karakterler ve noktalı virgül ayırıcı Türkçe Excel için ayarlı. Dosya cihazından çıkmaz.</p><nav class="switch" aria-label="Araçlar" data-aria-label-tr="Araçlar" data-aria-label-en="Tools"><a class="sw-red" href="/pdf-atolyesi.html"><i aria-hidden="true"></i><span data-tr="PDF Atölyesi" data-en="PDF Workshop">PDF Atölyesi</span></a><a class="sw-indigo" href="/veri-donusturucu/" aria-current="page"><i aria-hidden="true"></i><span data-tr="Veri Dönüştürücü" data-en="Data Converter">Veri Dönüştürücü</span></a><a class="sw-ochre" href="/gorsel-boyutlandirici/"><i aria-hidden="true"></i><span data-tr="Görsel Boyutlandırıcı" data-en="Image Resizer">Görsel Boyutlandırıcı</span></a><a class="sw-teal" href="/kubart/"><i aria-hidden="true"></i><span>KubArt</span></a></nav></div>
 </section>
 <main id="main" class="page veri">
         <section id="controls">
-            <h2><span class="num">1</span> Veri Yükle</h2>
+            <h2><span class="num">1</span> Dosya yükle</h2>
             
             <div class="drop-zone" id="drop-zone">
-                <span id="drop-text">Dosyayı buraya sürükleyin veya tıklayın<br><small>(TXT, CSV, TSV, DAT)</small></span>
+                <span id="drop-text">Dosya seç veya buraya bırak<br><small>(TXT, CSV, TSV, DAT)</small></span>
                 <input type="file" id="file-input" accept=".txt,.csv,.dat,.tsv">
             </div>
             <div id="file-name-display"></div>
 
             <div class="form-group">
-                <label>Karakter Kodlaması (Encoding)</label>
+                <label for="encoding-select">Karakter kodlaması</label>
                 <select id="encoding-select">
                     <option value="windows-1254">Türkçe (Windows-1254) - Önerilen</option>
                     <option value="utf-8">Evrensel (UTF-8)</option>
@@ -85,7 +79,7 @@ tbody tr:nth-child(even) td{background:#f7f7f4}
             </div>
 
             <div class="form-group">
-                <label>CSV Dışa Aktarım Ayırıcısı</label>
+                <label for="csv-separator">CSV ayırıcısı</label>
                 <select id="csv-separator">
                     <option value=";">Noktalı Virgül (;) - Türkçe Excel</option>
                     <option value=",">Virgül (,) - Evrensel</option>
@@ -95,15 +89,15 @@ tbody tr:nth-child(even) td{background:#f7f7f4}
 
             <hr>
 
-            <h2><span class="num">2</span> Dışa Aktar</h2>
-            <button class="btn btn-primary" id="btn-excel">XLSX İndir (.xlsx)</button>
-            <button class="btn btn-secondary" id="btn-csv">CSV / TSV İndir</button>
+            <h2><span class="num">3</span> İndir</h2>
+            <button class="btn btn-primary" id="btn-excel">Excel olarak indir (.xlsx) ↓</button>
+            <button class="btn btn-secondary" id="btn-csv">CSV olarak indir ↓</button>
             
-            <button class="btn btn-danger" id="btn-clear">Sayfayı Temizle</button>
+            <button class="btn btn-danger" id="btn-clear">Temizle</button>
         </section>
 
         <section id="preview">
-            <h2><span class="num">3</span> Önizleme</h2>
+            <h2><span class="num">2</span> Önizle</h2>
             <div class="table-container" id="table-container">
                 <p style="color: var(--text-muted); text-align: center; padding: 40px;">Henüz veri yüklenmedi.</p>
             </div>
@@ -112,7 +106,7 @@ tbody tr:nth-child(even) td{background:#f7f7f4}
     </main>
 <footer class="foot">
  <span>© <span data-year>2026</span> Tolga İpek</span>
- <span data-tr="Dosyalar cihazınızda işlenir · takip yok · reklam yok" data-en="Files stay on your device · no tracking · no ads">Dosyalar cihazınızda işlenir · takip yok · reklam yok</span>
+ <span data-tr="Dosyalar cihazında işlenir · takip yok · reklam yok" data-en="Files stay on your device · no tracking · no ads">Dosyalar cihazında işlenir · takip yok · reklam yok</span>
  <a class="foot-end" href="/#araclar" data-tr="Diğer araçlar" data-en="Other tools">Diğer araçlar</a>
 </footer>
 <script>
@@ -333,9 +327,9 @@ tbody tr:nth-child(even) td{background:#f7f7f4}
         }
 
         document.getElementById('btn-excel').addEventListener('click', async () => {
-            if (!globalHeaders.length) return alert("Önce veri yükleyin.");
+            if (!globalHeaders.length) return alert("Önce bir dosya yükle.");
             if (typeof ExcelJS === 'undefined') {
-                return alert("ExcelJS kütüphanesi yüklenemedi. Lütfen internet bağlantınızı kontrol edin.");
+                return alert("Excel kütüphanesi yüklenemedi. İnternet bağlantını kontrol edip tekrar dene.");
             }
 
             const colCount = globalHeaders.length;
@@ -415,7 +409,7 @@ tbody tr:nth-child(even) td{background:#f7f7f4}
         });
 
         document.getElementById('btn-csv').addEventListener('click', () => {
-            if (!globalHeaders.length) return alert("Önce veri yükleyin.");
+            if (!globalHeaders.length) return alert("Önce bir dosya yükle.");
             
             const sep = document.getElementById('csv-separator').value;
             let csvContent = "\uFEFF"; 

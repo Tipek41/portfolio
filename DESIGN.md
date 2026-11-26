@@ -232,6 +232,16 @@ The animated Excel windows on the macros and Excel-tips pages keep Excel's own g
 - **Plane morph (between pages):** cross-document view transitions. Only the clicked plane is named (`vt-on`), so it grows into the next page's band; nothing else lingers. Browsers without support load normally.
 - **Never:** cards or tiles fading in on scroll, parallax on text, scroll-jacking, bounce.
 
+## Copy & Page Standard
+
+- **Address:** the visitor is `sen` everywhere (UI, notes, meta descriptions, macro guides): "Görsel seç", "Dosyaların cihazından çıkmaz". Tolga speaks in the first person ("Buradaki araçları önce kendi işim için yazdım").
+- **Case:** headings, buttons and labels in sentence case ("Dosya yükle", not "Dosya Yükle"); no trailing full stop on step headings; no all-caps labels.
+- **Steps:** numbered in the order a visitor works (upload, preview, download), shown as filled squares in the page colour.
+- **Buttons:** a verb plus an object. Downloads end with ↓ ("PDF’i indir ↓", "Excel olarak indir (.xlsx) ↓"); ↗ only for links that leave the site. Suffixes follow the spoken abbreviation: PDF’i, PDF’in.
+- **Upload areas:** "Dosya seç veya buraya bırak" / "Görsel seç veya buraya bırak", formats on the second line.
+- **Privacy line:** the band note says where the file is processed, in one sentence ("Dosyalar cihazında işlenir, hiçbir sunucuya yüklenmez.").
+- **Head block (every indexed page):** `/favicon.svg?v=1`, absolute canonical, `theme-color #f1f1ee`, og:title = page title, og:description = meta description, og:image `assets/share/<page>.jpg` (1200×630, the page's first screen), `twitter:card summary_large_image`.
+
 ## Do's and Don'ts
 
 ### Do:
